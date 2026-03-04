@@ -7,6 +7,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(8, 16)
 
+[sub_resource type="Curve" id="Curve_gmlin"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.006116271), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_dovo2"]
+_data = [Vector2(0, 0.21910119), 0.0, 0.0, 0, 0, Vector2(0.34829062, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25280905), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_lvxji"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.89102566, 0.5898877), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gmlin"]
 _data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAACcAAAAUklGRpQAAABXRUJQVlA4TIgAAAAvH8AHEBcgEEii3N9kDYFAEuX+JgsEkij3N3n+A/4VOKpt22kebd5NoAIJLfdR5vj4UtLLl5l3f4KEiP4bbdvGQ2tR35A+E7pTI1QBXD02rvbVKtMGlacK8FY5hTiFP39Rvh3OtaFc8vRPHpxtZqeGAeyxsX0NtcHjjVMY2ky2w5T2/NraRUYA")
 size_override = Vector2(32, 32)
@@ -56,19 +69,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Curve" id="Curve_gmlin"]
-_limits = [-1.0, 1.0, 0.0, 1.0]
-_data = [Vector2(0, 0.006116271), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_dovo2"]
-_data = [Vector2(0, 0.21910119), 0.0, 0.0, 0, 0, Vector2(0.34829062, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25280905), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_lvxji"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.89102566, 0.5898877), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
 [node name="Player" type="CharacterBody2D" unique_id=249500363]
 process_mode = 3
 z_index = 10
@@ -76,34 +76,6 @@ script = ExtResource("1_8afob")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1428469450]
 shape = SubResource("RectangleShape2D_gmlin")
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=833951022]
-texture_filter = 1
-position = Vector2(0, 8)
-sprite_frames = SubResource("SpriteFrames_0owmy")
-animation = &"idle"
-offset = Vector2(0, -8)
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": false,
-"layer_section": true,
-"output_section": false,
-"pending_changes": {},
-"slice_section": false
-}
-metadata/_aseprite_wizard_config_ = {
-"embed_tex": true,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"scale": "1.0",
-"should_round_fps": true,
-"slice": "",
-"source": "res://assets/player.ase",
-"source_uid": 2513588182964405636
-}
-metadata/_aseprite_wizard_source_file_hash_ = "c9dc1b567f0700cef3267607d38fc4f0"
 
 [node name="WalkParticles" type="CPUParticles2D" parent="." unique_id=1097503433]
 self_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
@@ -136,6 +108,34 @@ gravity = Vector2(0, 0)
 scale_amount_min = 0.6
 scale_amount_max = 0.7
 scale_amount_curve = SubResource("Curve_lvxji")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=833951022]
+texture_filter = 1
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_0owmy")
+animation = &"idle"
+offset = Vector2(0, -8)
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/player.ase",
+"source_uid": 2513588182964405636
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c9dc1b567f0700cef3267607d38fc4f0"
 
 [node name="DashTimer" type="Timer" parent="." unique_id=1393713711]
 wait_time = 0.3

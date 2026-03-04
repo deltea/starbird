@@ -22,7 +22,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorStripeTop:size")
+tracks/0/path = NodePath("ColorStripeTop/Outer:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -34,7 +34,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorStripeTopInner:size")
+tracks/1/path = NodePath("ColorStripeTop/Inner:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -46,26 +46,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorStripeBottomInner:size")
+tracks/2/path = NodePath("ColorStripeBottom/Inner:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(311.99835, 0)]
+"values": [Vector2(240, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorStripeBottom:size")
+tracks/3/path = NodePath("ColorStripeBottom/Outer:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(200.00002, 0)]
+"values": [Vector2(240, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_lsceb"]
@@ -74,7 +74,7 @@ length = 1.2333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorStripeTop:size")
+tracks/0/path = NodePath("ColorStripeTop/Outer:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -86,7 +86,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorStripeTopInner:size")
+tracks/1/path = NodePath("ColorStripeTop/Inner:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -98,26 +98,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorStripeBottomInner:size")
+tracks/2/path = NodePath("ColorStripeBottom/Inner:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.8000001),
-"transitions": PackedFloat32Array(0.2, 0.2, 0.2, 0.2),
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.2, 0.2, 0.2, 0.2, 0.2),
 "update": 0,
-"values": [Vector2(311.99835, 0), Vector2(311.99835, 0), Vector2(311.99835, 39.94287), Vector2(311.99835, 56.18152)]
+"values": [Vector2(240, 0), Vector2(240, 0), Vector2(240, 40), Vector2(240, 40), Vector2(240, 56)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorStripeBottom:size")
+tracks/3/path = NodePath("ColorStripeBottom/Outer:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6),
-"transitions": PackedFloat32Array(0.2, 0.2, 0.2, 0.2),
+"times": PackedFloat32Array(0, 0.2, 0.40000004),
+"transitions": PackedFloat32Array(0.2, 0.2, 0.2),
 "update": 0,
-"values": [Vector2(200.00002, 0), Vector2(200.00002, 0), Vector2(200.00002, 40.219513), Vector2(200.00002, 40.219513)]
+"values": [Vector2(240, 0), Vector2(240, 0), Vector2(240, 40)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijbq7"]
@@ -228,16 +228,23 @@ render_target_update_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=542877002]
 libraries/ = SubResource("AnimationLibrary_ijbq7")
-autoplay = &"complete"
 
-[node name="ColorStripeTopInner" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=265641619]
+[node name="ColorStripeTop" type="Control" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=1173360837]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 240.0
+pivot_offset = Vector2(160, 120)
+
+[node name="Inner" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeTop" unique_id=265641619]
+layout_mode = 0
 offset_left = -32.0
 offset_right = 208.0
 rotation = -0.2617994
 pivot_offset = Vector2(32, 0)
 color = Color(0.33333334, 0.33333334, 0.33333334, 1)
 
-[node name="Label" type="Label" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeTopInner" unique_id=960924771]
+[node name="Label" type="Label" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeTop/Inner" unique_id=960924771]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -248,58 +255,56 @@ offset_left = -265.1646
 offset_top = -16.119446
 grow_horizontal = 0
 grow_vertical = 0
-text = "HELLO THERE!  HELLO THERE!  HELLO THERE!"
+text = "LEVEL COMPLETE!  LEVEL COMPLETE!  LEVEL COMPLETE!"
 label_settings = SubResource("LabelSettings_lsceb")
 vertical_alignment = 1
 clip_text = true
 
-[node name="ColorStripeTop" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=1592019829]
+[node name="Outer" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeTop" unique_id=1592019829]
+layout_mode = 0
 offset_left = -32.0
 offset_right = 208.0
 rotation = -0.2617994
 pivot_offset = Vector2(32, 0)
 
-[node name="ColorStripeBottomInner" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=889184578]
-visible = false
+[node name="ColorStripeBottom" type="Control" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=550502544]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 240.0
+rotation = 3.1415927
+pivot_offset = Vector2(160, 120)
+
+[node name="Inner" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeBottom" unique_id=537288168]
+layout_mode = 0
+offset_left = -32.0
+offset_right = 208.0
+rotation = -0.2617994
+pivot_offset = Vector2(32, 0)
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+
+[node name="Label" type="Label" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeBottom/Inner" unique_id=1286928084]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -239.93344
-offset_top = -56.072464
-offset_right = 72.06491
-offset_bottom = -56.072464
+offset_left = -265.1646
+offset_top = -16.119446
 grow_horizontal = 0
 grow_vertical = 0
-rotation = -0.2617994
-pivot_offset = Vector2(239.55183, 56.373505)
-color = Color(0.33333334, 0.33333334, 0.33333334, 1)
-
-[node name="Label" type="Label" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeBottomInner" unique_id=1128971183]
-layout_mode = 1
-offset_right = 265.1646
-offset_bottom = 16.119446
-text = "HELLO THERE!  HELLO THERE!  HELLO THERE!"
+text = "LEVEL COMPLETE!  LEVEL COMPLETE!  LEVEL COMPLETE!"
 label_settings = SubResource("LabelSettings_lsceb")
 vertical_alignment = 1
 clip_text = true
 
-[node name="ColorStripeBottom" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=493543090]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -168.05681
-offset_top = -40.212036
-offset_right = 31.943207
-offset_bottom = -40.212036
-grow_horizontal = 0
-grow_vertical = 0
+[node name="Outer" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeBottom" unique_id=131613741]
+layout_mode = 0
+offset_left = -32.0
+offset_right = 208.0
 rotation = -0.2617994
-pivot_offset = Vector2(168, 40)
+pivot_offset = Vector2(32, 0)
 
 [node name="PaletteFilter" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=1062036932]
 material = SubResource("ShaderMaterial_8iemx")

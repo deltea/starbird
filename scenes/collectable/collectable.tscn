@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dv7cyw0jlnfe8"]
+
+[ext_resource type="Script" uid="uid://kj6std13b3sp" path="res://scenes/collectable/collectable.gd" id="1_h1g3x"]
+[ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="2_la71a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_la71a"]
+radius = 16.0
+
+[node name="Collectable" type="Area2D" unique_id=1876672225]
+script = ExtResource("1_h1g3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083465299]
+shape = SubResource("CircleShape2D_la71a")
+
+[node name="Star2D" parent="." unique_id=856709757 instance=ExtResource("2_la71a")]
+polygon = PackedVector2Array(7.064234, -1.3916168, 3.060696, -3.2988088, 0.8594623, -7.148519, -2.191547, -3.9302826, -6.5330567, -3.0264118, -4.4151464, 0.8697601, -4.897114, 5.278094, -0.5371641, 4.4678245, 3.5064757, 6.2884517, 4.083161, 1.8915069)
+peaks = 5
+peak_randomness = 0
+low_radius = 25.0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.18
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

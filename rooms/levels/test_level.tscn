@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://doncphjyv861s"]
+
+[ext_resource type="PackedScene" uid="uid://bkhrrt45shegv" path="res://rooms/level.tscn" id="1_qvbch"]
+[ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="2_13yay"]
+[ext_resource type="PackedScene" uid="uid://lvqju5v40hdm" path="res://scenes/bouncepad/bouncepad.tscn" id="2_dsku1"]
+
+[sub_resource type="Curve" id="Curve_4by4k"]
+_data = [Vector2(0, 0), 0.0, 6.0847516, 0, 0, Vector2(0.50213677, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.745327, 0.0, 0, 0]
+point_count = 3
+
+[node name="TestLevel" unique_id=2129457560 instance=ExtResource("1_qvbch")]
+
+[node name="WindParticles" type="CPUParticles2D" parent="." index="2" unique_id=1978355796]
+process_mode = 3
+z_index = -10
+amount = 70
+texture = ExtResource("2_13yay")
+lifetime = 5.0
+preprocess = 5.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(320, 240)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 0.15
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_4by4k")
+color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+
+[node name="Bouncepad" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="1" unique_id=389278605 instance=ExtResource("2_dsku1")]
+position = Vector2(56, 32)
+
+[node name="Bouncepad2" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="2" unique_id=1845516759 instance=ExtResource("2_dsku1")]
+position = Vector2(0, -32)

@@ -1,5 +1,7 @@
 # speedy birb game
 
-## todo
+## to-do
 
 - [ ] add wall jump particles
+- [ ] make main menu
+- [ ] make level select

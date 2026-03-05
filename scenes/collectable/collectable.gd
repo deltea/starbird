@@ -13,7 +13,7 @@ func _process(dt: float) -> void:
 	sprite.rotation += dt * rot_speed
 	sprite.position.y = sin(Clock.time * 2.0) * 4.0
 	sprite.scale = scale_dynamics.update(target_scale)
-	# TODO: make the particles scale with the star and not disappear
+	# bug: make the particles scale with the star and not disappear
 	particles.scale = sprite.scale
 	# sprite.scale = Vector2.ONE * (1.0 + sin(Clock.time * 2.0) * 0.08)
 

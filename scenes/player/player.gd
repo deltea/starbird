@@ -140,6 +140,7 @@ func _physics_process(delta: float) -> void:
 	elif was_on_floor and not is_on_floor() and not jumped:
 		coyote_timer = 0.0
 
+	var breakables = []
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
 		if is_dashing:
@@ -149,8 +150,16 @@ func _physics_process(delta: float) -> void:
 				collision.get_collider().bounce()
 				velocity.y = -bounce_velocity
 				RoomManager.current_room.camera.impact()
+			elif collision.get_collider() is Breakable:
+				breakables.append(collision.get_collider())
 			# else:
 			# 	velocity.y = -100.0
+
+	if len(breakables) > 0:
+		velocity.y = -bounce_velocity / 2
+		RoomManager.current_room.camera.impact()
+	for breakable in breakables:
+		breakable.on_break()
 
 func dash_horizontal(x_input: float):
 	dash_timer.start()

@@ -1,5 +1,7 @@
 extends Room
 
+const countdown_rot = 10.0
+
 @onready var time_label: RichTextLabel = $CanvasLayer/TimeLabel
 @onready var countdown: Control = $CanvasLayer/Countdown
 @onready var countdown_label: Label = $CanvasLayer/Countdown/CountdownLabel
@@ -19,26 +21,26 @@ func _ready() -> void:
 	player.can_move = false
 
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
-	countdown_rot_dynamics.set_value(12.0)
-	countdown_rot_target = 360.0 - 12.0
+	countdown_rot_dynamics.set_value(countdown_rot)
+	countdown_rot_target = 360.0 - countdown_rot
 	countdown_label.text = "3"
 
 	await Clock.wait(0.6)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
-	countdown_rot_dynamics.set_value(-12.0)
-	countdown_rot_target = 360.0 + 12.0
+	countdown_rot_dynamics.set_value(-countdown_rot)
+	countdown_rot_target = 360.0 + countdown_rot
 	countdown_label.text = "2"
 
 	await Clock.wait(0.6)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
-	countdown_rot_dynamics.set_value(12.0)
-	countdown_rot_target = 360.0 - 12.0
+	countdown_rot_dynamics.set_value(countdown_rot)
+	countdown_rot_target = 360.0 - countdown_rot
 	countdown_label.text = "1"
 
 	await Clock.wait(0.6)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
-	countdown_rot_dynamics.set_value(-12.0)
-	countdown_rot_target = 360.0 + 12.0
+	countdown_rot_dynamics.set_value(-countdown_rot)
+	countdown_rot_target = 360.0 + countdown_rot
 	countdown_label.text = "GO!"
 
 	await Clock.wait(0.4)

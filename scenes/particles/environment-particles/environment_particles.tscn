@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b20u13j8p26iv"]
+
+[ext_resource type="Script" uid="uid://nwt5c8xpvjp" path="res://scenes/particles/environment-particles/environment_particles.gd" id="1_y1yhv"]
+[ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="2_teb47"]
+
+[sub_resource type="Curve" id="Curve_wdk42"]
+_data = [Vector2(0, 0), 0.0, 6.0847516, 0, 0, Vector2(0.50213677, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.745327, 0.0, 0, 0]
+point_count = 3
+
+[node name="WindParticles" type="CPUParticles2D" unique_id=1669324104]
+process_mode = 3
+z_index = -10
+amount = 70
+texture = ExtResource("2_teb47")
+lifetime = 5.0
+preprocess = 5.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(320, 240)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 0.15
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_wdk42")
+color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+script = ExtResource("1_y1yhv")

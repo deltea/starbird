@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://mjmvkohey8gg"]
 
 [ext_resource type="Script" uid="uid://dfttrvweckwc7" path="res://rooms/main-menu/main_menu.gd" id="1_mewax"]
+[ext_resource type="Texture2D" uid="uid://cksk5qojiqsdw" path="res://color-palettes/purple.png" id="2_3id36"]
 [ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="2_osspu"]
-[ext_resource type="Texture2D" uid="uid://dk47hjt3kytwp" path="res://color-palettes/splashy.png" id="2_ys7ud"]
 [ext_resource type="Texture2D" uid="uid://bo2okkjc6s4i3" path="res://assets/ui/clouds-background.png" id="3_4obiq"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="4_wwhgb"]
 [ext_resource type="Texture2D" uid="uid://213ukjov2oxq" path="res://assets/ui/option-selector.png" id="6_dxe2b"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://5t0p63olrdk6" path="res://assets/title.png" id="6_gxm1v"]
 [ext_resource type="Texture2D" uid="uid://d0a2f6i7nk65l" path="res://assets/ui/small-star.png" id="8_dxe2b"]
 [ext_resource type="PackedScene" uid="uid://cykuanfl3n1rh" path="res://scenes/camera/camera.tscn" id="10_glo86"]
-[ext_resource type="FontFile" uid="uid://ce3pxfpd38a3y" path="res://assets/fonts/monogram.ttf" id="11_ycqqw"]
 [ext_resource type="Texture2D" uid="uid://2b5egddacmic" path="res://assets/ui/arrow.png" id="12_7fcvi"]
 [ext_resource type="Texture2D" uid="uid://de1mnu14apcqv" path="res://assets/ui/z-button.png" id="13_hqa6c"]
 [ext_resource type="Texture2D" uid="uid://dynmqk233hsfd" path="res://assets/ui/x-button.png" id="14_yr3hd"]
@@ -22,7 +21,7 @@ point_count = 3
 
 [node name="MainMenu" type="Node2D" unique_id=1154304386]
 script = ExtResource("1_mewax")
-palette = ExtResource("2_ys7ud")
+palette = ExtResource("2_3id36")
 metadata/_edit_vertical_guides_ = [160.0, 320.0, -320.0, -160.0]
 metadata/_edit_horizontal_guides_ = [120.0, 240.0, 480.0, 360.0]
 
@@ -35,7 +34,7 @@ follow = NodePath("../CameraTarget")
 [node name="CameraTarget" type="Node2D" parent="." unique_id=2115468258]
 position = Vector2(160, 120)
 
-[node name="Star2D" parent="." unique_id=856709757 instance=ExtResource("2_osspu")]
+[node name="BigStar" parent="." unique_id=856709757 instance=ExtResource("2_osspu")]
 z_index = 10
 position = Vector2(-3.8146973e-06, 144.00002)
 rotation = -0.7853982
@@ -47,7 +46,7 @@ low_radius = 25.0
 low_radius_randomness = 0.0
 high_radius_randomness = 0.0
 
-[node name="TrailingStar" parent="Star2D" unique_id=276850428 instance=ExtResource("2_osspu")]
+[node name="TrailingStar" parent="BigStar" unique_id=276850428 instance=ExtResource("2_osspu")]
 top_level = true
 z_index = -10
 position = Vector2(0, 144)
@@ -108,116 +107,16 @@ position = Vector2(1.5258789e-05, 340)
 scale = Vector2(640, 280)
 texture = ExtResource("4_wwhgb")
 
-[node name="Title" type="Sprite2D" parent="." unique_id=719062530]
-z_index = 10
-position = Vector2(160, 40)
-texture = ExtResource("6_gxm1v")
-
-[node name="Star" parent="Title" unique_id=1862493531 instance=ExtResource("2_osspu")]
-position = Vector2(42, -18)
-rotation = 1.0471976
-scale = Vector2(0.2, 0.2)
-color = Color(0.8666667, 0.8666667, 0.8666667, 1)
-polygon = PackedVector2Array(-34.895588, 19.552439, -10.46156, 22.705853, 7.8121467, 39.229713, 18.36175, 16.966028, 39.723763, 4.6928535, 21.809744, -12.220274, 16.738487, -36.32937, -4.8825893, -24.51857, -29.378805, -27.145641, -24.827349, -2.9330356)
-peaks = 5
-peak_randomness = 0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
-
-[node name="Controls" type="Node2D" parent="." unique_id=1754392732]
-position = Vector2(-24, 0)
-
-[node name="Arrow" type="Sprite2D" parent="Controls" unique_id=542391175]
-position = Vector2(160, 204)
-texture = ExtResource("12_7fcvi")
-
-[node name="Arrow2" type="Sprite2D" parent="Controls" unique_id=967186472]
-position = Vector2(172, 216)
-rotation = 1.5707964
-texture = ExtResource("12_7fcvi")
-
-[node name="Arrow3" type="Sprite2D" parent="Controls" unique_id=206131517]
-position = Vector2(147, 216)
-rotation = -1.5707964
-texture = ExtResource("12_7fcvi")
-
-[node name="Arrow4" type="Sprite2D" parent="Controls" unique_id=1756097699]
-position = Vector2(159, 216)
-rotation = -3.1415925
-texture = ExtResource("12_7fcvi")
-
-[node name="ZButton" type="Sprite2D" parent="Controls" unique_id=545803263]
-position = Vector2(200, 216)
-texture = ExtResource("13_hqa6c")
-
-[node name="XButton" type="Sprite2D" parent="Controls" unique_id=113995470]
-position = Vector2(216, 216)
-texture = ExtResource("14_yr3hd")
-
-[node name="OptionSelector" type="NinePatchRect" parent="." unique_id=1185659649]
-self_modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
-z_index = 10
-offset_left = 160.0
-offset_top = 112.0
-offset_right = 340.0
-offset_bottom = 133.0
-pivot_offset = Vector2(180, 0)
-texture = ExtResource("6_dxe2b")
-patch_margin_left = 16
-
-[node name="Background" type="NinePatchRect" parent="OptionSelector" unique_id=1432821034]
-self_modulate = Color(0.8666667, 0.8666667, 0.8666667, 1)
-z_index = -10
-layout_mode = 0
-offset_left = -16.0
-offset_right = 132.0
-offset_bottom = 21.0
-pivot_offset = Vector2(148, 0)
-texture = ExtResource("6_dxe2b")
-patch_margin_left = 16
-
 [node name="SelectorPingTimer" type="Timer" parent="." unique_id=766064796]
 wait_time = 0.5
 autostart = true
 
-[node name="Options" type="VBoxContainer" parent="." unique_id=1928371725]
-z_index = 10
-offset_left = 160.0
-offset_top = 88.0
-offset_right = 296.0
-offset_bottom = 208.0
-theme_override_constants/separation = 4
-alignment = 1
+[node name="ShootingStarTimer" type="Timer" parent="." unique_id=548507099]
+wait_time = 2.0
+one_shot = true
+autostart = true
 
-[node name="OptionText" type="RichTextLabel" parent="Options" unique_id=1837117783]
-custom_minimum_size = Vector2(0, 21)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("6_e6kqp")
-theme_override_font_sizes/normal_font_size = 18
-bbcode_enabled = true
-text = "play"
-horizontal_alignment = 2
-
-[node name="OptionText2" type="RichTextLabel" parent="Options" unique_id=1114130319]
-custom_minimum_size = Vector2(0, 21)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("6_e6kqp")
-theme_override_font_sizes/normal_font_size = 18
-bbcode_enabled = true
-text = "settings"
-horizontal_alignment = 2
-
-[node name="OptionText3" type="RichTextLabel" parent="Options" unique_id=84451944]
-custom_minimum_size = Vector2(0, 21)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("6_e6kqp")
-theme_override_font_sizes/normal_font_size = 18
-bbcode_enabled = true
-text = "exit"
-horizontal_alignment = 2
-
-[node name="StarParticles2" type="CPUParticles2D" parent="." unique_id=1716315619]
+[node name="StarParticles" type="CPUParticles2D" parent="." unique_id=1716315619]
 z_index = -10
 position = Vector2(0, 72)
 amount = 16
@@ -236,28 +135,323 @@ angle_max = 360.0
 scale_amount_curve = SubResource("Curve_dxe2b")
 color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
-[node name="ShootingStarTimer" type="Timer" parent="." unique_id=548507099]
-wait_time = 2.0
-one_shot = true
-autostart = true
+[node name="Main" type="Node" parent="." unique_id=1627227432]
 
-[node name="InstructionsLabel" type="RichTextLabel" parent="." unique_id=1758770104]
-visible = false
-offset_top = 192.0
-offset_right = 320.0
-offset_bottom = 240.0
-theme_override_fonts/normal_font = ExtResource("11_ycqqw")
-theme_override_font_sizes/normal_font_size = 16
+[node name="Title" type="Sprite2D" parent="Main" unique_id=719062530]
+z_index = 10
+position = Vector2(160, 40)
+texture = ExtResource("6_gxm1v")
+
+[node name="Star" parent="Main/Title" unique_id=1862493531 instance=ExtResource("2_osspu")]
+position = Vector2(42, -18)
+rotation = 1.0471976
+scale = Vector2(0.2, 0.2)
+color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+polygon = PackedVector2Array(-34.895588, 19.552439, -10.46156, 22.705853, 7.8121467, 39.229713, 18.36175, 16.966028, 39.723763, 4.6928535, 21.809744, -12.220274, 16.738487, -36.32937, -4.8825893, -24.51857, -29.378805, -27.145641, -24.827349, -2.9330356)
+peaks = 5
+peak_randomness = 0
+low_radius = 25.0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+
+[node name="Controls" type="Node2D" parent="Main" unique_id=1754392732]
+position = Vector2(-24, 0)
+
+[node name="Arrow" type="Sprite2D" parent="Main/Controls" unique_id=542391175]
+position = Vector2(160, 204)
+texture = ExtResource("12_7fcvi")
+
+[node name="Arrow2" type="Sprite2D" parent="Main/Controls" unique_id=967186472]
+position = Vector2(172, 216)
+rotation = 1.5707964
+texture = ExtResource("12_7fcvi")
+
+[node name="Arrow3" type="Sprite2D" parent="Main/Controls" unique_id=206131517]
+position = Vector2(147, 216)
+rotation = -1.5707964
+texture = ExtResource("12_7fcvi")
+
+[node name="Arrow4" type="Sprite2D" parent="Main/Controls" unique_id=1756097699]
+position = Vector2(159, 216)
+rotation = -3.1415925
+texture = ExtResource("12_7fcvi")
+
+[node name="ZButton" type="Sprite2D" parent="Main/Controls" unique_id=545803263]
+position = Vector2(200, 216)
+texture = ExtResource("13_hqa6c")
+
+[node name="XButton" type="Sprite2D" parent="Main/Controls" unique_id=113995470]
+position = Vector2(216, 216)
+texture = ExtResource("14_yr3hd")
+
+[node name="OptionSelector" type="NinePatchRect" parent="Main" unique_id=1185659649]
+self_modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
+z_index = 10
+offset_left = 160.0
+offset_top = 112.0
+offset_right = 340.0
+offset_bottom = 133.0
+pivot_offset = Vector2(180, 0)
+texture = ExtResource("6_dxe2b")
+patch_margin_left = 16
+
+[node name="Background" type="NinePatchRect" parent="Main/OptionSelector" unique_id=1432821034]
+self_modulate = Color(0.8666667, 0.8666667, 0.8666667, 1)
+z_index = -10
+layout_mode = 0
+offset_left = -16.0
+offset_right = 132.0
+offset_bottom = 21.0
+pivot_offset = Vector2(148, 0)
+texture = ExtResource("6_dxe2b")
+patch_margin_left = 16
+
+[node name="Options" type="VBoxContainer" parent="Main" unique_id=1928371725]
+z_index = 10
+offset_left = 160.0
+offset_top = 88.0
+offset_right = 296.0
+offset_bottom = 208.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="OptionText" type="RichTextLabel" parent="Main/Options" unique_id=1837117783]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_e6kqp")
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "[wave]z - select      x - back"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "play"
+horizontal_alignment = 2
 
-[node name="SettingsText" type="Sprite2D" parent="." unique_id=1439966579]
+[node name="OptionText2" type="RichTextLabel" parent="Main/Options" unique_id=1114130319]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_e6kqp")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "settings"
+horizontal_alignment = 2
+
+[node name="OptionText3" type="RichTextLabel" parent="Main/Options" unique_id=84451944]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_e6kqp")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "exit"
+horizontal_alignment = 2
+
+[node name="Settings" type="Node" parent="." unique_id=1717809655]
+
+[node name="OptionSelector" type="NinePatchRect" parent="Settings" unique_id=2052139515]
+self_modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
+z_index = 10
+offset_left = -553.0
+offset_top = 75.0
+offset_right = -337.0
+offset_bottom = 96.0
+rotation = 3.1415927
+pivot_offset = Vector2(216, 21)
+texture = ExtResource("6_dxe2b")
+patch_margin_left = 16
+
+[node name="Background" type="NinePatchRect" parent="Settings/OptionSelector" unique_id=1444818661]
+self_modulate = Color(0.8666667, 0.8666667, 0.8666667, 1)
+z_index = -10
+layout_mode = 0
+offset_left = -16.0
+offset_right = 132.0
+offset_bottom = 21.0
+pivot_offset = Vector2(148, 0)
+texture = ExtResource("6_dxe2b")
+patch_margin_left = 16
+
+[node name="Options" type="VBoxContainer" parent="Settings" unique_id=1092693098]
+z_index = 10
+offset_left = -296.0
+offset_top = 96.0
+offset_right = -160.0
+offset_bottom = 216.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="OptionText" type="RichTextLabel" parent="Settings/Options" unique_id=1432162582]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_e6kqp")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "sound"
+
+[node name="OptionText2" type="RichTextLabel" parent="Settings/Options" unique_id=1873557890]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_e6kqp")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "music"
+
+[node name="OptionText3" type="RichTextLabel" parent="Settings/Options" unique_id=1698701232]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_e6kqp")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "screen"
+
+[node name="OptionText4" type="RichTextLabel" parent="Settings/Options" unique_id=2065310222]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+theme_override_fonts/normal_font = ExtResource("6_e6kqp")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "back >"
+vertical_alignment = 2
+
+[node name="SettingsText" type="Sprite2D" parent="Settings" unique_id=1439966579]
 self_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
 position = Vector2(-312, 8)
 texture = ExtResource("15_3id36")
 centered = false
+
+[node name="OptionStars" type="Node" parent="Settings" unique_id=1393116125]
+
+[node name="OptionStarsRow" type="Node2D" parent="Settings/OptionStars" unique_id=1288679680]
+position = Vector2(-216, 102)
+
+[node name="SettingsStar" parent="Settings/OptionStars/OptionStarsRow" unique_id=2112973306 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(4.599106, 4.599106)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar2" parent="Settings/OptionStars/OptionStarsRow" unique_id=1971491372 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(20.599106, 4.599106)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar3" parent="Settings/OptionStars/OptionStarsRow" unique_id=543902789 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(36.599106, 4.599106)
+color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar4" parent="Settings/OptionStars/OptionStarsRow" unique_id=313228891 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(52.599106, 4.599106)
+color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="OptionStarsRow2" type="Node2D" parent="Settings/OptionStars" unique_id=1237048084]
+position = Vector2(-216, 128)
+
+[node name="SettingsStar" parent="Settings/OptionStars/OptionStarsRow2" unique_id=86002971 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(4.599106, 4.599106)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar2" parent="Settings/OptionStars/OptionStarsRow2" unique_id=336328234 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(20.599106, 4.599106)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar3" parent="Settings/OptionStars/OptionStarsRow2" unique_id=132703640 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(36.599106, 4.599106)
+color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar4" parent="Settings/OptionStars/OptionStarsRow2" unique_id=73731925 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(52.599106, 4.599106)
+color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="OptionStarsRow3" type="Node2D" parent="Settings/OptionStars" unique_id=719695054]
+position = Vector2(-216, 154)
+
+[node name="SettingsStar" parent="Settings/OptionStars/OptionStarsRow3" unique_id=232719746 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(4.599106, 4.599106)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar2" parent="Settings/OptionStars/OptionStarsRow3" unique_id=1470402111 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(20.599106, 4.599106)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar3" parent="Settings/OptionStars/OptionStarsRow3" unique_id=1047888799 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(36.599106, 4.599106)
+color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
+
+[node name="SettingsStar4" parent="Settings/OptionStars/OptionStarsRow3" unique_id=196593870 instance=ExtResource("2_osspu")]
+z_index = 10
+position = Vector2(52.599106, 4.599106)
+color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+polygon = PackedVector2Array(3.8533392, -4.5991063, -0.2636686, -2.9883907, -4.599107, -3.8533382, -2.9883907, 0.2636684, -3.8533401, 4.5991054, 0.2636689, 2.9883907, 4.5991063, 3.8533392, 2.9883907, -0.26366854)
+peaks = 4
+peak_randomness = 0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.15
 
 [connection signal="timeout" from="SelectorPingTimer" to="." method="_on_selector_ping_timer_timeout"]
 [connection signal="timeout" from="ShootingStarTimer" to="." method="_on_shooting_star_timer_timeout"]

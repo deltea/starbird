@@ -17,6 +17,10 @@ func play_sound(sound: AudioStream, randomness: float = 0):
 	add_child(player)
 	player.play()
 
-func set_volume(value: int):
-	volume = clamp(value, 0, 100)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume / 100.0))
+func set_volume(value: float):
+	volume = clamp(value, 0, 1)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume))
+
+func set_music_volume(value: float):
+	volume = clamp(value, 0, 1)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(volume))

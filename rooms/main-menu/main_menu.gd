@@ -96,7 +96,7 @@ func settings_state(dt: float):
 			change_settings_value(select_index, 1)
 	if Input.is_action_just_pressed("left"):
 			change_settings_value(select_index, -1)
-	if Input.is_action_just_pressed("jump") and select_index == 3:
+	if Input.is_action_just_pressed("jump") and select_index == 2:
 		change_state(MenuState.MAIN)
 
 func set_index(new_value: int, direction: int = 1):

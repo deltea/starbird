@@ -20,8 +20,138 @@ size = Vector2(160, 48)
 resource_local_to_scene = true
 size = Vector2(48, 48)
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_43afx"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
+size_override = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mio0b"]
+atlas = SubResource("PortableCompressedTexture2D_43afx")
+region = Rect2(0, 0, 8, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft6ec"]
+atlas = SubResource("PortableCompressedTexture2D_43afx")
+region = Rect2(8, 0, 8, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ilw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mio0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft6ec")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_isc3i"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
+size_override = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0ta1"]
+atlas = SubResource("PortableCompressedTexture2D_isc3i")
+region = Rect2(0, 0, 8, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7fx6"]
+atlas = SubResource("PortableCompressedTexture2D_isc3i")
+region = Rect2(8, 0, 8, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mio0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0ta1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7fx6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_e5jj7"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
+size_override = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v40ww"]
+atlas = SubResource("PortableCompressedTexture2D_e5jj7")
+region = Rect2(0, 0, 8, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttxhb"]
+atlas = SubResource("PortableCompressedTexture2D_e5jj7")
+region = Rect2(8, 0, 8, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0ta1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v40ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttxhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_o5yrd"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
+size_override = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k77j"]
+atlas = SubResource("PortableCompressedTexture2D_o5yrd")
+region = Rect2(0, 0, 8, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5dpo"]
+atlas = SubResource("PortableCompressedTexture2D_o5yrd")
+region = Rect2(8, 0, 8, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v40ww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k77j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5dpo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_uvqya"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
+size_override = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knea1"]
+atlas = SubResource("PortableCompressedTexture2D_uvqya")
+region = Rect2(0, 0, 8, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43afx"]
+atlas = SubResource("PortableCompressedTexture2D_uvqya")
+region = Rect2(8, 0, 8, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7k77j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knea1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43afx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_2sy11"]
-_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wREM0RPMf8CAIBBkstuUGWyOi/7G0DgA=")
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
 size_override = Vector2(16, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvqya"]
@@ -40,6 +170,32 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o5yrd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_knea1"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
+size_override = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5jj7"]
+atlas = SubResource("PortableCompressedTexture2D_knea1")
+region = Rect2(0, 0, 8, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isc3i"]
+atlas = SubResource("PortableCompressedTexture2D_knea1")
+region = Rect2(8, 0, 8, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43afx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5jj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isc3i")
 }],
 "loop": true,
 "name": &"default",
@@ -208,23 +364,23 @@ density = 0.2
 
 [node name="FlyDecoration" parent="Decoration/Parallax2D" index="1" unique_id=493458872 instance=ExtResource("7_2sy11")]
 position = Vector2(88, 168)
-sprite_frames = SubResource("SpriteFrames_knea1")
+sprite_frames = SubResource("SpriteFrames_2ilw3")
 
 [node name="FlyDecoration2" parent="Decoration/Parallax2D" index="2" unique_id=1399902547 instance=ExtResource("7_2sy11")]
 position = Vector2(160, 40)
-sprite_frames = SubResource("SpriteFrames_knea1")
+sprite_frames = SubResource("SpriteFrames_mio0b")
 
 [node name="FlyDecoration3" parent="Decoration/Parallax2D" index="3" unique_id=27884149 instance=ExtResource("7_2sy11")]
 position = Vector2(352, 24)
-sprite_frames = SubResource("SpriteFrames_knea1")
+sprite_frames = SubResource("SpriteFrames_w0ta1")
 
 [node name="FlyDecoration4" parent="Decoration/Parallax2D" index="4" unique_id=969027534 instance=ExtResource("7_2sy11")]
 position = Vector2(304, 184)
-sprite_frames = SubResource("SpriteFrames_knea1")
+sprite_frames = SubResource("SpriteFrames_v40ww")
 
 [node name="FlyDecoration5" parent="Decoration/Parallax2D" index="5" unique_id=1061922203 instance=ExtResource("7_2sy11")]
 position = Vector2(648, 88)
-sprite_frames = SubResource("SpriteFrames_knea1")
+sprite_frames = SubResource("SpriteFrames_7k77j")
 
 [node name="FlyDecoration6" parent="Decoration/Parallax2D" index="6" unique_id=35007909 instance=ExtResource("7_2sy11")]
 position = Vector2(1016, 56)
@@ -232,7 +388,7 @@ sprite_frames = SubResource("SpriteFrames_knea1")
 
 [node name="FlyDecoration7" parent="Decoration/Parallax2D" index="7" unique_id=354367901 instance=ExtResource("7_2sy11")]
 position = Vector2(1200, 200)
-sprite_frames = SubResource("SpriteFrames_knea1")
+sprite_frames = SubResource("SpriteFrames_43afx")
 
 [editable path="Elements/SecretArea"]
 [editable path="Elements/SecretArea2"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bnbqvnpk0tqht" path="res://scenes/decoration/fly_decoration.gd" id="1_q6dcw"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_q6dcw"]
-_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wREM0RPMf8CAIBBkstuUGWyOi/7G0DgA=")
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAAAUAAAAyAAAAUklGRioAAABXRUJQVlA4TB0AAAAvDwABEA8wVVM1VfMf8CAIBBkstuUGWyOi/7G0DgA=")
 size_override = Vector2(16, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlnpe"]
@@ -58,4 +58,4 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/fly.ase",
 "source_uid": 7227660658151337430
 }
-metadata/_aseprite_wizard_source_file_hash_ = "5dd0d5f5719ae1495a8547aa7cfdd68e"
+metadata/_aseprite_wizard_source_file_hash_ = "d24ad3f58cb817b4de78b391a0d89322"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckx5wpcc4kh7b"
-path="res://.godot/imported/screen-transition.png-3a107f7c18fb1ddd0e8b8a4fc0cb9390.ctex"
+uid="uid://caxw2714qk2ua"
+path="res://.godot/imported/settings-text.png-c106069331a4e81e60c8cbbe9d1cfdaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/screen-transition.png"
-dest_files=["res://.godot/imported/screen-transition.png-3a107f7c18fb1ddd0e8b8a4fc0cb9390.ctex"]
+source_file="res://assets/ui/settings-text.png"
+dest_files=["res://.godot/imported/settings-text.png-c106069331a4e81e60c8cbbe9d1cfdaf.ctex"]
 
 [params]
 

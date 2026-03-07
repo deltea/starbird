@@ -20,3 +20,8 @@
 2. some kind of forest
 3. idk maybe mushroomville
 4. mountain
+
+## game mechanics ideas
+
+- bouncepads, dash down to bounce
+- breakable walls, dash into to break through

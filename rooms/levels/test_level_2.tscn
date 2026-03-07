@@ -8,15 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://ds6uisrlvq6nk" path="res://scenes/breakable/breakable.tscn" id="6_pywsr"]
 [ext_resource type="PackedScene" uid="uid://ve5v6jngqdc6" path="res://scenes/decoration/fly_decoration.tscn" id="7_2sy11"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sy11"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5yrd"]
 resource_local_to_scene = true
 size = Vector2(176, 72)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvqya"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knea1"]
 resource_local_to_scene = true
 size = Vector2(160, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5yrd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5jj7"]
 resource_local_to_scene = true
 size = Vector2(48, 48)
 
@@ -287,7 +287,7 @@ tile_map_data = PackedByteArray("AAAHAAEAAAAAAAEAAAAHAAAAAAAAAAEAAAAHAP//AAAAAAE
 
 [node name="CollisionShape" parent="Elements/SecretArea" index="1" unique_id=687079757]
 position = Vector2(40, 4)
-shape = SubResource("RectangleShape2D_2sy11")
+shape = SubResource("RectangleShape2D_o5yrd")
 
 [node name="SecretArea2" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="14" unique_id=1741221156 instance=ExtResource("3_3juqe")]
 visible = false
@@ -298,7 +298,7 @@ tile_map_data = PackedByteArray("AAAGAP7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAE
 
 [node name="CollisionShape" parent="Elements/SecretArea2" index="1" unique_id=687079757]
 position = Vector2(32, 8)
-shape = SubResource("RectangleShape2D_uvqya")
+shape = SubResource("RectangleShape2D_knea1")
 
 [node name="SecretArea3" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="15" unique_id=2067864927 instance=ExtResource("3_3juqe")]
 visible = false
@@ -309,7 +309,7 @@ tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAE
 
 [node name="CollisionShape" parent="Elements/SecretArea3" index="1" unique_id=687079757]
 position = Vector2(-24, 24)
-shape = SubResource("RectangleShape2D_o5yrd")
+shape = SubResource("RectangleShape2D_e5jj7")
 
 [node name="Breakable" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="16" unique_id=356732343 instance=ExtResource("6_pywsr")]
 position = Vector2(824, 128)

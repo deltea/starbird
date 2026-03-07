@@ -3,14 +3,18 @@
 [ext_resource type="Script" uid="uid://dfttrvweckwc7" path="res://rooms/main-menu/main_menu.gd" id="1_mewax"]
 [ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="2_osspu"]
 [ext_resource type="Texture2D" uid="uid://dk47hjt3kytwp" path="res://color-palettes/splashy.png" id="2_ys7ud"]
-[ext_resource type="Texture2D" uid="uid://bo2okkjc6s4i3" path="res://assets/clouds-background.png" id="3_4obiq"]
+[ext_resource type="Texture2D" uid="uid://bo2okkjc6s4i3" path="res://assets/ui/clouds-background.png" id="3_4obiq"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="4_wwhgb"]
-[ext_resource type="Texture2D" uid="uid://213ukjov2oxq" path="res://assets/option-selector.png" id="6_dxe2b"]
+[ext_resource type="Texture2D" uid="uid://213ukjov2oxq" path="res://assets/ui/option-selector.png" id="6_dxe2b"]
 [ext_resource type="FontFile" uid="uid://582abh2r0rhk" path="res://assets/fonts/m6x11.ttf" id="6_e6kqp"]
 [ext_resource type="Texture2D" uid="uid://5t0p63olrdk6" path="res://assets/title.png" id="6_gxm1v"]
-[ext_resource type="Texture2D" uid="uid://d0a2f6i7nk65l" path="res://assets/small-star.png" id="8_dxe2b"]
+[ext_resource type="Texture2D" uid="uid://d0a2f6i7nk65l" path="res://assets/ui/small-star.png" id="8_dxe2b"]
 [ext_resource type="PackedScene" uid="uid://cykuanfl3n1rh" path="res://scenes/camera/camera.tscn" id="10_glo86"]
 [ext_resource type="FontFile" uid="uid://ce3pxfpd38a3y" path="res://assets/fonts/monogram.ttf" id="11_ycqqw"]
+[ext_resource type="Texture2D" uid="uid://2b5egddacmic" path="res://assets/ui/arrow.png" id="12_7fcvi"]
+[ext_resource type="Texture2D" uid="uid://de1mnu14apcqv" path="res://assets/ui/z-button.png" id="13_hqa6c"]
+[ext_resource type="Texture2D" uid="uid://dynmqk233hsfd" path="res://assets/ui/x-button.png" id="14_yr3hd"]
+[ext_resource type="Texture2D" uid="uid://dcx2ajbnpxd5d" path="res://assets/ui/settings-text-alt.png" id="15_3id36"]
 
 [sub_resource type="Curve" id="Curve_dxe2b"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5038023, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -19,7 +23,7 @@ point_count = 3
 [node name="MainMenu" type="Node2D" unique_id=1154304386]
 script = ExtResource("1_mewax")
 palette = ExtResource("2_ys7ud")
-metadata/_edit_vertical_guides_ = [160.0, 320.0]
+metadata/_edit_vertical_guides_ = [160.0, 320.0, -320.0, -160.0]
 metadata/_edit_horizontal_guides_ = [120.0, 240.0, 480.0, 360.0]
 
 [node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow") instance=ExtResource("10_glo86")]
@@ -33,9 +37,9 @@ position = Vector2(160, 120)
 
 [node name="Star2D" parent="." unique_id=856709757 instance=ExtResource("2_osspu")]
 z_index = 10
-position = Vector2(15.999996, 144.00002)
+position = Vector2(-3.8146973e-06, 144.00002)
 rotation = -0.7853982
-scale = Vector2(2, 2)
+scale = Vector2(2.1, 2.1)
 polygon = PackedVector2Array(16.573599, 36.404884, 21.75411, 12.319038, 39.74463, -4.5127015, 18.438488, -16.882599, 7.989931, -39.19389, -10.3585005, -22.753054, -34.80658, -19.710457, -24.840393, 2.820437, -29.501581, 27.012157, -4.993702, 24.496183)
 peaks = 5
 peak_randomness = 0
@@ -46,8 +50,8 @@ high_radius_randomness = 0.0
 [node name="TrailingStar" parent="Star2D" unique_id=276850428 instance=ExtResource("2_osspu")]
 top_level = true
 z_index = -10
-position = Vector2(16, 144)
-scale = Vector2(2, 2)
+position = Vector2(0, 144)
+scale = Vector2(2.1, 2.1)
 color = Color(0.73333335, 0.73333335, 0.73333335, 1)
 polygon = PackedVector2Array(16.573599, 36.404884, 21.75411, 12.319038, 39.74463, -4.5127015, 18.438488, -16.882599, 7.989931, -39.19389, -10.3585005, -22.753054, -34.80658, -19.710457, -24.840393, 2.820437, -29.501581, 27.012157, -4.993702, 24.496183)
 peaks = 5
@@ -62,7 +66,7 @@ scroll_scale = Vector2(1, 0.8)
 scroll_offset = Vector2(160, 82)
 repeat_size = Vector2(48, 0)
 autoscroll = Vector2(-10, 0)
-repeat_times = 8
+repeat_times = 20
 ignore_camera_scroll = true
 screen_offset = Vector2(160, 120)
 
@@ -76,7 +80,7 @@ scroll_scale = Vector2(1, 0.9)
 scroll_offset = Vector2(152, 129)
 repeat_size = Vector2(48, 0)
 autoscroll = Vector2(20, 0)
-repeat_times = 8
+repeat_times = 20
 ignore_camera_scroll = true
 screen_offset = Vector2(160, 120)
 
@@ -89,7 +93,7 @@ z_index = -5
 scroll_offset = Vector2(159, 176)
 repeat_size = Vector2(48, 0)
 autoscroll = Vector2(-30, 0)
-repeat_times = 8
+repeat_times = 20
 ignore_camera_scroll = true
 screen_offset = Vector2(160, 120)
 
@@ -100,8 +104,8 @@ texture = ExtResource("3_4obiq")
 [node name="Background" type="Sprite2D" parent="." unique_id=1262125567]
 self_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
 z_index = -5
-position = Vector2(159.75, 340)
-scale = Vector2(320.5, 280)
+position = Vector2(1.5258789e-05, 340)
+scale = Vector2(640, 280)
 texture = ExtResource("4_wwhgb")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=719062530]
@@ -120,6 +124,36 @@ peak_randomness = 0
 low_radius = 25.0
 low_radius_randomness = 0.0
 high_radius_randomness = 0.0
+
+[node name="Controls" type="Node2D" parent="." unique_id=1754392732]
+position = Vector2(-24, 0)
+
+[node name="Arrow" type="Sprite2D" parent="Controls" unique_id=542391175]
+position = Vector2(160, 204)
+texture = ExtResource("12_7fcvi")
+
+[node name="Arrow2" type="Sprite2D" parent="Controls" unique_id=967186472]
+position = Vector2(172, 216)
+rotation = 1.5707964
+texture = ExtResource("12_7fcvi")
+
+[node name="Arrow3" type="Sprite2D" parent="Controls" unique_id=206131517]
+position = Vector2(147, 216)
+rotation = -1.5707964
+texture = ExtResource("12_7fcvi")
+
+[node name="Arrow4" type="Sprite2D" parent="Controls" unique_id=1756097699]
+position = Vector2(159, 216)
+rotation = -3.1415925
+texture = ExtResource("12_7fcvi")
+
+[node name="ZButton" type="Sprite2D" parent="Controls" unique_id=545803263]
+position = Vector2(200, 216)
+texture = ExtResource("13_hqa6c")
+
+[node name="XButton" type="Sprite2D" parent="Controls" unique_id=113995470]
+position = Vector2(216, 216)
+texture = ExtResource("14_yr3hd")
 
 [node name="OptionSelector" type="NinePatchRect" parent="." unique_id=1185659649]
 self_modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
@@ -183,35 +217,17 @@ bbcode_enabled = true
 text = "exit"
 horizontal_alignment = 2
 
-[node name="StarParticles" type="CPUParticles2D" parent="." unique_id=2038402822]
-visible = false
-z_index = -10
-position = Vector2(160, 56)
-texture = ExtResource("8_dxe2b")
-lifetime = 4.0
-preprocess = 4.0
-randomness = 1.0
-lifetime_randomness = 0.2
-emission_shape = 3
-emission_rect_extents = Vector2(160, 60)
-gravity = Vector2(0, 0)
-angular_velocity_min = -120.0
-angular_velocity_max = 120.0
-angle_min = -360.0
-angle_max = 360.0
-scale_amount_curve = SubResource("Curve_dxe2b")
-color = Color(0.13333334, 0.13333334, 0.13333334, 1)
-
 [node name="StarParticles2" type="CPUParticles2D" parent="." unique_id=1716315619]
 z_index = -10
-position = Vector2(160, 72)
+position = Vector2(0, 72)
+amount = 16
 texture = ExtResource("8_dxe2b")
 lifetime = 4.0
 preprocess = 4.0
 randomness = 1.0
 lifetime_randomness = 0.2
 emission_shape = 3
-emission_rect_extents = Vector2(160, 75)
+emission_rect_extents = Vector2(320, 75)
 gravity = Vector2(0, 0)
 angular_velocity_min = -120.0
 angular_velocity_max = 120.0
@@ -226,6 +242,7 @@ one_shot = true
 autostart = true
 
 [node name="InstructionsLabel" type="RichTextLabel" parent="." unique_id=1758770104]
+visible = false
 offset_top = 192.0
 offset_right = 320.0
 offset_bottom = 240.0
@@ -235,6 +252,12 @@ bbcode_enabled = true
 text = "[wave]z - select      x - back"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SettingsText" type="Sprite2D" parent="." unique_id=1439966579]
+self_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
+position = Vector2(-312, 8)
+texture = ExtResource("15_3id36")
+centered = false
 
 [connection signal="timeout" from="SelectorPingTimer" to="." method="_on_selector_ping_timer_timeout"]
 [connection signal="timeout" from="ShootingStarTimer" to="." method="_on_shooting_star_timer_timeout"]

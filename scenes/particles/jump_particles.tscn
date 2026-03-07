@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cpo63u0ymn2eq"]
+
+[ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="1_xfdi1"]
+
+[sub_resource type="Curve" id="Curve_gmlin"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.006116271), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_dovo2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.32205415), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="JumpParticles" type="CPUParticles2D" unique_id=40089245]
+self_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
+top_level = true
+emitting = false
+amount = 3
+texture = ExtResource("1_xfdi1")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.8
+randomness = 1.0
+lifetime_randomness = 0.57
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 35.0
+angle_min = -90.0
+angle_max = 90.0
+angle_curve = SubResource("Curve_gmlin")
+scale_amount_min = 0.4
+scale_amount_max = 0.45
+scale_amount_curve = SubResource("Curve_dovo2")

@@ -1,0 +1,1 @@
+class_name FlyDecoration extends Sprite2D

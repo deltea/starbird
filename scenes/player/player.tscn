@@ -13,7 +13,7 @@ _data = [Vector2(0, 0.006116271), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_dovo2"]
-_data = [Vector2(0, 0.21910119), 0.0, 0.0, 0, 0, Vector2(0.34829062, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25280905), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.78781843), 0.0, 0.0, 0, 0, Vector2(0.34829062, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25280905), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_lvxji"]
@@ -87,6 +87,23 @@ animations = [{
 process_mode = 3
 z_index = 10
 script = ExtResource("1_8afob")
+max_speed = null
+jump_velocity = null
+gravity = null
+fall_gravity = null
+wall_fall_velocity = null
+acceleration = null
+deceleration = null
+coyote_time = null
+buffer_time = null
+jump_cut_multiplier = null
+bounce_velocity = null
+dash_velocity = null
+down_dash_velocity = null
+wall_jump_x_multiplier = null
+wall_jump_control_lock_time = null
+squash = null
+stretch = null
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1428469450]
 shape = SubResource("RectangleShape2D_gmlin")

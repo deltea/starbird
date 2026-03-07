@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 const win_star_scene = preload("res://scenes/win-star/win_star.tscn")
+const jump_particles_scene = preload("res://scenes/particles/jump_particles.tscn")
 
 @export_category("Movement")
 @export var max_speed = 150.0
@@ -124,6 +125,7 @@ func movement(delta: float):
 		target_rot = 0.0
 		walk_particles.emitting = false
 
+	# normal jumping
 	if not jumped:
 		# buffer jump check
 		if Input.is_action_just_pressed("jump") or buffer_timer < buffer_time:
@@ -133,6 +135,7 @@ func movement(delta: float):
 				scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
 				rot_dynamics.set_value(sprite.rotation_degrees)
 				jumped = true
+				spawn_jump_particles()
 
 	# wall jumping
 	if Input.is_action_just_pressed("jump") and is_on_wall() and not is_on_floor() and x_input:
@@ -188,6 +191,13 @@ func win():
 	RoomManager.current_room.add_child(win_star)
 	get_tree().paused = true
 	RoomManager.current_room.complete()
+
+func spawn_jump_particles():
+	var particles = jump_particles_scene.instantiate() as CPUParticles2D
+	particles.position = walk_particles.global_position
+	RoomManager.current_room.add_child(particles)
+	particles.connect("finished", particles.queue_free)
+	particles.emitting = true
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ve5v6jngqdc6"]
+
+[ext_resource type="Script" uid="uid://bnbqvnpk0tqht" path="res://scenes/decoration/fly_decoration.gd" id="1_q6dcw"]
+
+[node name="FlyDecoration" type="Sprite2D" unique_id=2080577092]
+script = ExtResource("1_q6dcw")

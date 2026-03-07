@@ -8,6 +8,7 @@
 size = Vector2(36, 4)
 
 [node name="Bouncepad" type="StaticBody2D" unique_id=389278605]
+z_index = 10
 script = ExtResource("1_1ygid")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=363142334]

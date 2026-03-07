@@ -10,7 +10,7 @@ point_count = 3
 [node name="WindParticles" type="CPUParticles2D" unique_id=1669324104]
 process_mode = 3
 z_index = -10
-amount = 70
+amount = 76
 texture = ExtResource("2_teb47")
 lifetime = 5.0
 preprocess = 5.0

@@ -14,7 +14,8 @@ const win_star_scene = preload("res://scenes/win-star/win_star.tscn")
 @export var buffer_time = 0.15
 @export var jump_cut_multiplier = 0.5
 @export var bounce_velocity = 400.0
-@export var dash_velocity = 420.0
+@export var dash_velocity = 400.0
+@export var down_dash_velocity = 420.0
 @export var wall_jump_x_multiplier = 1.2
 @export var wall_jump_control_lock_time = 0.08
 
@@ -34,6 +35,7 @@ var can_move = true
 var target_scale = Vector2.ONE;
 var target_rot = 0.0;
 var is_dashing = false
+var is_horizontal_dashing = false
 var original_particles_x
 var wall_jump_lock_timer = 0.0
 var wall_jump_target_velocity_x = 0.0
@@ -53,83 +55,7 @@ func _process(_dt: float) -> void:
 	dash_particles.emitting = is_dashing
 
 func _physics_process(delta: float) -> void:
-	coyote_timer += delta
-	buffer_timer += delta
-	if wall_jump_lock_timer > 0.0:
-		wall_jump_lock_timer = max(0.0, wall_jump_lock_timer - delta)
-
-	var x_input := Input.get_axis("left", "right")
-
-	if not is_on_floor() and not is_dashing and can_move:
-		if velocity.y > 0:
-			if is_on_wall() and x_input:
-				velocity.y = wall_fall_velocity
-			else:
-				velocity.y += fall_gravity * delta
-		else:
-			velocity.y += gravity * delta
-
-	if can_move:
-		if x_input:
-			if wall_jump_lock_timer > 0.0:
-				velocity.x = move_toward(velocity.x, wall_jump_target_velocity_x, acceleration * 0.5)
-			else:
-				velocity.x = move_toward(velocity.x, x_input * max_speed, acceleration)
-			sprite.flip_h = x_input < 0
-		else:
-			if not is_dashing:
-				if wall_jump_lock_timer > 0.0:
-					velocity.x = move_toward(velocity.x, wall_jump_target_velocity_x, deceleration * 0.5)
-				else:
-					velocity.x = move_toward(velocity.x, 0.0, deceleration)
-
-	if not is_dashing and can_move:
-		if x_input:
-			if is_on_floor():
-				# target_rot = sin(Clock.time * 20.0) * 15.0
-				target_rot = velocity.x / max_speed * 15.0
-				sprite.play("walk")
-				walk_particles.emitting = true
-				walk_particles.position.x = original_particles_x * x_input
-			else:
-				target_rot = velocity.x / max_speed * 15.0
-				walk_particles.emitting = false
-				sprite.play("idle")
-		else:
-			sprite.play("idle")
-			target_rot = 0.0
-			walk_particles.emitting = false
-
-	if not jumped and can_move:
-		# buffer jump check
-		if Input.is_action_just_pressed("jump") or buffer_timer < buffer_time:
-			# coyote jump check
-			if is_on_floor() or coyote_timer < coyote_time:
-				velocity.y = -jump_velocity
-				scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
-				rot_dynamics.set_value(sprite.rotation_degrees)
-				jumped = true
-
-	if Input.is_action_just_pressed("jump") and is_on_wall() and not is_on_floor() and can_move and x_input:
-		velocity.y = -jump_velocity
-		velocity.x = -x_input * max_speed * wall_jump_x_multiplier
-		wall_jump_target_velocity_x = velocity.x
-		wall_jump_lock_timer = wall_jump_control_lock_time
-		scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
-		rot_dynamics.set_value(sprite.rotation_degrees)
-		jumped = true
-
-	if Input.is_action_just_released("jump") and velocity.y < 0.0:
-		velocity.y *= jump_cut_multiplier
-
-	if Input.is_action_just_pressed("jump") and not is_on_floor():
-		buffer_timer = 0.0
-
-	if Input.is_action_just_pressed("dash") and not is_dashing and can_move:
-		if Input.is_action_pressed("down") and not is_on_floor():
-			dash_down()
-		elif x_input:
-			dash_horizontal(x_input)
+	if can_move: movement(delta)
 
 	var was_on_floor = is_on_floor()
 	move_and_slide()
@@ -142,20 +68,102 @@ func _physics_process(delta: float) -> void:
 
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
-		if is_dashing:
+		if is_dashing and not is_horizontal_dashing:
 			is_dashing = false
 			sprite.stop()
 			if collision.get_collider() is Bouncepad:
 				collision.get_collider().bounce()
 				velocity.y = -bounce_velocity
 				RoomManager.current_room.camera.impact()
+			# else:
+			# 	velocity.y = -100.0
+
+func movement(delta: float):
+	coyote_timer += delta
+	buffer_timer += delta
+	if wall_jump_lock_timer > 0.0:
+		wall_jump_lock_timer = max(0.0, wall_jump_lock_timer - delta)
+
+	var x_input := Input.get_axis("left", "right")
+
+	if not is_on_floor() and not is_dashing:
+		if velocity.y > 0:
+			if is_on_wall() and x_input:
+				velocity.y = wall_fall_velocity
 			else:
-				velocity.y = -100.0
+				velocity.y += fall_gravity * delta
+		else:
+			velocity.y += gravity * delta
+
+	if not is_dashing:
+		if x_input:
+			if wall_jump_lock_timer > 0.0:
+				velocity.x = move_toward(velocity.x, wall_jump_target_velocity_x, acceleration * 0.5)
+			else:
+				velocity.x = move_toward(velocity.x, x_input * max_speed, acceleration)
+			sprite.flip_h = x_input < 0
+		else:
+			if wall_jump_lock_timer > 0.0:
+				velocity.x = move_toward(velocity.x, wall_jump_target_velocity_x, deceleration * 0.5)
+			else:
+				velocity.x = move_toward(velocity.x, 0.0, deceleration)
+
+	if x_input and not is_dashing:
+		if is_on_floor():
+			# target_rot = sin(Clock.time * 20.0) * 15.0
+			target_rot = velocity.x / max_speed * 15.0
+			sprite.play("walk")
+			walk_particles.emitting = true
+			walk_particles.position.x = original_particles_x * x_input
+		else:
+			target_rot = velocity.x / max_speed * 15.0
+			walk_particles.emitting = false
+			sprite.play("idle")
+	else:
+		sprite.play("idle")
+		target_rot = 0.0
+		walk_particles.emitting = false
+
+	if not jumped:
+		# buffer jump check
+		if Input.is_action_just_pressed("jump") or buffer_timer < buffer_time:
+			# coyote jump check
+			if is_on_floor() or coyote_timer < coyote_time:
+				velocity.y = -jump_velocity
+				scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
+				rot_dynamics.set_value(sprite.rotation_degrees)
+				jumped = true
+
+	# wall jumping
+	if Input.is_action_just_pressed("jump") and is_on_wall() and not is_on_floor() and x_input:
+		velocity.y = -jump_velocity
+		velocity.x = -x_input * max_speed * wall_jump_x_multiplier
+		wall_jump_target_velocity_x = velocity.x
+		wall_jump_lock_timer = wall_jump_control_lock_time
+		scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
+		rot_dynamics.set_value(sprite.rotation_degrees)
+		jumped = true
+
+	# variable jump heihgt
+	if Input.is_action_just_released("jump") and velocity.y < 0.0:
+		velocity.y *= jump_cut_multiplier
+
+	# buffer jump
+	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		buffer_timer = 0.0
+
+	# dashing
+	if Input.is_action_just_pressed("dash") and not is_dashing:
+		if Input.is_action_pressed("down") and not is_on_floor():
+			dash_down()
+		elif x_input:
+			dash_horizontal(x_input)
 
 func dash_horizontal(x_input: float):
 	dash_timer.start()
 	is_dashing = true
-	velocity.x = x_input * dash_velocity * 1.5
+	is_horizontal_dashing = true
+	velocity.x = x_input * dash_velocity
 	velocity.y = 0.0
 	scale_dynamics.set_value(Vector2.ONE + Vector2(stretch, -stretch))
 	RoomManager.current_room.camera.shake(0.15, 2.0)
@@ -163,7 +171,7 @@ func dash_horizontal(x_input: float):
 func dash_down():
 	sprite.play("dash_down")
 	is_dashing = true
-	velocity.y = dash_velocity
+	velocity.y = down_dash_velocity
 	scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
 	RoomManager.current_room.camera.shake(0.15, 2.0)
 
@@ -183,6 +191,7 @@ func win():
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
+	is_horizontal_dashing = false
 	sprite.stop()
 
 func _on_break_area_body_entered(body: Node2D) -> void:

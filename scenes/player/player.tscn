@@ -81,8 +81,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
-size = Vector2(20, 30)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmlin"]
 
 [node name="Player" type="CharacterBody2D" unique_id=249500363]
 process_mode = 3
@@ -153,13 +152,13 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "87f82eebd3dfc9dc5e5eda3a3575b52e"
 
 [node name="DashTimer" type="Timer" parent="." unique_id=1393713711]
-wait_time = 0.3
+wait_time = 0.18
 one_shot = true
 
 [node name="BreakArea" type="Area2D" parent="." unique_id=2117735432]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="BreakArea" unique_id=967553872]
-shape = SubResource("RectangleShape2D_lvxji")
+shape = SubResource("CapsuleShape2D_gmlin")
 debug_color = Color(1, 0.003921569, 0.050980393, 0.07450981)
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -11,6 +11,9 @@ tile_data = PackedInt32Array(0, 524288, 1342177282, 65536, 0, 1, 131072, 0, 1, 1
 [sub_resource type="TileMapPattern" id="TileMapPattern_14fb3"]
 tile_data = PackedInt32Array(0, 0, 1342177282, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2urvg"]
+friction = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olg7q"]
 texture = ExtResource("1_2urvg")
 margins = Vector2i(1, 1)
@@ -77,6 +80,7 @@ separation = Vector2i(2, 2)
 
 [resource]
 physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_2urvg")
 sources/0 = SubResource("TileSetAtlasSource_olg7q")
 pattern_0 = SubResource("TileMapPattern_2urvg")
 pattern_1 = SubResource("TileMapPattern_ej02t")

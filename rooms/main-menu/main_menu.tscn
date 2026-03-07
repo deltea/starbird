@@ -248,11 +248,11 @@ horizontal_alignment = 2
 self_modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
 z_index = 10
 offset_left = -553.0
-offset_top = 75.0
+offset_top = 118.0
 offset_right = -337.0
-offset_bottom = 96.0
+offset_bottom = 139.0
 rotation = 3.1415927
-pivot_offset = Vector2(216, 21)
+pivot_offset = Vector2(216, 0)
 texture = ExtResource("6_dxe2b")
 patch_margin_left = 16
 
@@ -270,9 +270,9 @@ patch_margin_left = 16
 [node name="Options" type="VBoxContainer" parent="Settings" unique_id=1092693098]
 z_index = 10
 offset_left = -296.0
-offset_top = 96.0
+offset_top = 72.0
 offset_right = -160.0
-offset_bottom = 216.0
+offset_bottom = 240.0
 theme_override_constants/separation = 4
 alignment = 1
 
@@ -300,15 +300,23 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "screen"
 
-[node name="OptionText4" type="RichTextLabel" parent="Settings/Options" unique_id=2065310222]
+[node name="Control" type="Control" parent="Settings/Options" unique_id=536229922]
 custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
+
+[node name="OptionText4" type="RichTextLabel" parent="Settings/Options/Control" unique_id=806768965]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+offset_right = 136.0
+grow_vertical = 0
 theme_override_colors/default_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
 theme_override_fonts/normal_font = ExtResource("6_e6kqp")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "back >"
-vertical_alignment = 2
+text = "back  >"
 
 [node name="SettingsText" type="Sprite2D" parent="Settings" unique_id=1439966579]
 self_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)

@@ -2,8 +2,8 @@
 
 ## to-do
 
-- [ ] dash-collectables in secret areas
 - [ ] show stars in ui
+- [ ] dash-collectables in secret areas
 - [ ] juice up breakable walls
 - [ ] juice up stars
 - [x] make color palette global

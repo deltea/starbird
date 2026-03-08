@@ -43,7 +43,7 @@ func _ready() -> void:
 
 func _process(dt: float) -> void:
 	big_star.rotation_degrees = star_rot_dynamics.update(target_rot)
-	trailing_star.rotation_degrees = lerp(trailing_star.rotation_degrees, big_star.rotation_degrees + 12.0, 10.0 * dt)
+	trailing_star.rotation_degrees = lerp(trailing_star.rotation_degrees, big_star.rotation_degrees + 20.0, 10.0 * dt)
 	trailing_star.position = big_star.position
 	title_star.rotation_degrees += 160.0 * dt
 

@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://igdwpx4mjh6y"]
 
 [ext_resource type="Script" uid="uid://bonv0p3d67st5" path="res://rooms/level-select/level_select.gd" id="1_8r5c2"]
+[ext_resource type="Texture2D" uid="uid://drrxfbhc68ci6" path="res://assets/ui/level-select-text.png" id="2_yxf36"]
 
 [node name="LevelSelect" type="Node2D" unique_id=1042414605]
 script = ExtResource("1_8r5c2")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1603021826]
+self_modulate = Color(0.26666668, 0.26666668, 0.26666668, 1)
+position = Vector2(8, 8)
+texture = ExtResource("2_yxf36")
+centered = false

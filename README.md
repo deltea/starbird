@@ -2,6 +2,7 @@
 
 ## to-do
 
+- [ ] add big arrows to levels
 - [ ] make level select
 - [ ] make color palette global
 - [ ] dash-collectables in secret areas

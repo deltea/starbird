@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="1_ni05h"]
 [ext_resource type="Script" uid="uid://dk8wkj3knwh70" path="res://scenes/ui/level-select-star/level_select_star.gd" id="2_yjswt"]
-[ext_resource type="FontFile" uid="uid://ce3pxfpd38a3y" path="res://assets/fonts/monogram.ttf" id="3_rp2gm"]
+[ext_resource type="FontFile" uid="uid://582abh2r0rhk" path="res://assets/fonts/m6x11.ttf" id="4_iy8mu"]
 [ext_resource type="Texture2D" uid="uid://cm4r8dwe8vx7l" path="res://assets/ui/level-select-background.png" id="5_owgat"]
 
 [sub_resource type="Animation" id="Animation_owgat"]
@@ -66,10 +66,10 @@ tracks/1/path = NodePath("Background:size")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.29999995),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.4352749, 0.4352749),
 "update": 0,
-"values": [Vector2(16, 18), Vector2(180, 18)]
+"values": [Vector2(16, 22), Vector2(180, 22)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -112,10 +112,11 @@ star_scale = 0.45
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=420149574]
 self_modulate = Color(0.26666668, 0.26666668, 0.26666668, 1)
-offset_top = -9.0
+offset_top = -11.0
 offset_right = 16.0
-offset_bottom = 9.0
+offset_bottom = 7.0
 scale = Vector2(1e-05, 1)
+pivot_offset = Vector2(0, 11)
 texture = ExtResource("5_owgat")
 patch_margin_right = 16
 axis_stretch_horizontal = 1
@@ -128,15 +129,17 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -132.0
+offset_left = -180.0
 offset_top = -20.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("3_rp2gm")
+theme_override_fonts/normal_font = ExtResource("4_iy8mu")
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "level name"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0

@@ -2,22 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://bkhrrt45shegv" path="res://rooms/level.tscn" id="1_fxm0c"]
 [ext_resource type="PackedScene" uid="uid://dv7cyw0jlnfe8" path="res://scenes/collectable/collectable.tscn" id="2_ldx6e"]
-[ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="2_uvqya"]
 [ext_resource type="PackedScene" uid="uid://lvqju5v40hdm" path="res://scenes/bouncepad/bouncepad.tscn" id="2_wce6o"]
 [ext_resource type="PackedScene" uid="uid://bmyumpoi8liiq" path="res://scenes/secret-area/secret_area.tscn" id="3_3juqe"]
 [ext_resource type="PackedScene" uid="uid://b20u13j8p26iv" path="res://scenes/particles/environment-particles/environment_particles.tscn" id="5_pk6ao"]
 [ext_resource type="PackedScene" uid="uid://ds6uisrlvq6nk" path="res://scenes/breakable/breakable.tscn" id="6_pywsr"]
 [ext_resource type="PackedScene" uid="uid://ve5v6jngqdc6" path="res://scenes/decoration/fly_decoration.tscn" id="7_2sy11"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvqya"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sy11"]
 resource_local_to_scene = true
 size = Vector2(176, 72)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5yrd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvqya"]
 resource_local_to_scene = true
 size = Vector2(160, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_knea1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5yrd"]
 resource_local_to_scene = true
 size = Vector2(48, 48)
 
@@ -209,44 +208,6 @@ animations = [{
 offset_top = 8.0
 vertical_alignment = 0
 
-[node name="Stars" type="Node2D" parent="CanvasLayer" parent_id_path=PackedInt32Array(585174658) index="2" unique_id=1382010371]
-position = Vector2(192, 224)
-
-[node name="Star2D" parent="CanvasLayer/Stars" index="0" unique_id=856709757 instance=ExtResource("2_uvqya")]
-position = Vector2(-64, 0)
-color = Color(0.33333334, 0.33333334, 0.33333334, 1)
-polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
-star_scale = 0.12
-
-[node name="Star2D2" parent="CanvasLayer/Stars" index="1" unique_id=1629215352 instance=ExtResource("2_uvqya")]
-position = Vector2(-32, 0)
-color = Color(0.33333334, 0.33333334, 0.33333334, 1)
-polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
-star_scale = 0.12
-
-[node name="Star2D3" parent="CanvasLayer/Stars" index="2" unique_id=227123760 instance=ExtResource("2_uvqya")]
-color = Color(0.33333334, 0.33333334, 0.33333334, 1)
-polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
-star_scale = 0.12
-
 [node name="Camera" parent="." index="2" unique_id=1304390175]
 limit_left = -105
 limit_top = -84
@@ -324,7 +285,7 @@ tile_map_data = PackedByteArray("AAAHAAEAAAAAAAEAAAAHAAAAAAAAAAEAAAAHAP//AAAAAAE
 
 [node name="CollisionShape" parent="Elements/SecretArea" index="1" unique_id=687079757]
 position = Vector2(40, 4)
-shape = SubResource("RectangleShape2D_uvqya")
+shape = SubResource("RectangleShape2D_2sy11")
 
 [node name="SecretArea2" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="12" unique_id=1741221156 instance=ExtResource("3_3juqe")]
 visible = false
@@ -335,7 +296,7 @@ tile_map_data = PackedByteArray("AAAGAP7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAE
 
 [node name="CollisionShape" parent="Elements/SecretArea2" index="1" unique_id=687079757]
 position = Vector2(32, 8)
-shape = SubResource("RectangleShape2D_o5yrd")
+shape = SubResource("RectangleShape2D_uvqya")
 
 [node name="SecretArea3" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="13" unique_id=2067864927 instance=ExtResource("3_3juqe")]
 visible = false
@@ -346,7 +307,7 @@ tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAE
 
 [node name="CollisionShape" parent="Elements/SecretArea3" index="1" unique_id=687079757]
 position = Vector2(-24, 24)
-shape = SubResource("RectangleShape2D_knea1")
+shape = SubResource("RectangleShape2D_o5yrd")
 
 [node name="Breakable" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="14" unique_id=356732343 instance=ExtResource("6_pywsr")]
 position = Vector2(824, 128)

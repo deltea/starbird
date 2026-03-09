@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bqsviir6g074p" path="res://shaders/palette_filter.gdshader" id="4_3r5wm"]
 [ext_resource type="FontFile" uid="uid://caxxxt6gfouhf" path="res://assets/fonts/cubecavern.ttf" id="4_at2w1"]
 [ext_resource type="Texture2D" uid="uid://bm5w1x2hdngqi" path="res://assets/palette-in.png" id="5_3qwok"]
+[ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="5_wrbck"]
 [ext_resource type="PackedScene" uid="uid://cykuanfl3n1rh" path="res://scenes/camera/camera.tscn" id="6_15qan"]
 [ext_resource type="PackedScene" uid="uid://cqedlma3fml7b" path="res://scenes/player/player.tscn" id="7_fei6a"]
 [ext_resource type="TileSet" uid="uid://bf6kvyb2ip0wp" path="res://tileset.tres" id="9_6b5hc"]
@@ -209,6 +210,69 @@ label_settings = SubResource("LabelSettings_8iemx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Stars" type="Node2D" parent="CanvasLayer" unique_id=571456195]
+position = Vector2(192, 224)
+
+[node name="Star2D" parent="CanvasLayer/Stars" unique_id=856709757 instance=ExtResource("5_wrbck")]
+position = Vector2(-80, 0)
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
+peaks = 5
+peak_randomness = 0
+max_start_angle = 0.0
+low_radius = 25.0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.12
+
+[node name="Star2D2" parent="CanvasLayer/Stars" unique_id=1638797238 instance=ExtResource("5_wrbck")]
+position = Vector2(-56, 0)
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
+peaks = 5
+peak_randomness = 0
+max_start_angle = 0.0
+low_radius = 25.0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.12
+
+[node name="Star2D3" parent="CanvasLayer/Stars" unique_id=2032388953 instance=ExtResource("5_wrbck")]
+position = Vector2(-32, 0)
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
+peaks = 5
+peak_randomness = 0
+max_start_angle = 0.0
+low_radius = 25.0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.12
+
+[node name="Star2D4" parent="CanvasLayer/Stars" unique_id=1411954113 instance=ExtResource("5_wrbck")]
+position = Vector2(-8, 0)
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
+peaks = 5
+peak_randomness = 0
+max_start_angle = 0.0
+low_radius = 25.0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.12
+
+[node name="Star2D5" parent="CanvasLayer/Stars" unique_id=902981042 instance=ExtResource("5_wrbck")]
+position = Vector2(16, 0)
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
+peaks = 5
+peak_randomness = 0
+max_start_angle = 0.0
+low_radius = 25.0
+low_radius_randomness = 0.0
+high_radius_randomness = 0.0
+star_scale = 0.12
+
 [node name="CompleteCanvas" type="CanvasLayer" parent="." unique_id=229946939]
 layer = 20
 
@@ -239,7 +303,7 @@ offset_left = -32.0
 offset_right = 208.0
 rotation = -0.2617994
 pivot_offset = Vector2(32, 0)
-color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 
 [node name="Label" type="Label" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeTop/Inner" unique_id=960924771]
 layout_mode = 1
@@ -279,7 +343,7 @@ offset_left = -32.0
 offset_right = 208.0
 rotation = -0.2617994
 pivot_offset = Vector2(32, 0)
-color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 
 [node name="Label" type="Label" parent="CompleteCanvas/SubViewportContainer/SubViewport/ColorStripeBottom/Inner" unique_id=1286928084]
 layout_mode = 1

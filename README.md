@@ -2,9 +2,11 @@
 
 ## to-do
 
+- [ ] add alphabet scoring system
+- [ ] finish amethyst caves level
 - [ ] dash-collectables in secret areas
-- [ ] juice up breakable walls
-- [ ] juice up stars
+- [x] juice up breakable walls
+- [x] juice up stars
 - [x] show stars in ui
 - [x] fix dash spamming
 - [x] make color palette global

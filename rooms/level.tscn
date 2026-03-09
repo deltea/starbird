@@ -156,7 +156,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_lsceb"]
 resource_name = "complete"
-length = 2.2
+length = 2.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -274,7 +274,7 @@ tracks/9/path = NodePath("FinalStats:visible_ratio")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(1.8999999, 2),
+"times": PackedFloat32Array(1.8999999, 2.0666666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -286,7 +286,7 @@ tracks/10/path = NodePath("FinalStatsValues:visible_ratio")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(2.0666668, 2.1666667),
+"times": PackedFloat32Array(2.1, 2.2666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -298,7 +298,7 @@ tracks/11/path = NodePath("Instructions:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 2.2),
+"times": PackedFloat32Array(0, 2.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -550,9 +550,9 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("6_4r1re")
 
 [node name="FinalStats" type="RichTextLabel" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=206318158]
-offset_left = 40.0
+offset_left = 32.0
 offset_top = 88.0
-offset_right = 96.0
+offset_right = 88.0
 offset_bottom = 142.0
 theme_override_fonts/normal_font = ExtResource("3_wrbck")
 theme_override_font_sizes/normal_font_size = 18
@@ -565,16 +565,16 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="FinalStatsValues" type="RichTextLabel" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=116265284]
-offset_left = 104.0
+offset_left = 96.0
 offset_top = 88.0
-offset_right = 160.0
+offset_right = 168.0
 offset_bottom = 142.0
 theme_override_fonts/normal_font = ExtResource("3_wrbck")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[wave]02:50
-found
-*****"
+not found
+xxxxx"
 fit_content = true
 horizontal_alignment = 2
 visible_characters = 0

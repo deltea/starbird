@@ -15,16 +15,19 @@ const countdown_rot = 10.0
 @onready var complete_player: AnimationPlayer = $CompleteCanvas/SubViewportContainer/SubViewport/AnimationPlayer
 @onready var complete_star: Star2D = $CompleteCanvas/SubViewportContainer/SubViewport/Star2D
 @onready var rank_text: TextureRect = $CompleteCanvas/SubViewportContainer/SubViewport/RankText
+@onready var final_label: RichTextLabel = $CompleteCanvas/SubViewportContainer/SubViewport/FinalStatsValues
 
 @onready var star_scale_dynamics: DynamicsSolver = Dynamics.create_dynamics(4.0, 1, 2.0)
 
 var player: Player
 
 var is_completed = false
+var is_started = false
 var countdown_scale_target = Vector2.ONE
 var countdown_rot_target = 360.0
 var stars_collected = 0
 var is_complete_animation_done = false
+var time = 0.0
 
 func _ready() -> void:
 	PaletteFilter.set_color_palette(palette)
@@ -39,17 +42,19 @@ func _process(dt: float) -> void:
 	countdown.scale = countdown_scale_dynamics.update(countdown_scale_target)
 	countdown_label.rotation_degrees = countdown_rot_dynamics.update(countdown_rot_target)
 	countdown_background.rotation_degrees = Clock.time * 200.0
+	time_label.text = "[wave]%.2f[/wave]" % time
 
 	for star in stars_hud.get_children():
 		star.rotation_degrees += dt * 40.0
 
-	if not is_completed:
-		time_label.text = "[wave]%.2f[/wave]" % Clock.time
+	if not is_completed and is_started:
+		time += dt
 
 	if is_complete_animation_done:
 		complete_star.rotation_degrees += dt * 40.0
 		complete_star.scale = star_scale_dynamics.update(1) * Vector2.ONE
-		rank_text.rotation_degrees = sin(Clock.time * 5.0) * 6.0
+		# rank_text.rotation_degrees = sin(Clock.time * 5.0) * 6.0
+		# rank_text.scale = (1.0 + sin(Clock.time * 5.0) * 0.05) * Vector2.ONE
 
 func show_countdown():
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
@@ -78,6 +83,7 @@ func show_countdown():
 	await Clock.wait(0.4)
 	get_tree().paused = false
 	player.can_move = true
+	is_started = true
 
 	await Clock.wait(0.4)
 	countdown_scale_target = Vector2.ZERO
@@ -91,6 +97,8 @@ func complete():
 	PaletteFilter.set_brightness(0.25)
 	complete_canvas.visible = true
 	time_label.visible = false
+	final_label.text = "[wave]%.2f\nnot found\nxxxx-" % time
+
 	complete_player.play("complete")
 	await complete_player.animation_finished
 	is_complete_animation_done = true

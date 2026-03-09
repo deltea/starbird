@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpsarpjde1kol"
-path="res://.godot/imported/waverator.png-639f6dda2ae97eab6ed6a7324ec83318.ctex"
+uid="uid://bymbph0xvqnk2"
+path="res://.godot/imported/sls08.png-ede0ea8df8f0a0d4b7e90a11033c3e98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://color-palettes/waverator.png"
-dest_files=["res://.godot/imported/waverator.png-639f6dda2ae97eab6ed6a7324ec83318.ctex"]
+source_file="res://assets/palettes/sls08.png"
+dest_files=["res://.godot/imported/sls08.png-ede0ea8df8f0a0d4b7e90a11033c3e98.ctex"]
 
 [params]
 

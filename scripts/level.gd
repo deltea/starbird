@@ -118,6 +118,7 @@ func get_node_screen_position(node: Node2D) -> Vector2:
 
 func collect_star(star: Collectable) -> void:
 	stars_collected += 1
+	# star.reparent(stars_hud)
 	star.call_deferred("reparent", stars_hud)
 	star.position = get_node_screen_position(star)
 	star.target_pos = stars_hud.get_child(stars_collected - 1).position

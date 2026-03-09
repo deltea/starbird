@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bddjdox8qvmjk"
-path="res://.godot/imported/dmg4ever.png-5a1bd6c82f71a8d4a0015d7ee1a8efe2.ctex"
+uid="uid://dk47hjt3kytwp"
+path="res://.godot/imported/splashy.png-73ac84092ec56f66c72c5b2d9bacfcb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://color-palettes/dmg4ever.png"
-dest_files=["res://.godot/imported/dmg4ever.png-5a1bd6c82f71a8d4a0015d7ee1a8efe2.ctex"]
+source_file="res://assets/palettes/splashy.png"
+dest_files=["res://.godot/imported/splashy.png-73ac84092ec56f66c72c5b2d9bacfcb4.ctex"]
 
 [params]
 

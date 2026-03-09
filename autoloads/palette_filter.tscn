@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cue3byhg2kdhe" path="res://autoloads/palette_filter.gd" id="1_adh26"]
 [ext_resource type="Shader" uid="uid://bqsviir6g074p" path="res://shaders/palette_filter.gdshader" id="2_2kqrj"]
-[ext_resource type="Texture2D" uid="uid://cksk5qojiqsdw" path="res://color-palettes/purple.png" id="2_lvugl"]
+[ext_resource type="Texture2D" uid="uid://cksk5qojiqsdw" path="res://assets/palettes/purple.png" id="2_lvugl"]
 [ext_resource type="Texture2D" uid="uid://bm5w1x2hdngqi" path="res://assets/palette-in.png" id="4_li5on"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_05rop"]

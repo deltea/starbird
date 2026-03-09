@@ -1,4 +1,6 @@
-# speedy birb game
+# starbird
+
+speedy birb game go weee
 
 ## to-do
 

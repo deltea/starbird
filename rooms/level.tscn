@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bkhrrt45shegv"]
 
 [ext_resource type="Script" uid="uid://bjup6ntnjl6ln" path="res://scripts/level.gd" id="1_wrbck"]
-[ext_resource type="Texture2D" uid="uid://cksk5qojiqsdw" path="res://color-palettes/purple.png" id="2_4r1re"]
+[ext_resource type="Texture2D" uid="uid://cksk5qojiqsdw" path="res://assets/palettes/purple.png" id="2_4r1re"]
 [ext_resource type="FontFile" uid="uid://582abh2r0rhk" path="res://assets/fonts/m6x11.ttf" id="3_wrbck"]
 [ext_resource type="Shader" uid="uid://bqsviir6g074p" path="res://shaders/palette_filter.gdshader" id="4_3r5wm"]
 [ext_resource type="FontFile" uid="uid://caxxxt6gfouhf" path="res://assets/fonts/cubecavern.ttf" id="4_at2w1"]
@@ -616,6 +616,23 @@ impact_rotation = 2.0
 
 [node name="Player" parent="." unique_id=249500363 instance=ExtResource("7_fei6a")]
 position = Vector2(0, 24)
+max_speed = 150.0
+jump_velocity = 280.0
+gravity = 1000.0
+fall_gravity = 1400.0
+wall_fall_velocity = 80.0
+acceleration = 50.0
+deceleration = 30.0
+coyote_time = 0.15
+buffer_time = 0.15
+jump_cut_multiplier = 0.5
+bounce_velocity = 400.0
+dash_velocity = 400.0
+down_dash_velocity = 420.0
+wall_jump_x_multiplier = 1.2
+wall_jump_control_lock_time = 0.08
+squash = 0.6
+stretch = 0.4
 
 [node name="ParallaxBackground" type="Parallax2D" parent="." unique_id=1864692733]
 z_index = -20

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0lisw2c0es6a"
-path="res://.godot/imported/purplemorning.png-76834598208d7976624cf324ac9af399.ctex"
+uid="uid://bddjdox8qvmjk"
+path="res://.godot/imported/dmg4ever.png-cdb57e0e2b659b93e04a7e1c1b76dc88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://color-palettes/purplemorning.png"
-dest_files=["res://.godot/imported/purplemorning.png-76834598208d7976624cf324ac9af399.ctex"]
+source_file="res://assets/palettes/dmg4ever.png"
+dest_files=["res://.godot/imported/dmg4ever.png-cdb57e0e2b659b93e04a7e1c1b76dc88.ctex"]
 
 [params]
 

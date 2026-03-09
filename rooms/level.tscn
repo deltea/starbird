@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://caxxxt6gfouhf" path="res://assets/fonts/cubecavern.ttf" id="4_at2w1"]
 [ext_resource type="Texture2D" uid="uid://bm5w1x2hdngqi" path="res://assets/palette-in.png" id="5_3qwok"]
 [ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="5_wrbck"]
+[ext_resource type="Texture2D" uid="uid://tsd6xgyuhsdj" path="res://assets/ui/ranks/s.png" id="6_4r1re"]
 [ext_resource type="PackedScene" uid="uid://cykuanfl3n1rh" path="res://scenes/camera/camera.tscn" id="6_15qan"]
 [ext_resource type="PackedScene" uid="uid://cqedlma3fml7b" path="res://scenes/player/player.tscn" id="7_fei6a"]
 [ext_resource type="TileSet" uid="uid://bf6kvyb2ip0wp" path="res://tileset.tres" id="9_6b5hc"]
@@ -68,10 +69,94 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(240, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Star2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Star2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RankText:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RankText:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FinalStats:visible_ratio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FinalStatsValues:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Instructions:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_lsceb"]
 resource_name = "complete"
-length = 1.2333333
+length = 2.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -79,10 +164,10 @@ tracks/0/path = NodePath("ColorStripeTop/Outer:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.40000004),
-"transitions": PackedFloat32Array(0.2, 0.2, 0.2),
+"times": PackedFloat32Array(0.2, 0.40000004),
+"transitions": PackedFloat32Array(0.2, 0.2),
 "update": 0,
-"values": [Vector2(240, 0), Vector2(240, 0), Vector2(240, 40)]
+"values": [Vector2(240, 0), Vector2(240, 40)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -91,10 +176,10 @@ tracks/1/path = NodePath("ColorStripeTop/Inner:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6, 0.8),
-"transitions": PackedFloat32Array(0.2, 0.2, 0.2, 0.2, 0.2),
+"times": PackedFloat32Array(0.20000002, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(0.2, 0.2, 0.2),
 "update": 0,
-"values": [Vector2(240, 0), Vector2(240, 0), Vector2(240, 40), Vector2(240, 40), Vector2(240, 56)]
+"values": [Vector2(280, 3.7252898e-06), Vector2(280, 40.000004), Vector2(280, 62)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -103,10 +188,10 @@ tracks/2/path = NodePath("ColorStripeBottom/Inner:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6, 0.8),
-"transitions": PackedFloat32Array(0.2, 0.2, 0.2, 0.2, 0.2),
+"times": PackedFloat32Array(0.20000002, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(0.2, 0.2, 0.2),
 "update": 0,
-"values": [Vector2(240, 0), Vector2(240, 0), Vector2(240, 40), Vector2(240, 40), Vector2(240, 56)]
+"values": [Vector2(280, 3.7252898e-06), Vector2(280, 40.000004), Vector2(280, 62)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -115,10 +200,108 @@ tracks/3/path = NodePath("ColorStripeBottom/Outer:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.40000004),
-"transitions": PackedFloat32Array(0.2, 0.2, 0.2),
+"times": PackedFloat32Array(0.2, 0.40000004),
+"transitions": PackedFloat32Array(0.2, 0.2),
 "update": 0,
-"values": [Vector2(240, 0), Vector2(240, 0), Vector2(240, 40)]
+"values": [Vector2(240, 0), Vector2(240, 40)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Star2D:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Star2D:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RankText:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RankText:scale")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.5, 1.7),
+"transitions": PackedFloat32Array(2.8284295, 2.8284295),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(1, 1)]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../../Camera")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.3, 5.0],
+"method": &"shake"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FinalStats:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.8999999, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("FinalStatsValues:visible_ratio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.0666668, 2.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Instructions:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijbq7"]
@@ -217,64 +400,35 @@ position = Vector2(192, 224)
 position = Vector2(-80, 0)
 color = Color(0.33333334, 0.33333334, 0.33333334, 1)
 polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
 star_scale = 0.12
 
 [node name="Star2D2" parent="CanvasLayer/Stars" unique_id=1638797238 instance=ExtResource("5_wrbck")]
 position = Vector2(-56, 0)
 color = Color(0.33333334, 0.33333334, 0.33333334, 1)
 polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
 star_scale = 0.12
 
 [node name="Star2D3" parent="CanvasLayer/Stars" unique_id=2032388953 instance=ExtResource("5_wrbck")]
 position = Vector2(-32, 0)
 color = Color(0.33333334, 0.33333334, 0.33333334, 1)
 polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
 star_scale = 0.12
 
 [node name="Star2D4" parent="CanvasLayer/Stars" unique_id=1411954113 instance=ExtResource("5_wrbck")]
 position = Vector2(-8, 0)
 color = Color(0.33333334, 0.33333334, 0.33333334, 1)
 polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
 star_scale = 0.12
 
 [node name="Star2D5" parent="CanvasLayer/Stars" unique_id=902981042 instance=ExtResource("5_wrbck")]
 position = Vector2(16, 0)
 color = Color(0.33333334, 0.33333334, 0.33333334, 1)
 polygon = PackedVector2Array(4.8, 0, 2.427051, -1.7633557, 1.4832815, -4.5650716, -0.92705107, -2.8531694, -3.883282, -2.821369, -3, 2.6226832e-07, -3.8832815, 2.82137, -0.9270513, 2.8531694, 1.4832822, 4.565071, 2.4270508, 1.763356)
-peaks = 5
-peak_randomness = 0
-max_start_angle = 0.0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
 star_scale = 0.12
 
 [node name="CompleteCanvas" type="CanvasLayer" parent="." unique_id=229946939]
 layer = 20
+follow_viewport_enabled = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CompleteCanvas" unique_id=1373178145]
 offset_right = 320.0
@@ -313,7 +467,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -265.1646
-offset_top = -16.119446
+offset_top = -22.088116
+offset_right = 0.00039672852
+offset_bottom = -0.08811569
 grow_horizontal = 0
 grow_vertical = 0
 text = "LEVEL COMPLETE!  LEVEL COMPLETE!  LEVEL COMPLETE!"
@@ -353,7 +509,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -265.1646
-offset_top = -16.119446
+offset_top = -22.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "LEVEL COMPLETE!  LEVEL COMPLETE!  LEVEL COMPLETE!"
@@ -369,10 +525,82 @@ rotation = -0.2617994
 pivot_offset = Vector2(32, 0)
 color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 
+[node name="Star2D" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=959970739 instance=ExtResource("5_wrbck")]
+position = Vector2(240.54103, 81.0634)
+scale = Vector2(1e-05, 1e-05)
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+polygon = PackedVector2Array(60, 0, 30.338137, -22.041946, 18.541018, -57.063393, -11.588139, -35.66462, -48.541023, -35.267113, -37.5, 3.2783541e-06, -48.541016, 35.26712, -11.5881405, 35.66462, 18.541027, 57.06339, 30.338135, 22.041948)
+star_scale = 1.5
+
+[node name="RankText" type="TextureRect" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=1959523519]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.541016
+offset_top = -70.9366
+offset_right = 112.541016
+offset_bottom = -6.9365997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("6_4r1re")
+
+[node name="FinalStats" type="RichTextLabel" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=206318158]
+offset_left = 40.0
+offset_top = 88.0
+offset_right = 96.0
+offset_bottom = 142.0
+theme_override_fonts/normal_font = ExtResource("3_wrbck")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[wave]time
+secrets
+stars"
+fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="FinalStatsValues" type="RichTextLabel" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=116265284]
+offset_left = 104.0
+offset_top = 88.0
+offset_right = 160.0
+offset_bottom = 142.0
+theme_override_fonts/normal_font = ExtResource("3_wrbck")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[wave]02:50
+found
+*****"
+fit_content = true
+horizontal_alignment = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Instructions" type="RichTextLabel" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=1074156681]
+visible = false
+offset_left = 40.0
+offset_top = 176.0
+offset_right = 176.0
+offset_bottom = 230.0
+theme_override_colors/default_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+theme_override_fonts/normal_font = ExtResource("3_wrbck")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[wave]press z to continue"
+fit_content = true
+
 [node name="PaletteFilter" type="ColorRect" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=1062036932]
 material = SubResource("ShaderMaterial_8iemx")
 offset_right = 320.0
 offset_bottom = 240.0
+
+[node name="StarPingTimer" type="Timer" parent="CompleteCanvas/SubViewportContainer/SubViewport" unique_id=42248697]
+wait_time = 0.5
+autostart = true
 
 [node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow") instance=ExtResource("6_15qan")]
 ignore_rotation = false
@@ -435,3 +663,5 @@ position = Vector2(-8, -200)
 position = Vector2(128, -112)
 
 [node name="Decoration" type="Node" parent="." unique_id=238951789]
+
+[connection signal="timeout" from="CompleteCanvas/SubViewportContainer/SubViewport/StarPingTimer" to="." method="_on_star_ping_timer_timeout"]

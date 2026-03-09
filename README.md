@@ -2,9 +2,11 @@
 
 ## to-do
 
+- [ ] finish end screen
 - [ ] add alphabet scoring system
 - [ ] finish amethyst caves level
 - [ ] dash-collectables in secret areas
+- [ ] make screen shake work with complete canvas
 - [x] juice up breakable walls
 - [x] juice up stars
 - [x] show stars in ui

@@ -208,6 +208,9 @@ animations = [{
 offset_top = 8.0
 vertical_alignment = 0
 
+[node name="CompleteCanvas" parent="." index="1" unique_id=229946939]
+follow_viewport_enabled = false
+
 [node name="Camera" parent="." index="2" unique_id=1304390175]
 limit_left = -105
 limit_top = -84
@@ -349,10 +352,12 @@ emission_rect_extents = Vector2(960, 240)
 density = 0.2
 
 [node name="Parallax2D" type="Parallax2D" parent="Decoration" parent_id_path=PackedInt32Array(238951789) index="1" unique_id=55135355]
+z_index = -10
 scroll_scale = Vector2(1.1, 1.1)
 scroll_offset = Vector2(-144, 80)
 
 [node name="WindParticles2" parent="Decoration/Parallax2D" index="0" unique_id=1408546445 instance=ExtResource("5_pk6ao")]
+z_index = 0
 position = Vector2(640, 120)
 amount = 46
 local_coords = true

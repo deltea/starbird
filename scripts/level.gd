@@ -28,6 +28,7 @@ var countdown_rot_target = 360.0
 var stars_collected = 0
 var is_complete_animation_done = false
 var time = 0.0
+var secret_found = false
 
 func _ready() -> void:
 	PaletteFilter.set_color_palette(palette)
@@ -97,7 +98,12 @@ func complete():
 	PaletteFilter.set_brightness(0.25)
 	complete_canvas.visible = true
 	time_label.visible = false
-	final_label.text = "[wave]%.2f\nnot found\nxxxx-" % time
+	stars_hud.visible = false
+	final_label.text = "[wave]%.2f\n%s\n%s/5" % [
+		time,
+		"found" if secret_found else "not found",
+		stars_collected
+	]
 
 	complete_player.play("complete")
 	await complete_player.animation_finished

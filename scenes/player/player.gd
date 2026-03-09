@@ -28,6 +28,7 @@ const jump_particles_scene = preload("res://scenes/particles/jump_particles.tscn
 @onready var walk_particles: CPUParticles2D = $WalkParticles
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var dash_timer: Timer = $DashTimer
+@onready var break_area: Area2D = $BreakArea
 
 var jumped = false
 var coyote_timer = 0.0
@@ -159,11 +160,19 @@ func movement(delta: float):
 
 	# dashing
 	if Input.is_action_just_pressed("dash") and not is_dashing and can_dash:
-		can_dash = false
-		if Input.is_action_pressed("down") and not is_on_floor():
-			dash_down()
-		elif x_input:
-			dash_horizontal(x_input)
+		dash(x_input)
+
+func dash(x_input: float):
+	can_dash = false
+
+	for body in break_area.get_overlapping_bodies():
+		if body is Breakable:
+			break_breakable(body)
+
+	if Input.is_action_pressed("down") and not is_on_floor():
+		dash_down()
+	elif x_input:
+		dash_horizontal(x_input)
 
 func dash_horizontal(x_input: float):
 	dash_timer.start()
@@ -207,8 +216,11 @@ func _on_dash_timer_timeout() -> void:
 	is_horizontal_dashing = false
 	sprite.stop()
 
+func break_breakable(breakable: Breakable) -> void:
+	RoomManager.current_room.camera.impact()
+	# Clock.hitstop(0.08)
+	breakable.on_break()
+
 func _on_break_area_body_entered(body: Node2D) -> void:
 	if body is Breakable and is_dashing:
-		RoomManager.current_room.camera.impact()
-		# Clock.hitstop(0.08)
-		body.on_break()
+		break_breakable(body)

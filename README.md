@@ -2,8 +2,8 @@
 
 ## to-do
 
-- [ ] finish end screen
 - [ ] add alphabet scoring system
+- [ ] finish end screen
 - [ ] finish amethyst caves level
 - [ ] dash-collectables in secret areas
 - [ ] make screen shake work with complete canvas

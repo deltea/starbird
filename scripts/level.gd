@@ -43,7 +43,6 @@ func _ready() -> void:
 	get_tree().paused = true
 	player.can_move = false
 
-	await Clock.wait(0.5)
 	show_countdown()
 
 func _process(dt: float) -> void:
@@ -71,7 +70,7 @@ func show_countdown():
 	countdown_rot_target = 360.0
 	countdown_texture.texture = three_texture
 
-	await Clock.wait(0.6)
+	await Clock.wait(0.7)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0

@@ -27,4 +27,6 @@ func change_room(room: String):
 	await Clock.wait(player.current_animation_length)
 	is_transitioning = false
 	player.play("transition")
+
+	get_tree().paused = false
 	get_tree().change_scene_to_packed(scene)

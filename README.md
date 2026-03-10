@@ -4,10 +4,11 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] fix camera bug in level select
-- [ ] complete level finish flow
+- [ ] save best time and other stats
 - [ ] finish amethyst caves level
 - [ ] dash-collectables in secret areas
+- [x] complete level finish flow
+- [x] fix camera bug in level select
 - [x] clean up remote tree (dynamics clutter)
 - [x] complete palette filter overhaul
 - [x] make screen shake work with complete canvas

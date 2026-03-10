@@ -7,6 +7,8 @@ const shooting_star_scene = preload("res://scenes/particles/shooting-star/shooti
 @onready var stars: Node2D = $Stars
 @onready var arrow_3d: Node3D = $Arrow/SubViewport/Arrow3D
 @onready var arrow: SubViewportContainer = $Arrow
+@onready var stars_icon: Star2D = $CanvasLayer/StarsIcon
+@onready var level_num: TextureRect = $CanvasLayer/LevelNum
 
 var select_index = 0
 var arrow_target_pos = Vector2.ZERO
@@ -18,6 +20,7 @@ func _process(dt: float) -> void:
 	camera_target.position = stars.get_child(select_index).position + Vector2(60, 0)
 	arrow_3d.rotation_degrees.z += dt * 100
 	arrow.position = arrow.position.lerp(arrow_target_pos + Vector2(sin(Clock.time * 4.0) * 2, 0), dt * 20)
+	stars_icon.rotation_degrees += dt * 40.0
 
 	if Input.is_action_just_pressed("up"):
 		set_index(select_index + 1)
@@ -33,6 +36,7 @@ func set_index(new_index: int) -> void:
 	select_index = clampi(new_index, 0, stars.get_child_count() - 1)
 	PaletteManager.set_palette((stars.get_child(select_index) as LevelSelectStar).palette)
 	arrow_target_pos = stars.get_child(select_index).position + Vector2(-60, -12)
+	level_num.texture = Globals.number_textures[select_index + 1]
 
 	for i in range(stars.get_child_count()):
 		var star = stars.get_child(i) as LevelSelectStar

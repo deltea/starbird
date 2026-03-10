@@ -6,6 +6,7 @@ speedy birb game go weee
 
 - [ ] save best time and other stats
 - [ ] finish amethyst caves level
+- [ ] find a good woods palette
 - [ ] dash-collectables in secret areas
 - [x] complete level finish flow
 - [x] fix camera bug in level select

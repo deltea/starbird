@@ -1,15 +1,5 @@
 extends Room
 
-@export var s_rank_texture: Texture2D
-@export var a_rank_texture: Texture2D
-@export var b_rank_texture: Texture2D
-@export var c_rank_texture: Texture2D
-
-@export var three_texture: Texture2D
-@export var two_texture: Texture2D
-@export var one_texture: Texture2D
-@export var go_texture: Texture2D
-
 @onready var time_label: RichTextLabel = $CanvasLayer/TimeLabel
 @onready var countdown: Control = $CanvasLayer/Countdown
 @onready var countdown_texture: TextureRect = $CanvasLayer/Countdown/Countdown
@@ -68,25 +58,25 @@ func show_countdown():
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
-	countdown_texture.texture = three_texture
+	countdown_texture.texture = Globals.number_textures[3]
 
 	await Clock.wait(0.7)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
-	countdown_texture.texture = two_texture
+	countdown_texture.texture = Globals.number_textures[2]
 
 	await Clock.wait(0.6)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
-	countdown_texture.texture = one_texture
+	countdown_texture.texture = Globals.number_textures[1]
 
 	await Clock.wait(0.6)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
-	countdown_texture.texture = go_texture
+	countdown_texture.texture = Globals.go_texture
 
 	await Clock.wait(0.4)
 	get_tree().paused = false
@@ -111,7 +101,7 @@ func complete():
 		"found" if secret_found else "not found",
 		stars_collected
 	]
-	rank_text.texture = get("%s_rank_texture" % get_rank(time, stars_collected).to_lower())
+	rank_text.texture = Globals.get("%s_rank_texture" % get_rank(time, stars_collected).to_lower())
 
 	complete_player.play("complete")
 	await complete_player.animation_finished

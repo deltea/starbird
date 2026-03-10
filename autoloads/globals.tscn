@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://df7q381pq6pf0"]
+
+[ext_resource type="Script" uid="uid://clg2lqbe5i03s" path="res://autoloads/globals.gd" id="1_26amj"]
+[ext_resource type="Texture2D" uid="uid://tsd6xgyuhsdj" path="res://assets/ui/ranks/s.png" id="2_caxvy"]
+[ext_resource type="Texture2D" uid="uid://buvg1hds23jq1" path="res://assets/ui/ranks/a.png" id="3_6iior"]
+[ext_resource type="Texture2D" uid="uid://xs5cksp2glgy" path="res://assets/ui/ranks/b.png" id="4_0ce62"]
+[ext_resource type="Texture2D" uid="uid://d78rl4s72wpb" path="res://assets/ui/ranks/c.png" id="5_a6rj1"]
+[ext_resource type="Texture2D" uid="uid://ccq23ma77b4a2" path="res://assets/ui/numbers/3.png" id="6_w30ut"]
+[ext_resource type="Texture2D" uid="uid://dh1k4vsbrh63o" path="res://assets/ui/numbers/2.png" id="7_2mj68"]
+[ext_resource type="Texture2D" uid="uid://bxtkhfjqv4rno" path="res://assets/ui/numbers/1.png" id="8_duean"]
+[ext_resource type="Texture2D" uid="uid://b84711x8vu7ll" path="res://assets/ui/numbers/go.png" id="9_4ent7"]
+[ext_resource type="Texture2D" uid="uid://crb4occeh3spp" path="res://assets/ui/numbers/4.png" id="10_6iior"]
+
+[node name="Globals" type="Node" unique_id=102260085]
+script = ExtResource("1_26amj")
+s_rank_texture = ExtResource("2_caxvy")
+a_rank_texture = ExtResource("3_6iior")
+b_rank_texture = ExtResource("4_0ce62")
+c_rank_texture = ExtResource("5_a6rj1")
+go_texture = ExtResource("9_4ent7")
+number_textures = Array[Texture2D]([null, ExtResource("8_duean"), ExtResource("7_2mj68"), ExtResource("6_w30ut"), ExtResource("10_6iior"), null, null, null, null, null, null])

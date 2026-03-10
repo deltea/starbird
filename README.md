@@ -4,9 +4,11 @@ speedy birb game go weee
 
 ## to-do
 
+- [ ] complete palette filter overhaul
+- [ ] complete level finish flow
 - [ ] finish amethyst caves level
 - [ ] dash-collectables in secret areas
-- [ ] make screen shake work with complete canvas
+- [x] make screen shake work with complete canvas
 - [x] finish end screen
 - [x] make countdown use textures
 - [x] add alphabet scoring system
@@ -37,6 +39,6 @@ speedy birb game go weee
 
 ## game mechanics ideas
 
-- bouncepads, dash down to bounce
-- breakable walls, dash into to break through
-- maybe one horizontal dash and one vertical dash until refill?
+- [ ] maybe one horizontal dash and one vertical dash until refill?
+- [x] bouncepads, dash down to bounce
+- [x] breakable walls, dash into to break through

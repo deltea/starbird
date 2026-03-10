@@ -15,7 +15,7 @@ shader_parameter/transparent_bg = false
 
 [node name="PaletteFilter" type="CanvasLayer" unique_id=1361322869]
 process_mode = 3
-layer = 10
+layer = 40
 script = ExtResource("1_adh26")
 default_palette = ExtResource("2_lvugl")
 

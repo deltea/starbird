@@ -8,3 +8,7 @@ var camera: Camera
 
 func _enter_tree() -> void:
 	RoomManager.current_room = self
+
+func _ready() -> void:
+	PaletteFilter.set_color_palette(palette)
+	PaletteFilter.set_brightness(1.0)

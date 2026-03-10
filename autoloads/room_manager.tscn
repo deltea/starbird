@@ -66,7 +66,7 @@ _data = {
 
 [node name="RoomManager" type="CanvasLayer" unique_id=828305573]
 process_mode = 3
-layer = 10
+layer = 30
 script = ExtResource("1_ek3bw")
 metadata/_edit_vertical_guides_ = [160.0]
 metadata/_edit_horizontal_guides_ = [120.0]
@@ -80,9 +80,4 @@ color = Color(0, 0, 0, 1)
 invert_enabled = true
 invert_border = 200.0
 polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-peaks = 5
-peak_randomness = 0
-low_radius = 25.0
-low_radius_randomness = 0.0
-high_radius_randomness = 0.0
 star_scale = 10.0

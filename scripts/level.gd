@@ -39,7 +39,8 @@ var time = 0.0
 var secret_found = false
 
 func _ready() -> void:
-	PaletteFilter.set_color_palette(palette)
+	super._ready()
+
 	complete_palette_filter.material.set_shader_parameter("palette_out", palette)
 
 	get_tree().paused = true
@@ -63,8 +64,9 @@ func _process(dt: float) -> void:
 	if is_complete_animation_done:
 		complete_star.rotation_degrees += dt * 40.0
 		complete_star.scale = star_scale_dynamics.update(1) * Vector2.ONE
-		# rank_text.rotation_degrees = sin(Clock.time * 5.0) * 6.0
-		# rank_text.scale = (1.0 + sin(Clock.time * 5.0) * 0.05) * Vector2.ONE
+
+		if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("dash"):
+			RoomManager.change_room("level-select/level_select")
 
 func show_countdown():
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)

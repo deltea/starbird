@@ -4,11 +4,12 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] add alphabet scoring system
+- [ ] make countdown use textures
 - [ ] finish end screen
 - [ ] finish amethyst caves level
 - [ ] dash-collectables in secret areas
 - [ ] make screen shake work with complete canvas
+- [x] add alphabet scoring system
 - [x] fix movement bug where trampoline doesn't work
 - [x] juice up breakable walls
 - [x] juice up stars
@@ -22,6 +23,10 @@ speedy birb game go weee
 - [x] make main menu
 - [x] add breakable stuff
 - [x] add wall jump particles
+
+## known bugs
+
+- [ ] stars are flashing when collected
 
 ## levels (in-order)
 

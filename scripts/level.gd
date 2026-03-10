@@ -2,6 +2,11 @@ extends Room
 
 const countdown_rot = 10.0
 
+@export var s_rank_texture: Texture2D
+@export var a_rank_texture: Texture2D
+@export var b_rank_texture: Texture2D
+@export var c_rank_texture: Texture2D
+
 @onready var time_label: RichTextLabel = $CanvasLayer/TimeLabel
 @onready var countdown: Control = $CanvasLayer/Countdown
 @onready var countdown_label: Label = $CanvasLayer/Countdown/CountdownLabel
@@ -104,6 +109,7 @@ func complete():
 		"found" if secret_found else "not found",
 		stars_collected
 	]
+	rank_text.texture = get("%s_rank_texture" % get_rank(time, stars_collected).to_lower())
 
 	complete_player.play("complete")
 	await complete_player.animation_finished
@@ -116,9 +122,28 @@ func get_node_screen_position(node: Node2D) -> Vector2:
 	var screen_position = canvas_transform * global_pos
 	return screen_position
 
+func get_rank(final_time: float, stars: int) -> String:
+	var score = 0
+	if final_time < 30.0:
+		score += 3
+	elif final_time < 60.0:
+		score += 2
+	elif final_time < 90.0:
+		score += 1
+
+	score += ceil(stars * 0.5)
+
+	if score >= 5:
+		return "S"
+	elif score >= 4:
+		return "A"
+	elif score >= 3:
+		return "B"
+	else:
+		return "C"
+
 func collect_star(star: Collectable) -> void:
 	stars_collected += 1
-	# star.reparent(stars_hud)
 	star.call_deferred("reparent", stars_hud)
 	star.position = get_node_screen_position(star)
 	star.target_pos = stars_hud.get_child(stars_collected - 1).position

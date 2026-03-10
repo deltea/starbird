@@ -137,9 +137,9 @@ texture = ExtResource("6_gxm1v")
 [node name="Star" parent="Main/Title" unique_id=1862493531 instance=ExtResource("2_osspu")]
 position = Vector2(42, -18)
 rotation = 1.0471976
-scale = Vector2(0.2, 0.2)
 color = Color(0.8666667, 0.8666667, 0.8666667, 1)
-polygon = PackedVector2Array(-34.895588, 19.552439, -10.46156, 22.705853, 7.8121467, 39.229713, 18.36175, 16.966028, 39.723763, 4.6928535, 21.809744, -12.220274, 16.738487, -36.32937, -4.8825893, -24.51857, -29.378805, -27.145641, -24.827349, -2.9330356)
+polygon = PackedVector2Array(8, 0, 4.045085, -2.9389262, 2.4721358, -7.6084523, -1.5450852, -4.7552824, -6.4721365, -4.7022815, -5, 4.371139e-07, -6.4721355, 4.702283, -1.5450854, 4.7552824, 2.472137, 7.608452, 4.045085, 2.9389265)
+star_scale = 0.2
 
 [node name="Controls" type="Node2D" parent="Main" unique_id=1754392732]
 position = Vector2(-24, 0)

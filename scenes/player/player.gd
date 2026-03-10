@@ -167,8 +167,6 @@ func movement(delta: float):
 	if Input.is_action_just_pressed("dash") and not is_dashing and can_dash:
 		dash(x_input)
 
-	print(just_dashed)
-
 func dash(x_input: float):
 	can_dash = false
 

@@ -92,7 +92,8 @@ func complete():
 	is_completed = true
 	await Clock.wait(1.0)
 
-	# PaletteManager.set_brightness(0.25)
+	# todo: save game here
+
 	complete_canvas.visible = true
 	time_label.visible = false
 	stars_hud.visible = false

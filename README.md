@@ -8,6 +8,7 @@ speedy birb game go weee
 - [ ] finish amethyst caves level
 - [ ] find a good woods palette
 - [ ] dash-collectables in secret areas
+- [ ] click to focus when starting
 - [x] complete level finish flow
 - [x] fix camera bug in level select
 - [x] clean up remote tree (dynamics clutter)

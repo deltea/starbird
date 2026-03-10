@@ -7,8 +7,8 @@ var time = 0.0
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(delta: float) -> void:
-	time += delta
+func _process(dt: float) -> void:
+	time += dt
 
 func wait(duration: float):
 	await get_tree().create_timer(duration, true, false, true).timeout

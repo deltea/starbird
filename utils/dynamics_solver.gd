@@ -26,8 +26,8 @@ func _ready() -> void:
 
 	reset()
 
-func _process(delta: float) -> void:
-	T = delta
+func _process(dt: float) -> void:
+	T = dt
 
 func update(x: float):
 	if xd == null:

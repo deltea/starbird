@@ -21,7 +21,7 @@ func _ready() -> void:
 
 	reset_smoothing()
 
-func _process(delta: float) -> void:
+func _process(dt: float) -> void:
 	rotation_degrees = rot_dynamics.update(0.0)
 
 	if follow:
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 		global_position = target_pos
 	if shake_duration > 0:
 		offset = original_pos + Vector2.from_angle(randf_range(0, PI*2)) * shake_magnitude
-		shake_duration -= delta * shake_damping_speed
+		shake_duration -= dt * shake_damping_speed
 	else:
 		shake_duration = 0
 		offset = original_pos

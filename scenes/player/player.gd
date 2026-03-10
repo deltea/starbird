@@ -58,8 +58,8 @@ func _process(_dt: float) -> void:
 	sprite.rotation_degrees = rot_dynamics.update(target_rot)
 	dash_particles.emitting = is_dashing
 
-func _physics_process(delta: float) -> void:
-	if can_move: movement(delta)
+func _physics_process(dt: float) -> void:
+	if can_move: movement(dt)
 
 	var was_on_floor = is_on_floor()
 	move_and_slide()
@@ -84,11 +84,11 @@ func _physics_process(delta: float) -> void:
 			# else:
 			# 	velocity.y = -100.0
 
-func movement(delta: float):
-	coyote_timer += delta
-	buffer_timer += delta
+func movement(dt: float):
+	coyote_timer += dt
+	buffer_timer += dt
 	if wall_jump_lock_timer > 0.0:
-		wall_jump_lock_timer = max(0.0, wall_jump_lock_timer - delta)
+		wall_jump_lock_timer = max(0.0, wall_jump_lock_timer - dt)
 
 	if just_dashed and velocity.y >= 0.0:
 		just_dashed = false
@@ -100,9 +100,9 @@ func movement(delta: float):
 			if is_on_wall() and x_input:
 				velocity.y = wall_fall_velocity
 			else:
-				velocity.y += fall_gravity * delta
+				velocity.y += fall_gravity * dt
 		else:
-			velocity.y += gravity * delta
+			velocity.y += gravity * dt
 
 	if not is_dashing:
 		if x_input:

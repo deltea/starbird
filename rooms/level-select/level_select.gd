@@ -52,7 +52,7 @@ func _process(dt: float) -> void:
 		tween.tween_property(bird_anchor, "rotation_degrees", 400.0, 0.5).set_trans(Tween.TRANS_LINEAR)
 		tween.tween_property(bird_anchor, "position:y", bird.position.y - 40, 0.4).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		tween.tween_property(bird_anchor, "position:y", bird.position.y + 20, 0.45).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN).set_delay(0.15)
-		tween.tween_property(bird_anchor, "scale", Vector2.ZERO, 0.15).set_delay(0.42).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(bird_anchor, "scale", Vector2.ZERO, 0.15).set_delay(0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 		await Clock.wait(0.4)
 		var star = stars.get_child(select_index) as LevelSelectStar

@@ -12,7 +12,7 @@ speedy birb game go weee
 - [ ] finish woods level
 - [ ] add cutscene/dialogue system
 - [ ] finish third level
-_ [ ] finish summit level
+- [ ] finish summit level
 - [ ] dash-collectables in secret areas
 - [ ] the peak stars cutscene
 - [ ] add sound effects

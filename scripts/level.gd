@@ -1,5 +1,7 @@
 extends Room
 
+@export var level_name = "level"
+
 @onready var time_label: RichTextLabel = $CanvasLayer/TimeLabel
 @onready var countdown: Control = $CanvasLayer/Countdown
 @onready var countdown_texture: TextureRect = $CanvasLayer/Countdown/Countdown
@@ -92,7 +94,7 @@ func complete():
 	is_completed = true
 	await Clock.wait(1.0)
 
-	# todo: save game here
+	SaveManager.save_level(level_name, stars_collected, time)
 
 	complete_canvas.visible = true
 	time_label.visible = false

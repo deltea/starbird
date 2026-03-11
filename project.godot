@@ -28,6 +28,7 @@ AudioManager="*uid://brg5fpoii7sj3"
 SettingsManager="*uid://coese5a74585k"
 PaletteManager="*uid://cqm0100lh1gyr"
 Globals="*uid://df7q381pq6pf0"
+SaveManager="*uid://boy0qrvb8ulsk"
 
 [display]
 

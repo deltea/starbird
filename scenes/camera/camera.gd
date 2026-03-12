@@ -13,6 +13,7 @@ var shake_magnitude = 0;
 var original_pos = Vector2.ZERO;
 var target_zoom = Vector2.ONE
 var target_pos
+var is_constrained = true
 
 func _enter_tree() -> void:
 	RoomManager.current_room.camera = self
@@ -29,7 +30,8 @@ func _process(dt: float) -> void:
 	if follow:
 		target_pos = follow.global_position
 
-	target_pos = constrain_camera(target_pos)
+	if is_constrained:
+		target_pos = constrain_camera(target_pos)
 	global_position = global_position.lerp(target_pos, 10.0 * dt)
 
 	if shake_duration > 0:

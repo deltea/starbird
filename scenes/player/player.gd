@@ -111,7 +111,6 @@ func movement(dt: float):
 			else:
 				velocity.x = move_toward(velocity.x, x_input * max_speed, acceleration)
 			sprite.flip_h = x_input < 0
-			$CameraArea.position.x = 48 * x_input
 		else:
 			if wall_jump_lock_timer > 0.0:
 				velocity.x = move_toward(velocity.x, wall_jump_target_velocity_x, deceleration * 0.5)

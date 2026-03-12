@@ -3,6 +3,7 @@ extends Room
 @export var level_name = "level"
 
 @onready var time_label: RichTextLabel = $CanvasLayer/TimeLabel
+@onready var countdown_canvas: CanvasLayer = $CanvasLayer
 @onready var countdown: Control = $CanvasLayer/Countdown
 @onready var countdown_texture: TextureRect = $CanvasLayer/Countdown/Countdown
 @onready var countdown_background: ColorRect = $CanvasLayer/Countdown/CountdownBackground
@@ -34,6 +35,9 @@ func _ready() -> void:
 
 	get_tree().paused = true
 	player.can_move = false
+
+	complete_canvas.visible = false
+	countdown_canvas.visible = true
 
 	show_countdown()
 
@@ -96,6 +100,7 @@ func complete():
 
 	SaveManager.save_level(level_name, stars_collected, time)
 
+	RoomManager.current_room.camera.is_constrained = false
 	complete_canvas.visible = true
 	time_label.visible = false
 	stars_hud.visible = false

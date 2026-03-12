@@ -436,7 +436,6 @@ star_scale = 0.12
 
 [node name="CompleteCanvas" type="CanvasLayer" parent="." unique_id=229946939]
 layer = 20
-follow_viewport_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CompleteCanvas" unique_id=542877002]
 libraries/ = SubResource("AnimationLibrary_ijbq7")
@@ -601,16 +600,17 @@ fit_content = true
 wait_time = 0.5
 autostart = true
 
-[node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow") instance=ExtResource("6_15qan")]
+[node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow", "bounds") instance=ExtResource("6_15qan")]
 ignore_rotation = false
+limit_enabled = false
 limit_left = -112
 limit_top = -256
 limit_right = 192
 limit_bottom = 64
 limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 follow = NodePath("../Player")
+bounds = NodePath("../CameraBounds")
 impact_rotation = 2.0
 
 [node name="CameraBounds" parent="." unique_id=509460024 instance=ExtResource("14_4r1re")]

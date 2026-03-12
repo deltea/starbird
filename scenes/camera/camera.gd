@@ -1,7 +1,7 @@
 class_name Camera extends Camera2D
 
 @export var follow: Node2D
-@export var bounds: Polygon2D
+@export var bounds: CameraBounds
 @export var rotation_speed = 5.0
 @export var impact_rotation = 5.0
 @export var shake_damping_speed = 2.0
@@ -68,7 +68,7 @@ func all_corners_inside(center_world: Vector2) -> bool:
 	]
 
 	for corner_world in corners:
-		var corner_local: Vector2 = corner_world - bounds.global_position
+		var corner_local: Vector2 = bounds.to_local(corner_world)
 		if not Geometry2D.is_point_in_polygon(corner_local, bounds.polygon):
 			return false
 
@@ -96,7 +96,7 @@ func constrain_camera(desired_center_world: Vector2) -> Vector2:
 
 		for corner_offset in corner_offsets:
 			var corner_world: Vector2 = corrected + corner_offset
-			var corner_local: Vector2 = corner_world - bounds.global_position
+			var corner_local: Vector2 = bounds.to_local(corner_world)
 			if Geometry2D.is_point_in_polygon(corner_local, bounds.polygon):
 				continue
 
@@ -107,6 +107,8 @@ func constrain_camera(desired_center_world: Vector2) -> Vector2:
 		if outside_count == 0:
 			break
 
-		corrected += correction / float(outside_count)
+		var local_step: Vector2 = correction / float(outside_count)
+		var world_step: Vector2 = bounds.global_transform.basis_xform(local_step)
+		corrected += world_step
 
 	return corrected

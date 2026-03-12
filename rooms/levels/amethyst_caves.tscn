@@ -6,9 +6,9 @@
 level_name = "amethyst caves"
 
 [node name="CameraBounds" parent="." index="3" unique_id=509460024]
-position = Vector2(70.40001, 0)
-scale = Vector2(1.7999998, 1)
-polygon = PackedVector2Array(-128, -256, 192, -256, 192, 64, -92.44446, 63.999996)
+position = Vector2(-6.1035156e-05, -9.094947e-13)
+scale = Vector2(0.31578955, 1)
+polygon = PackedVector2Array(-379.99994, -255.99998, -379.99994, 63.999996, 1139.9999, 63.999996, 1139.9999, -255.99998)
 
 [node name="TileMapMidground" parent="ParallaxMidground" parent_id_path=PackedInt32Array(1976364911) index="0" unique_id=1438112172]
 tile_map_data = PackedByteArray()

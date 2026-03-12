@@ -38,6 +38,7 @@ func _ready() -> void:
 
 	complete_canvas.visible = false
 	countdown_canvas.visible = true
+	time_label.visible = false
 
 	show_countdown()
 
@@ -87,12 +88,14 @@ func show_countdown():
 	await Clock.wait(0.4)
 	get_tree().paused = false
 	player.can_move = true
-	is_started = true
 
 	await Clock.wait(0.4)
 	countdown_scale_target = Vector2.ZERO
 	await Clock.wait(0.1)
+
 	countdown.visible = false
+	time_label.visible = true
+	is_started = true
 
 func complete():
 	is_completed = true

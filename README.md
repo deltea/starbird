@@ -46,9 +46,9 @@ speedy birb game go weee
 
 ## known bugs
 
-- [ ] weird behavior with camera bounds in new levels
 - [ ] stars teleport for a frame when collected
 - [ ] breakables not breaking at the same time
+- [x] weird behavior with camera bounds in new levels
 
 ## levels (in-order)
 

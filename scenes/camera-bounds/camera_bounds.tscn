@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://buc24hdxuv8cg"]
+
+[ext_resource type="Script" uid="uid://d1dhanytkpdw7" path="res://scenes/camera-bounds/camera_bounds.gd" id="1_d7hsd"]
+
+[node name="CameraBounds" type="Polygon2D" unique_id=509460024]
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_d7hsd")

@@ -2,22 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bjup6ntnjl6ln" path="res://scripts/level.gd" id="1_wrbck"]
 [ext_resource type="Texture2D" uid="uid://cksk5qojiqsdw" path="res://assets/palettes/purple.png" id="2_4r1re"]
-[ext_resource type="Texture2D" uid="uid://buvg1hds23jq1" path="res://assets/ui/ranks/a.png" id="3_3qwok"]
 [ext_resource type="FontFile" uid="uid://582abh2r0rhk" path="res://assets/fonts/m6x11.ttf" id="3_wrbck"]
-[ext_resource type="Texture2D" uid="uid://xs5cksp2glgy" path="res://assets/ui/ranks/b.png" id="4_15qan"]
-[ext_resource type="Texture2D" uid="uid://d78rl4s72wpb" path="res://assets/ui/ranks/c.png" id="5_fei6a"]
 [ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="5_wrbck"]
 [ext_resource type="Texture2D" uid="uid://tsd6xgyuhsdj" path="res://assets/ui/ranks/s.png" id="6_4r1re"]
 [ext_resource type="PackedScene" uid="uid://cykuanfl3n1rh" path="res://scenes/camera/camera.tscn" id="6_15qan"]
 [ext_resource type="PackedScene" uid="uid://cqedlma3fml7b" path="res://scenes/player/player.tscn" id="7_fei6a"]
 [ext_resource type="Texture2D" uid="uid://ccq23ma77b4a2" path="res://assets/ui/numbers/3.png" id="8_15qan"]
-[ext_resource type="Texture2D" uid="uid://bxtkhfjqv4rno" path="res://assets/ui/numbers/1.png" id="8_xw2c8"]
 [ext_resource type="TileSet" uid="uid://bf6kvyb2ip0wp" path="res://tileset.tres" id="9_6b5hc"]
-[ext_resource type="Texture2D" uid="uid://dh1k4vsbrh63o" path="res://assets/ui/numbers/2.png" id="9_tdyh2"]
-[ext_resource type="Texture2D" uid="uid://b84711x8vu7ll" path="res://assets/ui/numbers/go.png" id="9_xw2c8"]
 [ext_resource type="Texture2D" uid="uid://c8ke4gok4cnd0" path="res://assets/generic/square-big.png" id="10_xw2c8"]
 [ext_resource type="PackedScene" uid="uid://dtjbn58747xj5" path="res://scenes/goal/goal.tscn" id="12_t0xh4"]
 [ext_resource type="PackedScene" uid="uid://dv7cyw0jlnfe8" path="res://scenes/collectable/collectable.tscn" id="13_julpp"]
+[ext_resource type="PackedScene" uid="uid://buc24hdxuv8cg" path="res://scenes/camera-bounds/camera_bounds.tscn" id="14_4r1re"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="14_dsxex"]
 
 [sub_resource type="Animation" id="Animation_ijbq7"]
@@ -342,14 +337,6 @@ font_size = 18
 [node name="Level" type="Node2D" unique_id=2129457560]
 process_mode = 3
 script = ExtResource("1_wrbck")
-s_rank_texture = ExtResource("6_4r1re")
-a_rank_texture = ExtResource("3_3qwok")
-b_rank_texture = ExtResource("4_15qan")
-c_rank_texture = ExtResource("5_fei6a")
-three_texture = ExtResource("8_15qan")
-two_texture = ExtResource("9_tdyh2")
-one_texture = ExtResource("8_xw2c8")
-go_texture = ExtResource("9_xw2c8")
 palette = ExtResource("2_4r1re")
 metadata/_edit_vertical_guides_ = [-160.0, 160.0]
 metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
@@ -626,25 +613,10 @@ position_smoothing_speed = 10.0
 follow = NodePath("../Player")
 impact_rotation = 2.0
 
+[node name="CameraBounds" parent="." unique_id=509460024 instance=ExtResource("14_4r1re")]
+
 [node name="Player" parent="." unique_id=249500363 instance=ExtResource("7_fei6a")]
 position = Vector2(0, 24)
-max_speed = 150.0
-jump_velocity = 280.0
-gravity = 1000.0
-fall_gravity = 1400.0
-wall_fall_velocity = 80.0
-acceleration = 50.0
-deceleration = 30.0
-coyote_time = 0.15
-buffer_time = 0.15
-jump_cut_multiplier = 0.5
-bounce_velocity = 400.0
-dash_velocity = 400.0
-down_dash_velocity = 420.0
-wall_jump_x_multiplier = 1.2
-wall_jump_control_lock_time = 0.08
-squash = 0.6
-stretch = 0.4
 
 [node name="ParallaxBackground" type="Parallax2D" parent="." unique_id=1864692733]
 z_index = -20

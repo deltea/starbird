@@ -43,6 +43,7 @@ var original_particles_x
 var wall_jump_lock_timer = 0.0
 var wall_jump_target_velocity_x = 0.0
 var just_dashed = false
+var dir = 1
 
 @onready var scale_dynamics: DynamicsSolverVector = Dynamics.create_dynamics_vector(2.0, 0.5, 2.0);
 @onready var rot_dynamics: DynamicsSolver = Dynamics.create_dynamics(10.0, 0.8, 10.0);
@@ -110,6 +111,7 @@ func movement(dt: float):
 				velocity.x = move_toward(velocity.x, wall_jump_target_velocity_x, acceleration * 0.5)
 			else:
 				velocity.x = move_toward(velocity.x, x_input * max_speed, acceleration)
+			dir = sign(x_input)
 			sprite.flip_h = x_input < 0
 		else:
 			if wall_jump_lock_timer > 0.0:

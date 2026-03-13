@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://6euu8cklkbgu"]
+
+[ext_resource type="Script" uid="uid://u1k4fum68hir" path="res://scenes/level-camera-target/level_camera_target.gd" id="1_rwjtp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwjtp"]
+custom_solver_bias = 1.0
+size = Vector2(320, 240)
+
+[node name="LevelCameraTarget" type="RigidBody2D" unique_id=826168185]
+freeze_mode = 1
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 20.0
+script = ExtResource("1_rwjtp")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1011378452]
+shape = SubResource("RectangleShape2D_rwjtp")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="." unique_id=24096660]
+target_desired_distance = 12.0

@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://ds6uisrlvq6nk" path="res://scenes/breakable/breakable.tscn" id="6_pywsr"]
 [ext_resource type="PackedScene" uid="uid://ve5v6jngqdc6" path="res://scenes/decoration/fly_decoration.tscn" id="7_2sy11"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_knea1"]
+vertices = PackedVector2Array(1462, 318, -150, 318, -150, -142, 1462, -142)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-160, -152, -160, 328, 1472, 328, 1472, -152)])
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8d4uy"]
 friction = 0.0
 absorbent = true
@@ -206,11 +211,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_knea1"]
-vertices = PackedVector2Array(1462, 318, -102, 318, -102, -142, 1462, -142)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-112, -152, -112, 328, 1472, 328, 1472, -152)])
-
 [node name="TestLevel2" unique_id=2129457560 instance=ExtResource("1_fxm0c")]
 level_name = "test level"
 
@@ -221,16 +221,20 @@ text = "02:32"
 vertical_alignment = 0
 
 [node name="Camera" parent="." index="2" unique_id=1304390175]
-follow_speed = 60.0
+position_smoothing_speed = 8.0
 
-[node name="CameraConstraints" parent="." index="3" unique_id=1596452924]
+[node name="NavigationRegion2D" parent="." index="4" unique_id=1923494395]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_knea1")
+
+[node name="CameraConstraints" parent="." index="5" unique_id=1596452924]
 physics_material_override = SubResource("PhysicsMaterial_8d4uy")
 
 [node name="CollisionPolygon" parent="CameraConstraints" index="0" unique_id=1489765301]
 position = Vector2(656, 92)
 polygon = PackedVector2Array(-752, -188, -752, 188, 752, 188, 752, -188)
 
-[node name="Player" parent="." index="4" unique_id=249500363]
+[node name="Player" parent="." index="6" unique_id=249500363]
 position = Vector2(0, 232)
 bounce_velocity = 430.0
 
@@ -393,9 +397,6 @@ sprite_frames = SubResource("SpriteFrames_knea1")
 [node name="FlyDecoration7" parent="Decoration/Parallax2D" index="7" unique_id=354367901 instance=ExtResource("7_2sy11")]
 position = Vector2(1200, 200)
 sprite_frames = SubResource("SpriteFrames_43afx")
-
-[node name="NavigationRegion2D" parent="." index="11" unique_id=1923494395]
-navigation_polygon = SubResource("NavigationPolygon_knea1")
 
 [editable path="CameraConstraints"]
 [editable path="Elements/SecretArea"]

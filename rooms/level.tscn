@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dtjbn58747xj5" path="res://scenes/goal/goal.tscn" id="12_t0xh4"]
 [ext_resource type="PackedScene" uid="uid://dv7cyw0jlnfe8" path="res://scenes/collectable/collectable.tscn" id="13_julpp"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="14_dsxex"]
+[ext_resource type="PackedScene" uid="uid://6euu8cklkbgu" path="res://scenes/level-camera-target/level_camera_target.tscn" id="15_mlrue"]
 
 [sub_resource type="Animation" id="Animation_ijbq7"]
 length = 0.001
@@ -609,8 +610,18 @@ wait_time = 0.5
 autostart = true
 
 [node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow") instance=ExtResource("6_15qan")]
-follow = NodePath("../Player")
-pathfinding = true
+follow = NodePath("../LevelCameraTarget")
+
+[node name="LevelCameraTarget" parent="." unique_id=826168185 node_paths=PackedStringArray("player") instance=ExtResource("15_mlrue")]
+collision_layer = 4
+collision_mask = 4
+mass = 0.1
+gravity_scale = 0.0
+player = NodePath("../Player")
+follow_speed = 20.0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1923494395]
+navigation_polygon = SubResource("NavigationPolygon_4r1re")
 
 [node name="CameraConstraints" parent="." unique_id=1596452924 instance=ExtResource("9_4r1re")]
 
@@ -663,9 +674,6 @@ position = Vector2(-8, -200)
 position = Vector2(128, -112)
 
 [node name="Decoration" type="Node" parent="." unique_id=238951789]
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1923494395]
-navigation_polygon = SubResource("NavigationPolygon_4r1re")
 
 [connection signal="timeout" from="CompleteCanvas/StarPingTimer" to="." method="_on_star_ping_timer_timeout"]
 

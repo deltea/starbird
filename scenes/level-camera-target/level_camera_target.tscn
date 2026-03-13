@@ -12,7 +12,9 @@ size = Vector2(320, 240)
 
 [node name="LevelCameraTarget" type="RigidBody2D" unique_id=826168185]
 process_mode = 3
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_rwjtp")
+gravity_scale = 0.0
 freeze_mode = 1
 continuous_cd = 2
 contact_monitor = true
@@ -25,4 +27,6 @@ shape = SubResource("RectangleShape2D_rwjtp")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="NavigationAgent" type="NavigationAgent2D" parent="." unique_id=24096660]
-target_desired_distance = 12.0
+path_desired_distance = 40.0
+target_desired_distance = 16.0
+simplify_path = true

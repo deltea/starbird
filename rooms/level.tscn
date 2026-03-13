@@ -615,8 +615,6 @@ follow = NodePath("../LevelCameraTarget")
 [node name="LevelCameraTarget" parent="." unique_id=826168185 node_paths=PackedStringArray("player") instance=ExtResource("15_mlrue")]
 collision_layer = 4
 collision_mask = 4
-mass = 0.1
-gravity_scale = 0.0
 player = NodePath("../Player")
 follow_speed = 20.0
 

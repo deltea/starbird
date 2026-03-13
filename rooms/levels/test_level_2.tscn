@@ -225,6 +225,7 @@ position_smoothing_speed = 8.0
 
 [node name="LevelCameraTarget" parent="." index="3" unique_id=826168185]
 position = Vector2(0, 232)
+mass = 100.0
 
 [node name="NavigationRegion2D" parent="." index="4" unique_id=1923494395]
 visible = false
@@ -238,7 +239,7 @@ position = Vector2(656, 92)
 polygon = PackedVector2Array(-752, -188, -752, 188, 752, 188, 752, -188)
 
 [node name="Player" parent="." index="6" unique_id=249500363]
-position = Vector2(0, 232)
+position = Vector2(16, 232)
 bounce_velocity = 430.0
 
 [node name="TileMapMidground" parent="ParallaxMidground" parent_id_path=PackedInt32Array(1976364911) index="0" unique_id=1438112172]

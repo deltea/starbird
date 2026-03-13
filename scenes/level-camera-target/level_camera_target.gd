@@ -18,4 +18,4 @@ func _physics_process(_dt: float) -> void:
 		return
 
 	var desired_agent_pos = agent.get_next_path_position()
-	apply_central_force(((desired_agent_pos - global_position) * follow_speed).limit_length(speed_limit))
+	linear_velocity = ((desired_agent_pos - global_position) * follow_speed).limit_length(speed_limit)

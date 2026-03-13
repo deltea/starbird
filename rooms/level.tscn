@@ -337,9 +337,9 @@ font_size = 18
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4r1re"]
 resource_local_to_scene = true
-vertices = PackedVector2Array(566, 110, -150, 110, -150, -630, 566, -630)
+vertices = PackedVector2Array(1950, 574, -1134, 574, -1134, -1110, 1950, -1110)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-160, -640, -160, 120, 576, 120, 576, -640)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1144, -1120, -1144, 584, 1960, 584, 1960, -1120)])
 
 [node name="Level" type="Node2D" unique_id=2129457560]
 process_mode = 3
@@ -610,7 +610,13 @@ wait_time = 0.5
 autostart = true
 
 [node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow") instance=ExtResource("6_15qan")]
-follow = NodePath("../LevelCameraTarget")
+limit_enabled = true
+limit_left = -160
+limit_top = -120
+limit_right = 160
+limit_bottom = 120
+limit_smoothed = true
+follow = NodePath("../Player")
 
 [node name="LevelCameraTarget" parent="." unique_id=826168185 node_paths=PackedStringArray("player") instance=ExtResource("15_mlrue")]
 collision_layer = 4
@@ -619,6 +625,7 @@ player = NodePath("../Player")
 follow_speed = 20.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1923494395]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_4r1re")
 
 [node name="CameraConstraints" parent="." unique_id=1596452924 instance=ExtResource("9_4r1re")]

@@ -22,7 +22,7 @@ func _process(dt: float) -> void:
 	rotation_degrees = rot_dynamics.update(0.0)
 
 	global_position = follow.global_position
-	if follow is LevelCameraTarget:
+	if follow is LevelCameraTarget or follow is Player:
 		global_position += Vector2(RoomManager.current_room.player.dir * lookahead, 0)
 
 	offset = original_pos

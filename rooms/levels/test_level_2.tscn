@@ -221,6 +221,10 @@ text = "02:32"
 vertical_alignment = 0
 
 [node name="Camera" parent="." index="2" unique_id=1304390175]
+limit_left = -104
+limit_top = -96
+limit_right = 1400
+limit_bottom = 272
 position_smoothing_speed = 8.0
 
 [node name="LevelCameraTarget" parent="." index="3" unique_id=826168185]
@@ -228,7 +232,6 @@ position = Vector2(0, 232)
 mass = 100.0
 
 [node name="NavigationRegion2D" parent="." index="4" unique_id=1923494395]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_knea1")
 
 [node name="CameraConstraints" parent="." index="5" unique_id=1596452924]
@@ -236,7 +239,7 @@ physics_material_override = SubResource("PhysicsMaterial_8d4uy")
 
 [node name="CollisionPolygon" parent="CameraConstraints" index="0" unique_id=1489765301]
 position = Vector2(656, 92)
-polygon = PackedVector2Array(-752, -188, -752, 188, 752, 188, 752, -188)
+polygon = PackedVector2Array(-752, -148, -752, 188, 752, 188, 752, -148, -80, -148, -80, -188, -464, -188, -464, -148)
 
 [node name="Player" parent="." index="6" unique_id=249500363]
 position = Vector2(16, 232)

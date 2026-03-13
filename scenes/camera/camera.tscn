@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://clbv7tmprjpx5" path="res://scenes/camera/camera.gd" id="1_xejhd"]
 
 [node name="Camera" type="Camera2D" unique_id=1304390175]
+process_mode = 3
 top_level = true
 ignore_rotation = false
 limit_enabled = false

@@ -6,7 +6,10 @@ class_name LevelCameraTarget extends RigidBody2D
 
 @onready var agent: NavigationAgent2D = $NavigationAgent
 
-func _physics_process(delta):
+func _ready() -> void:
+	agent.target_position = player.global_position
+
+func _physics_process(_dt: float) -> void:
 	agent.target_position = player.global_position
 
 	if NavigationServer2D.map_get_iteration_id(agent.get_navigation_map()) == 0:

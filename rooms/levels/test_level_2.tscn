@@ -223,6 +223,9 @@ vertical_alignment = 0
 [node name="Camera" parent="." index="2" unique_id=1304390175]
 position_smoothing_speed = 8.0
 
+[node name="LevelCameraTarget" parent="." index="3" unique_id=826168185]
+position = Vector2(0, 232)
+
 [node name="NavigationRegion2D" parent="." index="4" unique_id=1923494395]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_knea1")

@@ -49,8 +49,6 @@ metadata/_edit_vertical_guides_ = [160.0, 320.0]
 
 [node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow") instance=ExtResource("3_ykw4b")]
 position = Vector2(160, 120)
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 follow = NodePath("../CameraTarget")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=609583862]

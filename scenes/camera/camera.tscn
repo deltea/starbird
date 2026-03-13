@@ -17,7 +17,6 @@ mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_xejhd")
 gravity_scale = 0.0
 lock_rotation = true
-freeze_mode = 1
 continuous_cd = 2
 linear_damp = 40.0
 script = ExtResource("1_xejhd")
@@ -28,6 +27,7 @@ debug_color = Color(0, 0.56426674, 0.8686784, 0)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1304390175]
 top_level = true
+ignore_rotation = false
 limit_enabled = false
 
 [node name="NavigationAgent" type="NavigationAgent2D" parent="." unique_id=1372961591]

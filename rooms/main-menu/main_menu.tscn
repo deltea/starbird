@@ -26,9 +26,6 @@ metadata/_edit_horizontal_guides_ = [120.0, 240.0]
 
 [node name="Camera" parent="." unique_id=1304390175 node_paths=PackedStringArray("follow") instance=ExtResource("10_glo86")]
 position = Vector2(160, 120)
-ignore_rotation = false
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 follow = NodePath("../CameraTarget")
 rotation_speed = 2.0
 impact_rotation = 4.0

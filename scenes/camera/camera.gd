@@ -6,6 +6,7 @@ class_name Camera extends RigidBody2D
 @export var shake_damping_speed = 2.0
 @export var follow_speed = 10.0
 @export var camera_follow_speed = 10.0
+@export var pathfinding = false
 
 @onready var cam: Camera2D = $Camera
 @onready var rot_dynamics: DynamicsSolver = Dynamics.create_dynamics(rotation_speed, 0.8, 10.0)
@@ -23,9 +24,16 @@ func _ready() -> void:
 	original_pos = cam.offset
 	target_pos = global_position
 
+	if pathfinding: freeze = true
+
 func _process(dt: float) -> void:
 	cam.rotation_degrees = rot_dynamics.update(0.0)
 	cam.global_position = cam.global_position.lerp(global_position, camera_follow_speed * dt)
+
+	# if pathfinding:
+	# 	global_position = follow.global_position
+	# else:
+	# 	global_position = global_position.lerp(follow.global_position, follow_speed * dt)
 
 	if shake_duration > 0:
 		cam.offset = original_pos + Vector2.from_angle(randf_range(0, PI*2)) * shake_magnitude
@@ -35,6 +43,9 @@ func _process(dt: float) -> void:
 		cam.offset = original_pos
 
 func _physics_process(_dt: float) -> void:
+	if not pathfinding:
+		return
+
 	agent.target_position = follow.global_position
 
 	if NavigationServer2D.map_get_iteration_id(agent.get_navigation_map()) == 0:

@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ds6uisrlvq6nk" path="res://scenes/breakable/breakable.tscn" id="6_pywsr"]
 [ext_resource type="PackedScene" uid="uid://ve5v6jngqdc6" path="res://scenes/decoration/fly_decoration.tscn" id="7_2sy11"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8d4uy"]
+friction = 0.0
+absorbent = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sy11"]
 resource_local_to_scene = true
 size = Vector2(176, 72)
@@ -219,7 +223,10 @@ vertical_alignment = 0
 [node name="Camera" parent="." index="2" unique_id=1304390175]
 follow_speed = 60.0
 
-[node name="CollisionPolygon" parent="CameraConstraints" parent_id_path=PackedInt32Array(1596452924) index="0" unique_id=1489765301]
+[node name="CameraConstraints" parent="." index="3" unique_id=1596452924]
+physics_material_override = SubResource("PhysicsMaterial_8d4uy")
+
+[node name="CollisionPolygon" parent="CameraConstraints" index="0" unique_id=1489765301]
 position = Vector2(656, 92)
 polygon = PackedVector2Array(-752, -188, -752, 188, 752, 188, 752, -188)
 

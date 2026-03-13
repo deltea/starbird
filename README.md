@@ -4,7 +4,6 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] physics based camera system
 - [ ] add a falling animation start of level
 - [ ] finish amethyst caves level
 - [ ] locked levels
@@ -19,6 +18,7 @@ speedy birb game go weee
 - [ ] add default palette to settings
 - [ ] click to focus when starting
 - [ ] level select level end animation
+- [x] physics based camera system
 - [x] dynamic camera bounds system
 - [x] fall into the level
 - [x] add birb animations to level select

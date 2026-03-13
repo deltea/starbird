@@ -1,45 +1,49 @@
-class_name Camera extends Camera2D
+class_name Camera extends RigidBody2D
 
 @export var follow: Node2D
-@export var bounds: CameraBounds
 @export var rotation_speed = 5.0
 @export var impact_rotation = 5.0
 @export var shake_damping_speed = 2.0
-@export var is_constrained = true
+@export var follow_speed = 10.0
+@export var camera_follow_speed = 10.0
 
+@onready var cam: Camera2D = $Camera
 @onready var rot_dynamics: DynamicsSolver = Dynamics.create_dynamics(rotation_speed, 0.8, 10.0)
+@onready var agent: NavigationAgent2D = $NavigationAgent
 
-var shake_duration = 0;
-var shake_magnitude = 0;
-var original_pos = Vector2.ZERO;
-var target_zoom = Vector2.ONE
-var target_pos
+var shake_duration = 0
+var shake_magnitude = 0
+var original_pos = Vector2.ZERO
+var target_pos = Vector2.ZERO
 
 func _enter_tree() -> void:
 	RoomManager.current_room.camera = self
 
 func _ready() -> void:
-	original_pos = offset
+	original_pos = cam.offset
 	target_pos = global_position
 
-	reset_smoothing()
-
 func _process(dt: float) -> void:
-	rotation_degrees = rot_dynamics.update(0.0)
-
-	if follow:
-		target_pos = follow.global_position
-
-	if is_constrained:
-		target_pos = constrain_camera(target_pos)
-	global_position = global_position.lerp(target_pos, 10.0 * dt)
+	cam.rotation_degrees = rot_dynamics.update(0.0)
+	cam.global_position = cam.global_position.lerp(global_position, camera_follow_speed * dt)
 
 	if shake_duration > 0:
-		offset = original_pos + Vector2.from_angle(randf_range(0, PI*2)) * shake_magnitude
+		cam.offset = original_pos + Vector2.from_angle(randf_range(0, PI*2)) * shake_magnitude
 		shake_duration -= dt * shake_damping_speed
 	else:
 		shake_duration = 0
-		offset = original_pos
+		cam.offset = original_pos
+
+func _physics_process(_dt: float) -> void:
+	agent.target_position = follow.global_position
+
+	if NavigationServer2D.map_get_iteration_id(agent.get_navigation_map()) == 0:
+		return
+	if agent.is_navigation_finished():
+		return
+
+	var desired_agent_pos = agent.get_next_path_position()
+	apply_central_force(((desired_agent_pos - global_position) * follow_speed).limit_length(1200))
 
 func shake(duration: float, magnitude: float):
 	shake_duration = duration
@@ -50,65 +54,3 @@ func impact(dir: float = 0):
 		rot_dynamics.set_value((1 if randf() > 0.5 else -1) * impact_rotation)
 	else:
 		rot_dynamics.set_value(impact_rotation * dir)
-
-func get_half_view_size() -> Vector2:
-	var viewport_size := get_viewport_rect().size
-	return (viewport_size * 0.5) * zoom
-
-func all_corners_inside(center_world: Vector2) -> bool:
-	if not bounds:
-		return true
-
-	var half_size := get_half_view_size()
-	var corners := [
-		center_world + Vector2(-half_size.x, -half_size.y),
-		center_world + Vector2(half_size.x, -half_size.y),
-		center_world + Vector2(half_size.x, half_size.y),
-		center_world + Vector2(-half_size.x, half_size.y),
-	]
-
-	for corner_world in corners:
-		var corner_local: Vector2 = bounds.to_local(corner_world)
-		if not Geometry2D.is_point_in_polygon(corner_local, bounds.polygon):
-			return false
-
-	return true
-
-func constrain_camera(desired_center_world: Vector2) -> Vector2:
-	if not bounds:
-		return desired_center_world
-
-	if all_corners_inside(desired_center_world):
-		return desired_center_world
-
-	var corrected := desired_center_world
-	var half_size := get_half_view_size()
-	var corner_offsets := [
-		Vector2(-half_size.x, -half_size.y),
-		Vector2(half_size.x, -half_size.y),
-		Vector2(half_size.x, half_size.y),
-		Vector2(-half_size.x, half_size.y),
-	]
-
-	for _i in range(10):
-		var correction := Vector2.ZERO
-		var outside_count := 0
-
-		for corner_offset in corner_offsets:
-			var corner_world: Vector2 = corrected + corner_offset
-			var corner_local: Vector2 = bounds.to_local(corner_world)
-			if Geometry2D.is_point_in_polygon(corner_local, bounds.polygon):
-				continue
-
-			var closest_local: Vector2 = bounds.closest_point_on_polygon(corner_local, bounds.polygon)
-			correction += (closest_local - corner_local)
-			outside_count += 1
-
-		if outside_count == 0:
-			break
-
-		var local_step: Vector2 = correction / float(outside_count)
-		var world_step: Vector2 = bounds.global_transform.basis_xform(local_step)
-		corrected += world_step
-
-	return corrected

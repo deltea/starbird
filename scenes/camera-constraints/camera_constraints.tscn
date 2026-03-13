@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c0mxpugn2icl2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8d4uy"]
+friction = 0.0
+absorbent = true
+
+[node name="CameraConstraints" type="StaticBody2D" unique_id=1596452924]
+collision_layer = 4
+collision_mask = 0
+collision_priority = 5.0
+physics_material_override = SubResource("PhysicsMaterial_8d4uy")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="." unique_id=1489765301]
+build_mode = 1

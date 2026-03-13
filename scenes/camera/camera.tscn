@@ -2,6 +2,33 @@
 
 [ext_resource type="Script" uid="uid://clbv7tmprjpx5" path="res://scenes/camera/camera.gd" id="1_xejhd"]
 
-[node name="Camera" type="Camera2D" unique_id=1304390175]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xejhd"]
+friction = 0.0
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xejhd"]
+size = Vector2(320, 240)
+
+[node name="Camera" type="RigidBody2D" unique_id=652991398]
 process_mode = 3
+collision_layer = 4
+collision_mask = 4
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_xejhd")
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+continuous_cd = 2
+linear_damp = 40.0
 script = ExtResource("1_xejhd")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=699406391]
+shape = SubResource("RectangleShape2D_xejhd")
+debug_color = Color(0, 0.56426674, 0.8686784, 0)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1304390175]
+top_level = true
+limit_enabled = false
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="." unique_id=1372961591]
+target_desired_distance = 12.0

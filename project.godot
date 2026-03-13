@@ -85,11 +85,13 @@ up={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Camera"
 
 [physics]
 
 common/physics_ticks_per_second=120
 common/max_physics_steps_per_frame=16
+common/physics_jitter_fix=0.0
 3d/physics_engine="Jolt Physics"
 common/physics_interpolation=true
 

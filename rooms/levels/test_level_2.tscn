@@ -202,6 +202,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_knea1"]
+vertices = PackedVector2Array(1462, 318, -102, 318, -102, -142, 1462, -142)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-112, -152, -112, 328, 1472, 328, 1472, -152)])
+
 [node name="TestLevel2" unique_id=2129457560 instance=ExtResource("1_fxm0c")]
 level_name = "test level"
 
@@ -212,13 +217,11 @@ text = "02:32"
 vertical_alignment = 0
 
 [node name="Camera" parent="." index="2" unique_id=1304390175]
-limit_left = -105
-limit_top = -84
-limit_right = 1391
-limit_bottom = 276
+follow_speed = 60.0
 
-[node name="CameraBounds" parent="." index="3" unique_id=509460024]
-polygon = PackedVector2Array(-112, -88, -112, 280, 1408, 280, 1408, -88)
+[node name="CollisionPolygon" parent="CameraConstraints" parent_id_path=PackedInt32Array(1596452924) index="0" unique_id=1489765301]
+position = Vector2(656, 92)
+polygon = PackedVector2Array(-752, -188, -752, 188, 752, 188, 752, -188)
 
 [node name="Player" parent="." index="4" unique_id=249500363]
 position = Vector2(0, 232)
@@ -384,6 +387,10 @@ sprite_frames = SubResource("SpriteFrames_knea1")
 position = Vector2(1200, 200)
 sprite_frames = SubResource("SpriteFrames_43afx")
 
+[node name="NavigationRegion2D" parent="." index="11" unique_id=1923494395]
+navigation_polygon = SubResource("NavigationPolygon_knea1")
+
+[editable path="CameraConstraints"]
 [editable path="Elements/SecretArea"]
 [editable path="Elements/SecretArea2"]
 [editable path="Elements/SecretArea3"]

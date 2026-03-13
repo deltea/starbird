@@ -103,7 +103,6 @@ func complete():
 
 	SaveManager.save_level(level_name, stars_collected, time)
 
-	RoomManager.current_room.camera.is_constrained = false
 	complete_canvas.visible = true
 	time_label.visible = false
 	stars_hud.visible = false

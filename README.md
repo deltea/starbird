@@ -4,6 +4,7 @@ speedy birb game go weee
 
 ## to-do
 
+- [ ] physics based camera system
 - [ ] add a falling animation start of level
 - [ ] finish amethyst caves level
 - [ ] locked levels

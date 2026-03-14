@@ -61,6 +61,7 @@ speedy birb game go weee
 
 ## game mechanics ideas
 
+- [ ] velocity booster, area that gives directional velocity
 - [ ] dash refill, maybe small velocity boost
 - [ ] super bouncers (mushroom?)
 - [ ] puzzle elements like locks and doors (forest?)

@@ -88,6 +88,7 @@ radius = 13.0
 process_mode = 3
 z_index = 10
 script = ExtResource("1_8afob")
+bounce_velocity = 440.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1428469450]
 shape = SubResource("RectangleShape2D_gmlin")
@@ -156,6 +157,10 @@ metadata/_aseprite_wizard_source_file_hash_ = "87f82eebd3dfc9dc5e5eda3a3575b52e"
 wait_time = 0.18
 one_shot = true
 
+[node name="DashCooldownTimer" type="Timer" parent="." unique_id=1885630159]
+wait_time = 0.15
+one_shot = true
+
 [node name="BreakArea" type="Area2D" parent="." unique_id=2117735432]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="BreakArea" unique_id=967553872]
@@ -163,4 +168,5 @@ shape = SubResource("CapsuleShape2D_gmlin")
 debug_color = Color(1, 0.003921569, 0.050980393, 0.07450981)
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]
 [connection signal="body_entered" from="BreakArea" to="." method="_on_break_area_body_entered"]

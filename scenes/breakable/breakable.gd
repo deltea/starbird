@@ -10,7 +10,7 @@ func on_break():
 
 	RoomManager.current_room.camera.impact()
 	RoomManager.current_room.camera.shake(0.1, 2.0)
-	Clock.hitstop(0.08)
+	Clock.hitstop(0.05)
 	collider.set_deferred("disabled", true)
 	for q in quarters.get_children():
 		var quarter = (q as BreakableQuarter)

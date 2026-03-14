@@ -4,8 +4,8 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] add a falling animation start of level
 - [ ] finish amethyst caves level
+- [ ] add a falling animation start of level
 - [ ] locked levels
 - [ ] finish woods level
 - [ ] add cutscene/dialogue system
@@ -18,6 +18,7 @@ speedy birb game go weee
 - [ ] add default palette to settings
 - [ ] click to focus when starting
 - [ ] level select level end animation
+- [x] add dash cooldown
 - [x] physics based camera system
 - [x] dynamic camera bounds system
 - [x] fall into the level

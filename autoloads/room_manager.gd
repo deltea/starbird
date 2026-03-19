@@ -30,3 +30,7 @@ func change_room(room: String):
 
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(scene)
+
+func reload():
+	# reload the current room
+	pass

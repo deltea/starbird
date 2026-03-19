@@ -605,7 +605,6 @@ autostart = true
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=2071145673]
 layer = 20
-visible = false
 
 [node name="Darken" type="TextureRect" parent="PauseLayer" unique_id=1399705178]
 self_modulate = Color(0, 0, 0, 0.74509805)
@@ -613,6 +612,12 @@ z_index = -1
 offset_right = 320.0
 offset_bottom = 240.0
 texture = ExtResource("14_dsxex")
+
+[node name="OptionSelector" type="ColorRect" parent="PauseLayer" unique_id=2051362627]
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 106.0
+color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseLayer" unique_id=516130355]
 offset_left = 32.0
@@ -629,19 +634,19 @@ text = "continue"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="MainMenu" type="RichTextLabel" parent="PauseLayer/VBoxContainer" unique_id=2123193939]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_wrbck")
-theme_override_font_sizes/normal_font_size = 18
-text = "back to main menu"
-fit_content = true
-horizontal_alignment = 1
-
 [node name="Restart" type="RichTextLabel" parent="PauseLayer/VBoxContainer" unique_id=395101534]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_wrbck")
 theme_override_font_sizes/normal_font_size = 18
 text = "restart level"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MainMenu" type="RichTextLabel" parent="PauseLayer/VBoxContainer" unique_id=2123193939]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_wrbck")
+theme_override_font_sizes/normal_font_size = 18
+text = "back to main menu"
 fit_content = true
 horizontal_alignment = 1
 

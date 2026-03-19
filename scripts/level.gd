@@ -16,7 +16,10 @@ extends Room
 @onready var complete_star: Star2D = $CompleteCanvas/Star2D
 @onready var rank_text: TextureRect = $CompleteCanvas/RankText
 @onready var final_label: RichTextLabel = $CompleteCanvas/FinalStatsValues
+
 @onready var pause_canvas: CanvasLayer = $PauseLayer
+@onready var pause_options: VBoxContainer = $PauseLayer/VBoxContainer
+@onready var pause_option_selector: ColorRect = $PauseLayer/OptionSelector
 
 @onready var star_scale_dynamics: DynamicsSolver = Dynamics.create_dynamics(4.0, 1, 2.0)
 
@@ -31,6 +34,7 @@ var is_complete_animation_done =  false
 var time = 0.0
 var secret_found = false
 var is_game_paused = false
+var pause_selection_index = 0
 
 func _ready() -> void:
 	super._ready()
@@ -40,6 +44,7 @@ func _ready() -> void:
 
 	complete_canvas.visible = false
 	countdown_canvas.visible = true
+	pause_canvas.visible = false
 	time_label.visible = false
 
 	show_countdown()
@@ -49,6 +54,8 @@ func _process(dt: float) -> void:
 	countdown_texture.rotation_degrees = countdown_rot_dynamics.update(countdown_rot_target)
 	countdown_background.rotation_degrees = Clock.time * 200.0
 	time_label.text = Clock.format_time(time)
+	print(pause_options.get_child(pause_selection_index).position)
+	pause_option_selector.position.y = lerp(pause_option_selector.position.y, pause_options.get_child(pause_selection_index).position.y - 3, dt * 35.0)
 
 	for star in stars_hud.get_children():
 		star.rotation_degrees += dt * 40.0
@@ -63,16 +70,27 @@ func _process(dt: float) -> void:
 		if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("dash"):
 			RoomManager.change_room("level-select/level_select")
 
-	if (Input.is_action_just_pressed("esc") or (Input.is_action_just_pressed("dash") and get_tree().paused)) and not is_complete_animation_done and is_started:
-		get_tree().paused = not get_tree().paused
-		pause_canvas.visible = get_tree().paused
-		is_game_paused = get_tree().paused
+	if Input.is_action_just_pressed("esc") and not is_complete_animation_done and is_started:
+		toggle_pause_game()
 
 	if is_game_paused:
+		if Input.is_action_just_pressed("dash"):
+			toggle_pause_game()
 		if Input.is_action_just_pressed("down"):
-			pass
+			pause_selection_index = (pause_selection_index + 1) % pause_options.get_child_count()
 		if Input.is_action_just_pressed("up"):
-			pass
+			pause_selection_index = (pause_selection_index - 1) % pause_options.get_child_count()
+		if Input.is_action_just_pressed("jump"):
+			match pause_selection_index:
+				0: toggle_pause_game()
+				1: RoomManager.reload()
+				2: RoomManager.change_room("level-select/level_select")
+
+func toggle_pause_game():
+	get_tree().paused = not get_tree().paused
+	pause_canvas.visible = get_tree().paused
+	is_game_paused = get_tree().paused
+	pause_selection_index = 0
 
 func show_countdown():
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)

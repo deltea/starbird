@@ -33,4 +33,16 @@ func change_room(room: String):
 
 func reload():
 	# reload the current room
-	pass
+	if is_transitioning:
+		printerr("already transitioning")
+		return
+
+	player.play_backwards("transition")
+	is_transitioning = true
+	await Clock.wait(player.current_animation_length)
+
+	is_transitioning = false
+	player.play("transition")
+
+	get_tree().paused = false
+	get_tree().reload_current_scene()

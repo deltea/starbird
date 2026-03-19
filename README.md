@@ -4,7 +4,6 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] add pause menu
 - [ ] finish amethyst caves level
 - [ ] add a falling animation start of level
 - [ ] locked levels
@@ -19,6 +18,8 @@ speedy birb game go weee
 - [ ] add default palette to settings
 - [ ] click to focus when starting
 - [ ] level select level end animation
+- [ ] make the itch page look pretty
+- [x] add pause menu
 - [x] add dash cooldown
 - [x] physics based camera system
 - [x] dynamic camera bounds system

@@ -215,25 +215,25 @@ bbcode_enabled = false
 text = "02:32"
 vertical_alignment = 0
 
-[node name="Camera" parent="." index="2" unique_id=1304390175]
+[node name="Camera" parent="." index="3" unique_id=1304390175]
 limit_left = -104
 limit_top = -96
 limit_right = 1400
 limit_bottom = 272
 position_smoothing_speed = 8.0
 
-[node name="LevelCameraTarget" parent="." index="3" unique_id=826168185]
+[node name="LevelCameraTarget" parent="." index="4" unique_id=826168185]
 position = Vector2(0, 232)
 mass = 100.0
 
-[node name="CameraConstraints" parent="." index="4" unique_id=1596452924]
+[node name="CameraConstraints" parent="." index="5" unique_id=1596452924]
 physics_material_override = SubResource("PhysicsMaterial_8d4uy")
 
 [node name="CollisionPolygon" parent="CameraConstraints" index="0" unique_id=1489765301]
 position = Vector2(656, 92)
 polygon = PackedVector2Array(-752, -148, -752, 188, 752, 188, 752, -148, -80, -148, -80, -188, -464, -188, -464, -148)
 
-[node name="Player" parent="." index="5" unique_id=249500363]
+[node name="Player" parent="." index="6" unique_id=249500363]
 position = Vector2(16, 232)
 
 [node name="TileMapMidground" parent="ParallaxMidground" parent_id_path=PackedInt32Array(1976364911) index="0" unique_id=1438112172]

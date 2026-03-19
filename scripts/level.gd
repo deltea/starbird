@@ -16,6 +16,7 @@ extends Room
 @onready var complete_star: Star2D = $CompleteCanvas/Star2D
 @onready var rank_text: TextureRect = $CompleteCanvas/RankText
 @onready var final_label: RichTextLabel = $CompleteCanvas/FinalStatsValues
+@onready var pause_canvas: CanvasLayer = $PauseLayer
 
 @onready var star_scale_dynamics: DynamicsSolver = Dynamics.create_dynamics(4.0, 1, 2.0)
 
@@ -26,9 +27,10 @@ var is_started = false
 var countdown_scale_target = Vector2.ONE
 var countdown_rot_target = 360.0
 var stars_collected = 0
-var is_complete_animation_done = false
+var is_complete_animation_done =  false
 var time = 0.0
 var secret_found = false
+var is_game_paused = false
 
 func _ready() -> void:
 	super._ready()
@@ -51,7 +53,7 @@ func _process(dt: float) -> void:
 	for star in stars_hud.get_children():
 		star.rotation_degrees += dt * 40.0
 
-	if not is_completed and is_started:
+	if not is_completed and is_started and not is_game_paused:
 		time += dt
 
 	if is_complete_animation_done:
@@ -60,6 +62,17 @@ func _process(dt: float) -> void:
 
 		if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("dash"):
 			RoomManager.change_room("level-select/level_select")
+
+	if (Input.is_action_just_pressed("esc") or (Input.is_action_just_pressed("dash") and get_tree().paused)) and not is_complete_animation_done and is_started:
+		get_tree().paused = not get_tree().paused
+		pause_canvas.visible = get_tree().paused
+		is_game_paused = get_tree().paused
+
+	if is_game_paused:
+		if Input.is_action_just_pressed("down"):
+			pass
+		if Input.is_action_just_pressed("up"):
+			pass
 
 func show_countdown():
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
@@ -115,7 +128,7 @@ func complete():
 
 	complete_player.play("complete")
 	await complete_player.animation_finished
-	is_complete_animation_done = true
+	is_complete_animation_done =  true
 
 func get_node_screen_position(node: Node2D) -> Vector2:
 	var viewport = node.get_viewport()

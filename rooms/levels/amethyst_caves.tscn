@@ -13,7 +13,7 @@ size = Vector2(240, 224)
 [node name="AmethystCaves" unique_id=2129457560 instance=ExtResource("1_0o844")]
 level_name = "amethyst caves"
 
-[node name="Camera" parent="." index="2" unique_id=1304390175]
+[node name="Camera" parent="." index="3" unique_id=1304390175]
 limit_left = -128
 limit_top = -816
 limit_right = 2272

@@ -605,6 +605,7 @@ autostart = true
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=2071145673]
 layer = 20
+visible = false
 
 [node name="Darken" type="TextureRect" parent="PauseLayer" unique_id=1399705178]
 self_modulate = Color(0, 0, 0, 0.74509805)

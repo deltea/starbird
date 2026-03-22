@@ -1,0 +1,170 @@
+[gd_scene format=4 uid="uid://behrmy6sjbx1y"]
+
+[ext_resource type="Script" uid="uid://p0q174x73yk8" path="res://rooms/start-cutscene/start_cutscene.gd" id="1_3ji0w"]
+[ext_resource type="TileSet" uid="uid://bf6kvyb2ip0wp" path="res://tileset.tres" id="2_fxw0o"]
+[ext_resource type="FontFile" uid="uid://582abh2r0rhk" path="res://assets/fonts/m6x11.ttf" id="3_b68jt"]
+[ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="4_vi4xd"]
+[ext_resource type="Texture2D" uid="uid://bo2okkjc6s4i3" path="res://assets/ui/clouds-background.png" id="5_fkd4u"]
+
+[sub_resource type="FontVariation" id="FontVariation_vi4xd"]
+base_font = ExtResource("3_b68jt")
+spacing_glyph = 4
+spacing_space = 8
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_vi4xd"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAACmAAAAUklGRp4AAABXRUJQVlA4TJIAAAAvH8AHEBcgEEjyZ9ptDYFAkj/TbgsEkvyZdnv+A/4VuIok2W1O6T9zUAmFIDjtKfyLx4PiHI7m27MNIaL/RNM2m2tV35BdIfRTJ6QAVo+V1baw2pbBKSMFWFRBIUFhZ4UQX//m2hGXMv/B6buC+aljDjB/rL7Z8yHy/rFSswEWFGau2Vzj2y3QqIGbT1+7xyROAA==")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkd4u"]
+atlas = SubResource("PortableCompressedTexture2D_vi4xd")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj58i"]
+atlas = SubResource("PortableCompressedTexture2D_vi4xd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcacf"]
+atlas = SubResource("PortableCompressedTexture2D_vi4xd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd2o1"]
+atlas = SubResource("PortableCompressedTexture2D_vi4xd")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64scn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkd4u")
+}],
+"loop": true,
+"name": &"dash_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj58i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcacf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj58i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd2o1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj58i")
+}],
+"loop": true,
+"name": &"win",
+"speed": 10.0
+}]
+
+[node name="StartCutscene" type="Node2D" unique_id=566228128]
+script = ExtResource("1_3ji0w")
+lines = Array[String](["the sky looks a bit empty tonight", "feels like there's something's missing", "time to get to work"])
+
+[node name="Foreground" type="TileMapLayer" parent="." unique_id=1728493787]
+self_modulate = Color(0, 0, 0, 1)
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAEAAAAAAAoAAAAAAAEAAAAAAAsAAAAAAAEAAAAAAAwAAAAAAAEAAAAAAA0AAAAAAAEAAAAAAA4AAAAAAAEAAAABAAsAAAAAAAEAAAABAAwAAAAAAAEAAAABAA0AAAAAAAEAAAABAA4AAAAAAAEAAAACAAsAAAAAAAEAAAACAAwAAAAAAAEAAAACAA0AAAAAAAEAAAACAA4AAAAAAAEAAAADAAsAAAAAAAEAAAADAAwAAAAAAAEAAAADAA0AAAAAAAEAAAADAA4AAAAAAAEAAAAEAAsAAAAAAAEAAAAEAAwAAAAAAAEAAAAEAA0AAAAAAAEAAAAEAA4AAAAAAAEAAAAFAAsAAAAAAAEAAAAFAAwAAAAAAAEAAAAFAA0AAAAAAAEAAAAFAA4AAAAAAAEAAAAGAAsAAAAAAAEAAAAGAAwAAAAAAAEAAAAGAA0AAAAAAAEAAAAGAA4AAAAAAAEAAAAHAAsAAAAAAAEAAAAHAAwAAAAAAAEAAAAHAA0AAAAAAAEAAAAHAA4AAAAAAAEAAAAIAAsAAAAAAAEAAAAIAAwAAAAAAAEAAAAIAA0AAAAAAAEAAAAIAA4AAAAAAAEAAAAJAAsAAAAAAAEAAAAJAAwAAAAAAAEAAAAJAA0AAAAAAAEAAAAJAA4AAAAAAAEAAAAKAAsAAAAAAAEAAAAKAAwAAAAAAAEAAAAKAA0AAAAAAAEAAAAKAA4AAAAAAAEAAAALAAsAAAAAAAEAAAALAAwAAAAAAAEAAAALAA0AAAAAAAEAAAALAA4AAAAAAAEAAAAMAAsAAAAAAAEAAAAMAAwAAAAAAAEAAAAMAA0AAAAAAAEAAAAMAA4AAAAAAAEAAAANAAsAAAAAAAEAAAANAAwAAAAAAAEAAAANAA0AAAAAAAEAAAANAA4AAAAAAAEAAAAOAAsAAAAAAAEAAAAOAAwAAAAAAAEAAAAOAA0AAAAAAAEAAAAOAA4AAAAAAAEAAAAPAAsAAAAAAAEAAAAPAAwAAAAAAAEAAAAPAA0AAAAAAAEAAAAPAA4AAAAAAAEAAAAQAAsAAAAAAAEAAAAQAAwAAAAAAAEAAAAQAA0AAAAAAAEAAAAQAA4AAAAAAAEAAAARAAsAAAAAAAEAAAARAAwAAAAAAAEAAAARAA0AAAAAAAEAAAARAA4AAAAAAAEAAAASAAsAAAAAAAEAAAASAAwAAAAAAAEAAAASAA0AAAAAAAEAAAASAA4AAAAAAAEAAAATAAkAAAAAAAEAAAATAAoAAAAAAAEAAAATAAsAAAAAAAEAAAATAAwAAAAAAAEAAAATAA0AAAAAAAEAAAATAA4AAAAAAAEAAAABAAoAAAAAAAEAAAACAAoAAAAAAAEAAAADAAoAAAAAAAEAAAAEAAoAAAAAAAEAAAAFAAoAAAAAAAEAAAAGAAoAAAAAAAEAAAAHAAoAAAAAAAEAAAAIAAoAAAAAAAEAAAAJAAoAAAAAAAEAAAAKAAoAAAAAAAEAAAALAAoAAAAAAAEAAAAMAAoAAAAAAAEAAAANAAoAAAAAAAEAAAAOAAoAAAAAAAEAAAAPAAoAAAAAAAEAAAAQAAoAAAAAAAEAAAARAAoAAAAAAAEAAAASAAoAAAAAAAEAAAABAAkAAAAAAAEAAAACAAkAAAAAAAEAAAADAAkAAAAAAAEAAAAEAAkAAAAAAAEAAAAFAAkAAAAAAAEAAAAGAAkAAAAAAAEAAAAHAAkAAAAAAAEAAAAIAAkAAAAAAAEAAAAJAAkAAAAAAAEAAAAKAAkAAAAAAAEAAAALAAkAAAAAAAEAAAAMAAkAAAAAAAEAAAANAAkAAAAAAAEAAAAOAAkAAAAAAAEAAAAPAAkAAAAAAAEAAAAQAAkAAAAAAAEAAAARAAkAAAAAAAEAAAASAAkAAAAAAAEAAAAAAAgAAAAIAAIAAFABAAgAAAAIAAIAAFACAAgAAAAIAAIAAFADAAgAAAAIAAIAAFAEAAgAAAAIAAIAAFAFAAgAAAAIAAIAAFAGAAgAAAAIAAIAAFAHAAgAAAAIAAIAAFAIAAgAAAAIAAIAAFAJAAgAAAAIAAIAAFAKAAgAAAAIAAIAAFALAAgAAAAIAAIAAFAMAAgAAAAIAAIAAFANAAgAAAAIAAIAAFAOAAgAAAAIAAIAAFAPAAgAAAAIAAIAAFAQAAgAAAAIAAIAAFARAAgAAAAIAAIAAFASAAgAAAAIAAIAAFATAAgAAAAIAAIAAFA=")
+tile_set = ExtResource("2_fxw0o")
+
+[node name="Midground" type="TileMapLayer" parent="." unique_id=1428399396]
+self_modulate = Color(0.2, 0.2, 0.2, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAUAAAAAAAEAAAABAAUAAAAAAAEAAAACAAUAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAUAAAAEAAIAAFAEAAYAAAAAAAEAAAAEAAgAAAAAAAEAAAAEAAcAAAAAAAEAAAADAAcAAAAAAAEAAAADAAgAAAAAAAEAAAACAAgAAAAAAAEAAAABAAgAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAYAAAAAAAEAAAABAAYAAAAAAAEAAAACAAYAAAABAAEAAAACAAcAAAAAAAEAAAADAAYAAAAAAAEAAAABAAcAAAAAAAEAAAAAAAQAAAAEAAMAAGA=")
+tile_set = ExtResource("2_fxw0o")
+
+[node name="Star2D" parent="." unique_id=856709757 instance=ExtResource("4_vi4xd")]
+visible = false
+position = Vector2(304, 224)
+polygon = PackedVector2Array(40, 0, 20.225426, -14.694632, 12.360679, -38.042263, -7.7254257, -23.776413, -32.360683, -23.511408, -25, 2.1855694e-06, -32.36068, 23.511414, -7.725427, 23.776413, 12.360685, 38.04226, 20.225424, 14.694633)
+
+[node name="DialogueLabel" type="RichTextLabel" parent="." unique_id=984303428]
+offset_left = 48.0
+offset_top = 160.0
+offset_right = 272.0
+offset_bottom = 224.0
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = SubResource("FontVariation_vi4xd")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "example placeholder text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Birb" type="AnimatedSprite2D" parent="." unique_id=1127818196]
+texture_filter = 1
+position = Vector2(48, 72)
+sprite_frames = SubResource("SpriteFrames_64scn")
+animation = &"idle"
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/player.ase",
+"source_uid": 2513588182964405636
+}
+metadata/_aseprite_wizard_source_file_hash_ = "87f82eebd3dfc9dc5e5eda3a3575b52e"
+
+[node name="Parallax" type="Parallax2D" parent="." unique_id=428920635]
+z_index = -20
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(144, 16)
+repeat_size = Vector2(48, 0)
+autoscroll = Vector2(-10, 0)
+repeat_times = 20
+ignore_camera_scroll = true
+screen_offset = Vector2(160, 120)
+
+[node name="CloudBackground2" type="Sprite2D" parent="Parallax" unique_id=1074287587]
+self_modulate = Color(0.13333334, 0.13333334, 0.13333334, 1)
+texture = ExtResource("5_fkd4u")
+
+[node name="Parallax2" type="Parallax2D" parent="." unique_id=1185820566]
+z_index = -10
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(152, 72)
+repeat_size = Vector2(48, 0)
+autoscroll = Vector2(20, 0)
+repeat_times = 20
+ignore_camera_scroll = true
+screen_offset = Vector2(160, 120)
+
+[node name="CloudBackground2" type="Sprite2D" parent="Parallax2" unique_id=1413933132]
+self_modulate = Color(0.26666668, 0.26666668, 0.26666668, 1)
+texture = ExtResource("5_fkd4u")
+
+[node name="Parallax3" type="Parallax2D" parent="." unique_id=876534380]
+z_index = -5
+scroll_offset = Vector2(159, 128)
+repeat_size = Vector2(48, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 20
+ignore_camera_scroll = true
+screen_offset = Vector2(160, 120)
+
+[node name="CloudBackground2" type="Sprite2D" parent="Parallax3" unique_id=97890710]
+self_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
+texture = ExtResource("5_fkd4u")

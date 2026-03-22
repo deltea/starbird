@@ -122,7 +122,6 @@ func _physics_process(dt: float) -> void:
 			RoomManager.current_room.add_child(particles)
 			particles.emitting = true
 			particles.finished.connect(particles.queue_free)
-			# scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
 			await Clock.wait(0.35)
 			level_start_fall_done = true
 			velocity.y = -250.0

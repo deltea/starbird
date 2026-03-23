@@ -12,9 +12,9 @@ speedy birb game go weee
 - [ ] the peak stars cutscene
 - [ ] add sound effects
 - [ ] make music (dynamic blending)
-- [ ] click to focus when starting
 - [ ] level select level end animation
 - [ ] make the itch page look pretty
+- [x] click to focus when starting
 - [x] finish amethyst caves level
 - [x] add cutscene/dialogue system
 - [x] add a falling animation start of level

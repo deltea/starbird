@@ -33,6 +33,11 @@ func _ready() -> void:
 	set_index(SaveManager.data["current_level"])
 	stars_label.text = str(int(SaveManager.data["total_stars"]))
 
+	for i in range(stars.get_child_count()):
+		var star = stars.get_child(i) as LevelSelectStar
+		star.set_locked(i > SaveManager.data["next_level"])
+	set_index(select_index)
+
 func _process(dt: float) -> void:
 	camera_target.position = stars.get_child(select_index).position + Vector2(60, 0)
 	arrow_3d.rotation_degrees.z += dt * 100
@@ -48,6 +53,10 @@ func _process(dt: float) -> void:
 	if Input.is_action_just_pressed("down"):
 		set_index(select_index - 1)
 	if Input.is_action_just_pressed("jump"):
+		if (stars.get_child(select_index) as LevelSelectStar).is_locked:
+			RoomManager.current_room.camera.shake(0.1, 4)
+			return
+
 		can_move = false
 		SaveManager.data["current_level"] = select_index
 		SaveManager.save_game()
@@ -70,7 +79,7 @@ func set_index(new_index: int) -> void:
 	var prev_index = select_index
 	select_index = clampi(new_index, 0, stars.get_child_count() - 1)
 	var current_star = stars.get_child(select_index) as LevelSelectStar
-	PaletteManager.set_palette(current_star.palette)
+	PaletteManager.set_palette(current_star.current_palette)
 	arrow_target_pos = current_star.position + Vector2(-60, -12)
 	level_num.texture = Globals.number_textures[select_index + 1]
 

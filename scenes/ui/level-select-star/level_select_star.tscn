@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cg53g7kbmqe4s"]
 
 [ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="1_ni05h"]
+[ext_resource type="Texture2D" uid="uid://ddf31i08smuri" path="res://assets/palettes/mono.png" id="2_owgat"]
 [ext_resource type="Script" uid="uid://dk8wkj3knwh70" path="res://scenes/ui/level-select-star/level_select_star.gd" id="2_yjswt"]
 [ext_resource type="FontFile" uid="uid://582abh2r0rhk" path="res://assets/fonts/m6x11.ttf" id="4_iy8mu"]
 [ext_resource type="Texture2D" uid="uid://cm4r8dwe8vx7l" path="res://assets/ui/level-select-background.png" id="5_owgat"]
@@ -92,6 +93,7 @@ _data = {
 
 [node name="LevelSelectStar" type="Node2D" unique_id=1444065302]
 script = ExtResource("2_yjswt")
+locked_palette = ExtResource("2_owgat")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=668775807]
 libraries/ = SubResource("AnimationLibrary_owgat")

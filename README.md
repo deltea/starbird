@@ -4,7 +4,6 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] unlocking levels
 - [ ] finish woods level
 - [ ] finish third level
 - [ ] finish summit level
@@ -13,6 +12,7 @@ speedy birb game go weee
 - [ ] add sound effects
 - [ ] make music (dynamic blending)
 - [ ] make the itch page look pretty
+- [x] unlocking levels
 - [x] level select level end animation
 - [x] click to focus when starting
 - [x] finish amethyst caves level

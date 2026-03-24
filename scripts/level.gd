@@ -134,8 +134,10 @@ func complete():
 	await Clock.wait(1.0)
 
 	SaveManager.save_level(level_name, stars_collected, time)
-	SaveManager.data["just_beat_level"] = true
-	SaveManager.save_game()
+	# unlock the next level if the player beat the next one
+	if SaveManager.data["next_level"] == SaveManager.data["current_level"]:
+		SaveManager.data["next_level"] += 1
+		SaveManager.save_game()
 
 	complete_canvas.visible = true
 	time_label.visible = false

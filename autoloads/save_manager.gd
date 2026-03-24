@@ -39,7 +39,7 @@ func load_game():
 		return {
 			"levels": {},
 			"has_seen_cutscene": false,
-			"just_beat_level": false,
+			"next_level": 0,
 			"current_level": 0,
 			"total_stars": 0,
 		}

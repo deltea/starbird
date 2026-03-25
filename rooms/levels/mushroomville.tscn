@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cmtj33pumevy0"]
+
+[ext_resource type="PackedScene" uid="uid://bkhrrt45shegv" path="res://rooms/level.tscn" id="1_yiwg1"]
+[ext_resource type="Texture2D" uid="uid://rewyjfctxt7t" path="res://assets/palettes/cherry.png" id="2_o023f"]
+[ext_resource type="PackedScene" uid="uid://x7pa1sdpfpbw" path="res://scenes/bouncepad/mushroom.tscn" id="3_5mncg"]
+
+[node name="Mushroomville" unique_id=2129457560 instance=ExtResource("1_yiwg1")]
+level_name = "mushroomville"
+palette = ExtResource("2_o023f")
+
+[node name="Mushroom" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="2" unique_id=389278605 instance=ExtResource("3_5mncg")]
+position = Vector2(0, -32)
+
+[editable path="CameraConstraints"]

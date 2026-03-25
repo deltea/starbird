@@ -197,7 +197,7 @@ palette = ExtResource("11_iakt0")
 [node name="LevelSelectStar3" parent="Stars" unique_id=1612753083 instance=ExtResource("6_uqtpc")]
 position = Vector2(136, -32)
 level_name = "mushroomville"
-level_path = "test_level_2"
+level_path = "mushroomville"
 palette = ExtResource("9_68y80")
 
 [node name="LevelSelectStar4" parent="Stars" unique_id=547867541 instance=ExtResource("6_uqtpc")]

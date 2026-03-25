@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://x7pa1sdpfpbw"]
+
+[ext_resource type="PackedScene" uid="uid://lvqju5v40hdm" path="res://scenes/bouncepad/bouncepad.tscn" id="1_yf3fb"]
+[ext_resource type="Texture2D" uid="uid://wg5b5i3wg17" path="res://assets/mushroom.png" id="2_7f7ex"]
+[ext_resource type="Script" uid="uid://bmjufrlr4k5hd" path="res://scenes/bouncepad/mushroom.gd" id="2_h4xd6"]
+
+[node name="Mushroom" unique_id=389278605 instance=ExtResource("1_yf3fb")]
+script = ExtResource("2_h4xd6")
+
+[node name="Sprite" parent="." index="0" unique_id=363142334]
+texture = ExtResource("2_7f7ex")
+
+[node name="CollisionShape" parent="." index="1" unique_id=2061703404]
+position = Vector2(0, -4.5)
+
+[node name="BounceParticles" parent="." index="2" unique_id=961948646]
+position = Vector2(0, -2)

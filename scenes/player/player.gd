@@ -16,6 +16,7 @@ const fall_particles_scene = preload("res://scenes/particles/fall_particles.tscn
 @export var buffer_time = 0.15
 @export var jump_cut_multiplier = 0.5
 @export var bounce_velocity = 400.0
+@export var mushroom_velocity_add = 40.0
 @export var dash_velocity = 400.0
 @export var down_dash_velocity = 420.0
 @export var wall_jump_x_multiplier = 1.2
@@ -50,6 +51,7 @@ var dir = 1
 var can_dash_cooldown = true
 var level_start_landed = false
 var level_start_fall_done = false
+var start_dash_y = 0.0
 
 @onready var scale_dynamics: DynamicsSolverVector = Dynamics.create_dynamics_vector(2.0, 0.5, 2.0);
 @onready var rot_dynamics: DynamicsSolver = Dynamics.create_dynamics(10.0, 0.8, 10.0);
@@ -105,7 +107,13 @@ func _physics_process(dt: float) -> void:
 			is_dashing = false
 			just_dashed = true
 			sprite.stop()
-			if collision.get_collider() is Bouncepad:
+			if collision.get_collider() is Mushroom:
+				print("bounce on mushroom")
+				collision.get_collider().bounce()
+				# v^2 = 2 * g * h
+				velocity.y = -sqrt(2 * gravity * abs(global_position.y - start_dash_y)) - mushroom_velocity_add
+				RoomManager.current_room.camera.impact()
+			elif collision.get_collider() is Bouncepad:
 				collision.get_collider().bounce()
 				velocity.y = -bounce_velocity
 				RoomManager.current_room.camera.impact()
@@ -135,15 +143,6 @@ func movement(dt: float, x_input: float):
 
 	if just_dashed and velocity.y >= 0.0:
 		just_dashed = false
-
-	# if not is_on_floor() and not is_dashing:
-	# 	if velocity.y > 0:
-	# 		if is_on_wall() and x_input:
-	# 			velocity.y = wall_fall_velocity
-	# 		else:
-	# 			velocity.y += fall_gravity * dt
-	# 	else:
-	# 		velocity.y += gravity * dt
 
 	if not is_dashing:
 		if x_input:
@@ -214,6 +213,7 @@ func movement(dt: float, x_input: float):
 
 func dash(x_input: float):
 	can_dash = false
+	start_dash_y = global_position.y
 
 	for body in break_area.get_overlapping_bodies():
 		if body is Breakable:

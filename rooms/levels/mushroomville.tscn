@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bkhrrt45shegv" path="res://rooms/level.tscn" id="1_yiwg1"]
 [ext_resource type="Texture2D" uid="uid://rewyjfctxt7t" path="res://assets/palettes/cherry.png" id="2_o023f"]
 [ext_resource type="PackedScene" uid="uid://x7pa1sdpfpbw" path="res://scenes/bouncepad/mushroom.tscn" id="3_5mncg"]
+[ext_resource type="Texture2D" uid="uid://c8vebnkhtxxr6" path="res://assets/generic/circle.png" id="4_00whh"]
+
+[sub_resource type="Curve" id="Curve_00whh"]
+_data = [Vector2(0, 1), 0.0, 0.01389606, 0, 0, Vector2(0.685965, 0.896), -0.152, -0.152, 0, 0, Vector2(1, 0), -3.259563, 0.0, 0, 0]
+point_count = 3
 
 [node name="Mushroomville" unique_id=2129457560 instance=ExtResource("1_yiwg1")]
 level_name = "mushroomville"
@@ -22,5 +27,20 @@ tile_map_data = PackedByteArray("AAD8/wIAAAAAAAEAAAD8/wMAAAAAAAEAAAD9/wIAAAAAAAE
 
 [node name="Mushroom" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="2" unique_id=389278605 instance=ExtResource("3_5mncg")]
 position = Vector2(0, -32)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Decoration" parent_id_path=PackedInt32Array(238951789) index="0" unique_id=552731780]
+position = Vector2(25, -12)
+amount = 4
+texture = ExtResource("4_00whh")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 24.02
+initial_velocity_max = 24.02
+damping_min = 11.409
+damping_max = 11.409
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_00whh")
+color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
 [editable path="CameraConstraints"]

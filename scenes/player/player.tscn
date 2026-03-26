@@ -113,7 +113,7 @@ scale_amount_max = 0.45
 scale_amount_curve = SubResource("Curve_dovo2")
 
 [node name="DashParticles" type="CPUParticles2D" parent="." unique_id=706280888]
-self_modulate = Color(0.26666668, 0.26666668, 0.26666668, 1)
+self_modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
 z_index = -5
 amount = 50
 texture = ExtResource("3_gmlin")

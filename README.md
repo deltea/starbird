@@ -4,6 +4,7 @@ speedy birb game go weee
 
 ## to-do
 
+- [ ] alr fck it we're adding spikes
 - [ ] finish mushroom level
 - [ ] make music (dynamic blending)
 - [ ] add sound effects

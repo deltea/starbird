@@ -4,7 +4,6 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] alr fck it we're adding spikes
 - [ ] finish mushroom level
 - [ ] make music (dynamic blending)
 - [ ] add sound effects
@@ -12,6 +11,7 @@ speedy birb game go weee
 - [ ] finish summit level
 - [ ] the peak stars cutscene
 - [ ] make the itch page look pretty
+- [x] alr fck it we're adding spikes
 - [x] add keys and doors
 - [x] dash-collectables in secret areas
 - [x] add mushrooms

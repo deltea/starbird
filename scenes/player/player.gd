@@ -298,11 +298,22 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		RoomManager.current_room.add_child(corpse)
 
 		# teleport to nearest checkpoint
-		global_position = Vector2(-296, -352 + 8)
+		var checkpoint = nearest_checkpoint_pos()
+		global_position = checkpoint + Vector2(0, 8)
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", Vector2(-296, -352 - 8), 1.0)
+		tween.tween_property(self, "global_position", checkpoint + Vector2(0, -8), 1.0)
 		await Clock.wait(1.0)
 		set_physics_process(true)
 		collider.disabled = false
 		is_hurted = false
 		can_move = true
+
+func nearest_checkpoint_pos() -> Vector2:
+	var nearest_checkpoint = null
+	var nearest_dist = INF
+	for checkpoint in get_tree().get_nodes_in_group("checkpoints"):
+		var dist = global_position.distance_to(checkpoint.global_position)
+		if dist < nearest_dist:
+			nearest_dist = dist
+			nearest_checkpoint = checkpoint
+	return nearest_checkpoint.global_position

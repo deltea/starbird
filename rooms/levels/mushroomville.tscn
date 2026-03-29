@@ -54,28 +54,52 @@ position = Vector2(-112, -264)
 position = Vector2(-248, -384)
 
 [node name="Spikes" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="0" unique_id=1918663442 instance=ExtResource("8_icin5")]
-position = Vector2(-440, -288)
+position = Vector2(456, -320)
 
 [node name="Spikes2" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="1" unique_id=1093947614 instance=ExtResource("8_icin5")]
-position = Vector2(-424, -288)
+position = Vector2(472, -320)
 
 [node name="Spikes3" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="2" unique_id=1956648822 instance=ExtResource("8_icin5")]
-position = Vector2(-408, -288)
+position = Vector2(488, -320)
 
 [node name="Spikes4" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="3" unique_id=394842795 instance=ExtResource("8_icin5")]
-position = Vector2(-392, -288)
+position = Vector2(504, -320)
 
 [node name="Spikes5" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="4" unique_id=1122978218 instance=ExtResource("8_icin5")]
-position = Vector2(-376, -288)
+position = Vector2(520, -320)
 
 [node name="Spikes6" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="5" unique_id=75550710 instance=ExtResource("8_icin5")]
-position = Vector2(-360, -288)
+position = Vector2(536, -320)
 
 [node name="Spikes7" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="6" unique_id=1906252474 instance=ExtResource("8_icin5")]
-position = Vector2(-344, -288)
+position = Vector2(552, -320)
 
 [node name="Spikes8" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="7" unique_id=1731563759 instance=ExtResource("8_icin5")]
-position = Vector2(-328, -288)
+position = Vector2(568, -320)
+
+[node name="Spikes9" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="8" unique_id=197182289 instance=ExtResource("8_icin5")]
+position = Vector2(536, -320)
+
+[node name="Spikes10" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="9" unique_id=300724674 instance=ExtResource("8_icin5")]
+position = Vector2(552, -320)
+
+[node name="Spikes11" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="10" unique_id=874555874 instance=ExtResource("8_icin5")]
+position = Vector2(568, -320)
+
+[node name="Spikes12" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="11" unique_id=624409320 instance=ExtResource("8_icin5")]
+position = Vector2(688, -688)
+
+[node name="Spikes13" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="12" unique_id=1722584134 instance=ExtResource("8_icin5")]
+position = Vector2(656, -688)
+
+[node name="Spikes14" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="13" unique_id=89265410 instance=ExtResource("8_icin5")]
+position = Vector2(672, -688)
+
+[node name="Spikes15" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="14" unique_id=627646942 instance=ExtResource("8_icin5")]
+position = Vector2(688, -688)
+
+[node name="Spikes16" parent="Elements/Danger" parent_id_path=PackedInt32Array(945650313) index="15" unique_id=493927893 instance=ExtResource("8_icin5")]
+position = Vector2(704, -688)
 
 [node name="Mushroom" parent="Elements/Bouncy" parent_id_path=PackedInt32Array(973605179) index="0" unique_id=389278605 instance=ExtResource("3_5mncg")]
 position = Vector2(-56, -16)
@@ -105,7 +129,13 @@ position = Vector2(608, -592)
 position = Vector2(256, -288)
 
 [node name="Checkpoint" parent="Elements/Checkpoints" parent_id_path=PackedInt32Array(56272458) index="0" unique_id=366719423]
-position = Vector2(-296, -352)
+position = Vector2(408, -352)
+
+[node name="Checkpoint2" type="Node2D" parent="Elements/Checkpoints" parent_id_path=PackedInt32Array(56272458) index="1" unique_id=81377390 groups=["checkpoints"]]
+position = Vector2(616, -352)
+
+[node name="Checkpoint3" type="Node2D" parent="Elements/Checkpoints" parent_id_path=PackedInt32Array(56272458) index="2" unique_id=1212087311 groups=["checkpoints"]]
+position = Vector2(544, -688)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Decoration" parent_id_path=PackedInt32Array(238951789) index="0" unique_id=552731780]
 position = Vector2(25, -12)

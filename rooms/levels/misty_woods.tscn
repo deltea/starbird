@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bkhrrt45shegv" path="res://rooms/level.tscn" id="1_hbmsx"]
 [ext_resource type="Texture2D" uid="uid://c0ctja20ge0di" path="res://assets/palettes/pinkgreen.png" id="2_x6kmu"]
 [ext_resource type="PackedScene" uid="uid://lvqju5v40hdm" path="res://scenes/bouncepad/bouncepad.tscn" id="3_gu5jv"]
-[ext_resource type="PackedScene" uid="uid://bt3v8kc1ohcp6" path="res://assets/models/acorn.blend" id="3_r1ifm"]
 [ext_resource type="PackedScene" uid="uid://b3cvak2p1miyl" path="res://scenes/key/key.tscn" id="4_gep76"]
 
 [node name="MistyWoods" unique_id=2129457560 instance=ExtResource("1_hbmsx")]
@@ -41,25 +40,5 @@ position = Vector2(48, -112)
 
 [node name="Key" parent="Elements" parent_id_path=PackedInt32Array(75181523) index="4" unique_id=476683576 instance=ExtResource("4_gep76")]
 position = Vector2(64, -40)
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." index="13" unique_id=792532262]
-offset_left = 8.0
-offset_top = -56.0
-offset_right = 40.0
-offset_bottom = -32.0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" index="0" unique_id=2034891919]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(32, 24)
-render_target_update_mode = 4
-
-[node name="acorn" parent="SubViewportContainer/SubViewport" index="0" unique_id=1010132146 instance=ExtResource("3_r1ifm")]
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" index="1" unique_id=928051344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.7124305)
-projection = 1
-size = 5.055
 
 [editable path="CameraConstraints"]

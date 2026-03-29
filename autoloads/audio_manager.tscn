@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://brg5fpoii7sj3"]
 
 [ext_resource type="Script" uid="uid://ba0e4fhwgsnfd" path="res://autoloads/audio_manager.gd" id="1_tr7pb"]
+[ext_resource type="AudioStream" uid="uid://06c8pclqpwwh" path="res://assets/audio/music/funi breakcore.mp3" id="2_alnp1"]
 
 [node name="AudioManager" type="AudioStreamPlayer" unique_id=292426672]
 process_mode = 3
 bus = &"Music"
 script = ExtResource("1_tr7pb")
+music_stream = ExtResource("2_alnp1")

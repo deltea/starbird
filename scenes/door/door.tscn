@@ -69,5 +69,6 @@ shape = SubResource("RectangleShape2D_bu3y2")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="UnlockArea" unique_id=1074958050]
 shape = SubResource("CircleShape2D_odsy8")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [connection signal="area_entered" from="UnlockArea" to="." method="_on_unlock_area_area_entered"]

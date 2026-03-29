@@ -290,6 +290,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is Spikes and not is_hurted:
 		is_hurted = true
 		cancel_dash()
+		velocity = Vector2.ZERO
 		collider.set_deferred("disabled", true)
 		set_physics_process(false)
 		can_move = false

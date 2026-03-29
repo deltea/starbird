@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 const win_star_scene = preload("res://scenes/win-star/win_star.tscn")
 const jump_particles_scene = preload("res://scenes/particles/jump_particles.tscn")
 const fall_particles_scene = preload("res://scenes/particles/fall_particles.tscn")
+const corpse_scene = preload("res://scenes/corpse/corpse.tscn")
 
 @export_category("Movement")
 @export var max_speed = 150.0
@@ -33,6 +34,8 @@ const fall_particles_scene = preload("res://scenes/particles/fall_particles.tscn
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 @onready var break_area: Area2D = $BreakArea
+@onready var hurtbox: CollisionShape2D = $Hurtbox/CollisionShape
+@onready var collider: CollisionShape2D = $CollisionShape
 
 var jumped = false
 var coyote_timer = 0.0
@@ -52,6 +55,9 @@ var can_dash_cooldown = true
 var level_start_landed = false
 var level_start_fall_done = false
 var start_dash_y = 0.0
+var is_hurted = false
+
+var original_pos = Vector2.ZERO
 
 @onready var scale_dynamics: DynamicsSolverVector = Dynamics.create_dynamics_vector(2.0, 0.5, 2.0);
 @onready var rot_dynamics: DynamicsSolver = Dynamics.create_dynamics(10.0, 0.8, 10.0);
@@ -61,6 +67,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	original_particles_x = walk_particles.position.x
+	original_pos = global_position
 
 func _process(dt: float) -> void:
 	sprite.scale = scale_dynamics.update(target_scale);
@@ -259,9 +266,7 @@ func spawn_jump_particles():
 	particles.emitting = true
 
 func _on_dash_timer_timeout() -> void:
-	is_dashing = false
-	is_horizontal_dashing = false
-	sprite.stop()
+	cancel_dash()
 	can_dash_cooldown = false
 	dash_cooldown_timer.start()
 
@@ -269,9 +274,35 @@ func break_breakable(breakable: Breakable) -> void:
 	RoomManager.current_room.camera.impact()
 	breakable.on_break()
 
+func cancel_dash():
+	is_dashing = false
+	is_horizontal_dashing = false
+	sprite.stop()
+
 func _on_break_area_body_entered(body: Node2D) -> void:
 	if body is Breakable and is_dashing:
 		break_breakable(body)
 
 func _on_dash_cooldown_timer_timeout() -> void:
 	can_dash_cooldown = true
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area is Spikes and not is_hurted:
+		is_hurted = true
+		cancel_dash()
+		collider.set_deferred("disabled", true)
+		set_physics_process(false)
+		can_move = false
+		var corpse = corpse_scene.instantiate() as Corpse
+		corpse.position = global_position
+		RoomManager.current_room.add_child(corpse)
+
+		# teleport to nearest checkpoint
+		global_position = Vector2(-296, -352 + 8)
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position", Vector2(-296, -352 - 8), 1.0)
+		await Clock.wait(1.0)
+		set_physics_process(true)
+		collider.disabled = false
+		is_hurted = false
+		can_move = true

@@ -647,7 +647,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_wrbck")
 theme_override_font_sizes/normal_font_size = 18
-text = "back to main menu"
+text = "back to level select"
 fit_content = true
 horizontal_alignment = 1
 
@@ -717,6 +717,14 @@ position = Vector2(-8, -200)
 
 [node name="Goal" parent="Elements" unique_id=1681194359 instance=ExtResource("12_t0xh4")]
 position = Vector2(128, -112)
+
+[node name="Danger" type="Node" parent="Elements" unique_id=945650313]
+
+[node name="Bouncy" type="Node" parent="Elements" unique_id=973605179]
+
+[node name="Checkpoints" type="Node" parent="Elements" unique_id=56272458]
+
+[node name="Checkpoint" type="Node2D" parent="Elements/Checkpoints" unique_id=366719423 groups=["checkpoints"]]
 
 [node name="Decoration" type="Node" parent="." unique_id=238951789]
 

@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://bm37xkk7hew6x"]
 
 [ext_resource type="Texture2D" uid="uid://dy8i4oksku7sp" path="res://assets/spikes.png" id="1_1dqlq"]
+[ext_resource type="Script" uid="uid://8yv4or31vb3i" path="res://scenes/spikes/spikes.gd" id="1_2aga5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dqlq"]
-size = Vector2(16, 6)
+size = Vector2(16, 8)
 
 [node name="Spikes" type="Area2D" unique_id=1918663442]
+script = ExtResource("1_2aga5")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=232724051]
-self_modulate = Color(0.73333335, 0.73333335, 0.73333335, 1)
+self_modulate = Color(0.8666667, 0.8666667, 0.8666667, 1)
 position = Vector2(0, -8)
 texture = ExtResource("1_1dqlq")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1792310375]
-position = Vector2(0, -3)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_1dqlq")

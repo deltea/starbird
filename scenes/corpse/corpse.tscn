@@ -1,0 +1,89 @@
+[gd_scene format=4 uid="uid://djs2qp1jc4jml"]
+
+[ext_resource type="Script" uid="uid://b67dxqq76pwdj" path="res://scenes/corpse/corpse.gd" id="1_8aieo"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_robfa"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAACmAAAAUklGRp4AAABXRUJQVlA4TJIAAAAvH8AHEBcgEEjyZ9ptDYFAkj/TbgsEkvyZdnv+A/4VuIok2W1O6T9zUAmFIDjtKfyLx4PiHI7m27MNIaL/RNM2m2tV35BdIfRTJ6QAVo+V1baw2pbBKSMFWFRBIUFhZ4UQX//m2hGXMv/B6buC+aljDjB/rL7Z8yHy/rFSswEWFGau2Vzj2y3QqIGbT1+7xyROAA==")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8aieo"]
+atlas = SubResource("PortableCompressedTexture2D_robfa")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03kni"]
+atlas = SubResource("PortableCompressedTexture2D_robfa")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6d0l"]
+atlas = SubResource("PortableCompressedTexture2D_robfa")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqksd"]
+atlas = SubResource("PortableCompressedTexture2D_robfa")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h720y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8aieo")
+}],
+"loop": true,
+"name": &"dash_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03kni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6d0l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03kni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqksd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03kni")
+}],
+"loop": true,
+"name": &"win",
+"speed": 10.0
+}]
+
+[node name="Corpse" type="AnimatedSprite2D" unique_id=455857510]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h720y")
+animation = &"idle"
+script = ExtResource("1_8aieo")
+initial_x_velocity = 60
+gravity = 600.0
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/player.ase",
+"source_uid": 2513588182964405636
+}
+metadata/_aseprite_wizard_source_file_hash_ = "87f82eebd3dfc9dc5e5eda3a3575b52e"

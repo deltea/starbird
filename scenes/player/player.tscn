@@ -84,6 +84,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmlin"]
 radius = 13.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
+size = Vector2(8, 14)
+
 [node name="Player" type="CharacterBody2D" unique_id=249500363]
 process_mode = 3
 z_index = 10
@@ -169,6 +172,14 @@ one_shot = true
 shape = SubResource("CapsuleShape2D_gmlin")
 debug_color = Color(1, 0.003921569, 0.050980393, 0.07450981)
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2022381562]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1235546222]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_lvxji")
+debug_color = Color(0.8506248, 0.3731393, 0, 0.41960785)
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]
 [connection signal="body_entered" from="BreakArea" to="." method="_on_break_area_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hitbox_area_entered"]

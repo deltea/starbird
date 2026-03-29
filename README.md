@@ -7,6 +7,7 @@ speedy birb game go weee
 - [ ] finish mushroom level
 - [ ] make music (dynamic blending)
 - [ ] add sound effects
+- [ ] make dash crystals
 - [ ] finish woods level
 - [ ] finish summit level
 - [ ] the peak stars cutscene
@@ -68,9 +69,9 @@ speedy birb game go weee
 
 ## game mechanics ideas
 
-- [ ] velocity booster, area that gives directional velocity
 - [ ] dash refill, maybe small velocity boost
-- [ ] puzzle elements like locks and doors (forest?)
+- [ ] velocity booster, area that gives directional velocity
+- [x] puzzle elements like locks and doors (forest?)
 - [x] super bouncers (mushroom?)
 - [x] maybe one horizontal dash and one vertical dash until refill?
 - [x] bouncepads, dash down to bounce

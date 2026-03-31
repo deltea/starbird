@@ -25,6 +25,7 @@ func _process(dt: float) -> void:
 	global_position = global_position.lerp(target_pos, dt * 4.0)
 
 func collect():
+	AudioManager.play_sound(AudioManager.star)
 	is_collected = true
 	collider.set_deferred("disabled", true)
 	target_rot += 360.0

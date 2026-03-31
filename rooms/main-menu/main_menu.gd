@@ -75,6 +75,7 @@ func main_state(dt: float):
 	if Input.is_action_just_pressed("left") or Input.is_action_just_pressed("up"):
 		set_index(select_index - 1)
 	if Input.is_action_just_pressed("jump"):
+		AudioManager.play_sound(AudioManager.blip, 0.2)
 		match select_index:
 			0:
 				if SaveManager.data["has_seen_cutscene"]:
@@ -97,9 +98,11 @@ func settings_state(dt: float):
 	if Input.is_action_just_pressed("up"):
 		set_index(select_index - 1, -1)
 	if Input.is_action_just_pressed("right"):
-			change_settings_value(select_index, 1)
+		AudioManager.play_sound(AudioManager.blip, 0.2)
+		change_settings_value(select_index, 1)
 	if Input.is_action_just_pressed("left"):
-			change_settings_value(select_index, -1)
+		AudioManager.play_sound(AudioManager.blip, 0.2)
+		change_settings_value(select_index, -1)
 	if Input.is_action_just_pressed("jump") and select_index == 2:
 		change_state(MenuState.MAIN)
 
@@ -110,15 +113,17 @@ func set_index(new_value: int, direction: int = 1):
 	selector_target_y = options.get_child(select_index).global_position.y + options.get_child(select_index).size.y - 21.0
 	target_rot += 45.0 * direction * sign(new_value - prev_index)
 	selector_ping_timer.start()
+	if prev_index != select_index:
+		AudioManager.play_sound(AudioManager.select, 0.2)
 
 func change_settings_value(index: int, delta: int):
-	if index <= 1:
-		RoomManager.current_room.camera.shake(0.1, 1.0)
-		RoomManager.current_room.camera.impact(-delta * 0.5)
-		settings[index] = clamp(settings[index] + delta, 0, 4)
-		SettingsManager.save_settings(settings[0], settings[1])
-		for star in settings_option_stars.get_child(index).get_children():
-			star.self_modulate = enabled_color if star.get_index() < settings[index] else disabled_color
+	if index > 1: return
+	RoomManager.current_room.camera.shake(0.1, 1.0)
+	RoomManager.current_room.camera.impact(-delta * 0.5)
+	settings[index] = clamp(settings[index] + delta, 0, 4)
+	SettingsManager.save_settings(settings[0], settings[1])
+	for star in settings_option_stars.get_child(index).get_children():
+		star.self_modulate = enabled_color if star.get_index() < settings[index] else disabled_color
 
 func _on_selector_ping_timer_timeout() -> void:
 	option_selector.scale.x = 1.05

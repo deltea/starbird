@@ -5,6 +5,8 @@ class_name Breakable extends StaticBody2D
 @onready var sprite: Sprite2D = $Sprite
 
 func on_break():
+	AudioManager.play_sound(AudioManager.breakable, 0.2)
+
 	sprite.visible = false
 	quarters.visible = true
 

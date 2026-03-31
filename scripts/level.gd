@@ -97,25 +97,28 @@ func show_countdown():
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
 	countdown_texture.texture = Globals.number_textures[3]
+	AudioManager.play_sound(AudioManager.countdown_blip)
 
 	await Clock.wait(0.7)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
 	countdown_texture.texture = Globals.number_textures[2]
+	AudioManager.play_sound(AudioManager.countdown_blip)
 
 	await Clock.wait(0.6)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
 	countdown_texture.texture = Globals.number_textures[1]
+	AudioManager.play_sound(AudioManager.countdown_blip)
 
 	await Clock.wait(0.6)
 	countdown_scale_dynamics.set_value(Vector2.ONE * 0.2)
 	countdown_rot_dynamics.set_value(0)
 	countdown_rot_target = 360.0
 	countdown_texture.texture = Globals.go_texture
-
+	AudioManager.play_sound(AudioManager.countdown_start)
 	await Clock.wait(0.4)
 	get_tree().paused = false
 	player.can_move = true
@@ -197,3 +200,6 @@ func collect_star(star: Collectable) -> void:
 
 func _on_star_ping_timer_timeout() -> void:
 	star_scale_dynamics.set_value(1.1)
+
+func play_sound(sound: AudioStream, randomness: float = 0):
+	AudioManager.play_sound(sound, randomness)

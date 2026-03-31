@@ -54,8 +54,10 @@ func _process(dt: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if (stars.get_child(select_index) as LevelSelectStar).is_locked:
 			RoomManager.current_room.camera.shake(0.1, 4)
+			AudioManager.play_sound(AudioManager.locked, 0.2)
 			return
 
+		AudioManager.play_sound(AudioManager.enter_level)
 		can_move = false
 		SaveManager.data["current_level"] = select_index
 		SaveManager.save_game()
@@ -84,6 +86,7 @@ func set_index(new_index: int) -> void:
 
 	var dir = sign(select_index - prev_index)
 	if dir != 0:
+		AudioManager.play_sound(AudioManager.select, 0.2)
 		if tween: tween.kill()
 		tween = get_tree().create_tween().set_parallel(true)
 		bird.flip_h = bird.global_position.x > current_star.global_position.x

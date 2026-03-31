@@ -22,7 +22,7 @@ const corpse_scene = preload("res://scenes/corpse/corpse.tscn")
 @export var down_dash_velocity = 420.0
 @export var wall_jump_x_multiplier = 1.2
 @export var wall_jump_control_lock_time = 0.08
-@export var dash_cooldown = 0.5
+@export var dash_cooldown = 0.0
 
 @export_category("Animation")
 @export var squash = 0.6
@@ -127,6 +127,7 @@ func _physics_process(dt: float) -> void:
 			level_start_landed = true
 			velocity = Vector2.ZERO
 			rotation_degrees = 90.0
+			AudioManager.play_sound(AudioManager.land)
 			RoomManager.current_room.camera.shake(0.25, 2.0)
 			RoomManager.current_room.camera.impact()
 			var particles = fall_particles_scene.instantiate() as CPUParticles2D
@@ -218,6 +219,7 @@ func movement(dt: float, x_input: float):
 func dash(x_input: float):
 	can_dash = false
 	start_dash_y = global_position.y
+	AudioManager.play_sound(AudioManager.dash, 0.2)
 
 	for body in break_area.get_overlapping_bodies():
 		if body is Breakable:

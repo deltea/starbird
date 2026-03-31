@@ -453,6 +453,7 @@ star_scale = 0.12
 
 [node name="CompleteCanvas" type="CanvasLayer" parent="." unique_id=229946939]
 layer = 20
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CompleteCanvas" unique_id=542877002]
 libraries/ = SubResource("AnimationLibrary_ijbq7")

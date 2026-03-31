@@ -15,6 +15,8 @@ var breakable: AudioStream = preload("res://assets/audio/sfx/breakable.wav")
 var goal: AudioStream = preload("res://assets/audio/sfx/goal.wav")
 var blip: AudioStream = preload("res://assets/audio/sfx/blip.wav")
 var locked: AudioStream = preload("res://assets/audio/sfx/locked.wav")
+var death: AudioStream = preload("res://assets/audio/sfx/death.wav")
+var mushroom: AudioStream = preload("res://assets/audio/sfx/mushroom.wav")
 
 var sfx_volume = 1
 var music_volume = 1

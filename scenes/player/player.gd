@@ -290,6 +290,7 @@ func _on_dash_cooldown_timer_timeout() -> void:
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is Spikes and not is_hurted:
+		AudioManager.play_sound(AudioManager.death, 0.2)
 		is_hurted = true
 		cancel_dash()
 		velocity = Vector2.ZERO

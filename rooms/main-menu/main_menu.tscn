@@ -334,7 +334,7 @@ peaks = 4
 star_scale = 0.15
 
 [node name="OptionStarsRow2" type="Node2D" parent="Settings/OptionStars" unique_id=1237048084]
-position = Vector2(-216, 142)
+position = Vector2(-216, 141)
 
 [node name="SettingsStar" parent="Settings/OptionStars/OptionStarsRow2" unique_id=86002971 instance=ExtResource("2_osspu")]
 z_index = 10

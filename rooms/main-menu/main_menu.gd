@@ -75,7 +75,6 @@ func main_state(dt: float):
 	if Input.is_action_just_pressed("left") or Input.is_action_just_pressed("up"):
 		set_index(select_index - 1)
 	if Input.is_action_just_pressed("jump"):
-		AudioManager.play_sound(AudioManager.blip, 0.2)
 		match select_index:
 			0:
 				if SaveManager.data["has_seen_cutscene"]:

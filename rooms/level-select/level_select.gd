@@ -102,12 +102,16 @@ func set_index(new_index: int) -> void:
 			tween.tween_property(bird_follow, "progress_ratio", select_index / 3.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	var level_data = SaveManager.get_level_data(current_star.level_name)
-	if level_data != null:
-		level_time_label.text = Clock.format_time(level_data["time"])
-		level_stars_label.text = str(level_data["stars"]).split(".")[0] + "/5"
-	else:
+	if level_data == null:
 		level_time_label.text = "--:--.--"
 		level_stars_label.text = "0/5"
+	else:
+		level_stars_label.text = str(level_data["stars"]).split(".")[0] + "/5"
+		if level_data["time"] != null:
+			level_time_label.text = Clock.format_time(level_data["time"])
+		else:
+			level_time_label.text = "--:--.--"
+
 
 	for i in range(stars.get_child_count()):
 		var star = stars.get_child(i) as LevelSelectStar

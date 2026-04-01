@@ -20,9 +20,16 @@ func save_level(level_name: String, stars_collected: int, time: float):
 	var level_data = data["levels"].get(level_name, { "time": INF, "stars": 0 })
 	level_data["stars"] = max(stars_collected, level_data["stars"])
 
+	if level_data["time"] == null:
+		level_data["time"] = INF
+
 	# only save time if all stars are collected
-	if stars_collected == 5:
-		level_data["time"] = min(time, level_data["time"])
+	if stars_collected == 5 and time < level_data["time"]:
+		level_data["time"] = time
+
+	if level_data["time"] == INF:
+		level_data["time"] = null
+
 	data["levels"][level_name] = level_data
 
 	# count total stars

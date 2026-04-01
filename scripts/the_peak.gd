@@ -53,8 +53,8 @@ func _on_win_area_body_entered(body: Node2D) -> void:
 
 func _on_shooting_star_timer_timeout() -> void:
 	var shooting_star = shooting_star_scene.instantiate() as ShootingStar
-	shooting_star.position = Vector2(randf_range(1936, 2112), -1984.0)
-	shooting_star.dir = Vector2(1, 1).rotated(randf_range(-PI/4, PI/4)).normalized()
+	shooting_star.position = Vector2(randf_range(1936, 2112) - 200, -1984.0)
+	shooting_star.dir = Vector2(1, 1).rotated(randf_range(0, 0)).normalized()
 	add_child(shooting_star)
 	shooting_star_timer.start(randf_range(1.0, 2.0))
 

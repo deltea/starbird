@@ -6,7 +6,7 @@ const fall_particles_scene = preload("res://scenes/particles/fall_particles.tscn
 const corpse_scene = preload("res://scenes/corpse/corpse.tscn")
 
 @export_category("Movement")
-@export var max_speed = 150.0
+@export var max_speed = 160.0
 @export var jump_velocity = 280.0
 @export var gravity = 1000.0
 @export var fall_gravity = 1400.0
@@ -16,7 +16,7 @@ const corpse_scene = preload("res://scenes/corpse/corpse.tscn")
 @export var coyote_time = 0.15
 @export var buffer_time = 0.15
 @export var jump_cut_multiplier = 0.5
-@export var bounce_velocity = 400.0
+@export var bounce_velocity = 450.0
 @export var mushroom_velocity_add = 100.0
 @export var dash_velocity = 400.0
 @export var down_dash_velocity = 420.0

@@ -93,7 +93,6 @@ z_index = 10
 floor_constant_speed = true
 safe_margin = 0.15
 script = ExtResource("1_8afob")
-bounce_velocity = 440.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1428469450]
 shape = SubResource("RectangleShape2D_gmlin")

@@ -12,14 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://c8vebnkhtxxr6" path="res://assets/generic/circle.png" id="10_3c3jx"]
 [ext_resource type="PackedScene" uid="uid://ve5v6jngqdc6" path="res://scenes/decoration/fly_decoration.tscn" id="11_3c3jx"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ybbn1"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3c3jx"]
 resource_local_to_scene = true
 noise_type = 3
 frequency = 0.001
 fractal_octaves = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ryr0f"]
-noise = SubResource("FastNoiseLite_ybbn1")
+noise = SubResource("FastNoiseLite_3c3jx")
 
 [node name="MistyJungle" unique_id=2129457560 instance=ExtResource("1_48bpl")]
 level_name = "misty jungle"

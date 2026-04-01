@@ -24,7 +24,7 @@ func next_line():
 		RoomManager.change_room("level-select/level_select")
 		return
 
-	label.text = lines[line_index]
+	label.text = "[wave]" + lines[line_index]
 	label.visible_ratio = 0
 	if tween: tween.kill()
 	tween = get_tree().create_tween()

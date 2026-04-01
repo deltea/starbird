@@ -203,7 +203,7 @@ palette = ExtResource("9_68y80")
 [node name="LevelSelectStar4" parent="Stars" unique_id=547867541 instance=ExtResource("6_uqtpc")]
 position = Vector2(184, -128)
 level_name = "the peak"
-level_path = "test_level_2"
+level_path = "the_peak"
 palette = ExtResource("10_a6m5p")
 
 [node name="Arrow" type="SubViewportContainer" parent="." unique_id=1897258135]

@@ -61,6 +61,28 @@ scale_amount_min = 0.3
 scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_gv6es")
 
+[node name="RumbleParticles2" type="CPUParticles2D" parent="." unique_id=1484094843]
+self_modulate = Color(0.8666667, 0.8666667, 0.8666667, 1)
+position = Vector2(0, -32)
+emitting = false
+amount = 6
+texture = ExtResource("3_u3mo4")
+lifetime = 0.6
+lifetime_randomness = 0.5
+direction = Vector2(0, 1)
+spread = 59.73
+gravity = Vector2(0, 219.35)
+initial_velocity_min = 66.24
+initial_velocity_max = 113.22
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("Curve_fm7y5")
+scale_amount_min = 0.3
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_gv6es")
+
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=192818871]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_bu3y2")

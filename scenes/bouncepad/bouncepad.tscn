@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://larngg3noo16" path="res://scenes/particles/bounce_particles.tscn" id="3_ql6kn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i2p4"]
+resource_local_to_scene = true
 size = Vector2(36, 4)
 
 [node name="Bouncepad" type="StaticBody2D" unique_id=389278605]

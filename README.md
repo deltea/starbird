@@ -4,10 +4,10 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] make dash crystals
 - [ ] finish summit level
 - [ ] the peak stars cutscene
 - [ ] make the itch page look pretty
+- [x] make dash crystals
 - [x] finish woods level
 - [x] finish mushroom level
 - [x] make music (dynamic blending)

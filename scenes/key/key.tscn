@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="3_53fhu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xertp"]
+radius = 24.0
 
 [sub_resource type="Curve" id="Curve_53fhu"]
 _limits = [-1.0, 1.0, 0.0, 1.0]

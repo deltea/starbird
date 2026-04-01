@@ -579,7 +579,10 @@ angle_max = 360.0
 scale_amount_curve = SubResource("Curve_11mgp")
 color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
+[node name="GiveStarTimer" type="Timer" parent="." index="20" unique_id=1184959373]
+
 [connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]
 [connection signal="timeout" from="ShootingStarTimer" to="." method="_on_shooting_star_timer_timeout"]
+[connection signal="timeout" from="GiveStarTimer" to="." method="_on_give_star_timer_timeout"]
 
 [editable path="CameraConstraints"]

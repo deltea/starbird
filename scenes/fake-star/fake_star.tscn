@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c8ywfvyc5vr6t"]
+
+[ext_resource type="Script" uid="uid://byta1ayjkqlp1" path="res://scenes/fake-star/fake_star.gd" id="1_bcnvt"]
+[ext_resource type="PackedScene" uid="uid://cl6b04m0wameb" path="res://scenes/star2d/star_2d.tscn" id="1_uq0y7"]
+[ext_resource type="Texture2D" uid="uid://c8vebnkhtxxr6" path="res://assets/generic/circle.png" id="2_bcnvt"]
+
+[sub_resource type="Curve" id="Curve_fqost"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7585551, 0.5973881), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="FakeStar" type="Node2D" unique_id=302069456]
+z_index = 10
+script = ExtResource("1_bcnvt")
+
+[node name="Star2D" parent="." unique_id=856709757 instance=ExtResource("1_uq0y7")]
+polygon = PackedVector2Array(-7.661191, 2.3035088, -3.0275416, 3.9791946, -0.17667088, 7.998049, 2.8488777, 4.109002, 7.5520024, 2.639557, 4.7882442, -1.439693, 4.844065, -6.3667126, 0.110419735, -4.9987803, -4.558205, -6.5744023, -4.720001, -1.6497233)
+star_scale = 0.2
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=359173283]
+self_modulate = Color(0.26666668, 0.26666668, 0.26666668, 1)
+z_index = -5
+amount = 30
+texture = ExtResource("2_bcnvt")
+lifetime = 0.25
+randomness = 0.2
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+damping_min = 66.779
+damping_max = 66.779
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_fqost")
+
+[node name="KillTimer" type="Timer" parent="." unique_id=979632146]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

@@ -1,4 +1,4 @@
-extends Room
+class_name Level extends Room
 
 @export var level_name = "level"
 

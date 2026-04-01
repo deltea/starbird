@@ -321,3 +321,10 @@ func nearest_checkpoint_pos() -> Vector2:
 			nearest_dist = dist
 			nearest_checkpoint = checkpoint
 	return nearest_checkpoint.global_position
+
+func stop_everything():
+	can_move = false
+	velocity = Vector2.ZERO
+	target_rot = 0.0
+	sprite.stop()
+	walk_particles.emitting = false

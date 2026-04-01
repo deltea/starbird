@@ -10,7 +10,6 @@ var rotation_speed = 60.0
 var speed_gain = 0.0
 
 func _ready() -> void:
-	scale = Vector2.ZERO
 	rotation_dir = 1 if randf() > 0.5 else -1
 	rotation_gain = randf_range(10, 100)
 	particles.emitting = false

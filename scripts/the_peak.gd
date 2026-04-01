@@ -8,6 +8,16 @@ const fake_star_scene = preload("res://scenes/fake-star/fake_star.tscn")
 @onready var final_camera_target: Node2D = $FinalCameraTarget
 @onready var shooting_star_timer: Timer = $ShootingStarTimer
 @onready var give_star_timer: Timer = $GiveStarTimer
+@onready var thanks_text: RichTextLabel = $CanvasLayer/ThanksText
+
+var cutscene_done = false
+
+func _process(dt: float) -> void:
+	super._process(dt)
+
+	if not cutscene_done: return
+	if Input.is_action_just_pressed("dash") or Input.is_action_just_pressed("jump"):
+		RoomManager.change_room("main-menu/main_menu")
 
 func _on_win_area_body_entered(body: Node2D) -> void:
 	if not body is Player: return
@@ -25,15 +35,21 @@ func _on_win_area_body_entered(body: Node2D) -> void:
 		SaveManager.data["next_level"] += 1
 		SaveManager.save_game()
 
-	await Clock.wait(1.2)
+	await Clock.wait(1.0)
 
 	# start giving stars
 	give_star_timer.start()
 
-	await Clock.wait(5.0)
+	await Clock.wait(3.5)
 
 	camera.position_smoothing_speed = 2.0
 	final_camera_target.position.y = target_final_y
+
+	await Clock.wait(1.0)
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(thanks_text, "visible_ratio", 1.0, 1.0)
+	tween.tween_callback(func(): cutscene_done = true)
 
 func _on_shooting_star_timer_timeout() -> void:
 	var shooting_star = shooting_star_scene.instantiate() as ShootingStar
@@ -45,6 +61,7 @@ func _on_shooting_star_timer_timeout() -> void:
 func _on_give_star_timer_timeout():
 	# spawn a fake star
 	var fake_star = fake_star_scene.instantiate() as FakeStar
+	fake_star.scale = Vector2.ZERO
 	fake_star.position = player.position
 	add_child(fake_star)
 	give_star_timer.wait_time = randf_range(0.8, 1.1)

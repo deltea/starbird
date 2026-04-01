@@ -155,7 +155,7 @@ func complete():
 
 	complete_player.play("complete")
 	await complete_player.animation_finished
-	is_complete_animation_done =  true
+	is_complete_animation_done = true
 
 func get_node_screen_position(node: Node2D) -> Vector2:
 	var viewport = node.get_viewport()

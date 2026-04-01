@@ -4,8 +4,8 @@ speedy birb game go weee
 
 ## to-do
 
-- [ ] add flies to the peak and misty jugnle
-- [ ] make the itch page look pretty
+- [x] make the itch page look pretty
+- [x] add flies to the peak and misty jugnle
 - [x] the peak stars cutscene
 - [x] finish summit level
 - [x] make dash crystals

@@ -5,6 +5,9 @@
 [sub_resource type="TileMapPattern" id="TileMapPattern_2urvg"]
 tile_data = PackedInt32Array(65536, 524288, 1342177282, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 1, 524288, 1342177282, 65537, 0, 1, 131073, 0, 1, 196609, 0, 1, 262145, 0, 1, 65538, 0, 1342177282, 131074, 0, 1, 196610, 0, 1, 262146, 0, 1, 131075, 524288, 1342177282, 196611, 0, 1, 262147, 0, 1, 65540, 524288, 1342177282, 131076, 0, 1, 196612, 0, 1, 262148, 0, 1, 196613, 524288, 1342177282, 262149, 0, 1, 131078, 0, 1342177282, 196614, 0, 1, 262150, 0, 1, 131079, 524288, 1342177282, 196615, 0, 1, 262151, 0, 1, 196616, 524288, 1342177282, 262152, 0, 1, 65545, 524288, 1342177282, 131081, 0, 1, 196617, 0, 1, 262153, 0, 1)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_ej02t"]
+tile_data = PackedInt32Array(0, 65536, 4, 65536, 65536, 5, 1, 65536, 4, 65537, 65536, 5)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2urvg"]
 friction = 0.0
 
@@ -224,3 +227,4 @@ terrain_set_0/terrain_0/name = "Midground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_olg7q")
 pattern_0 = SubResource("TileMapPattern_2urvg")
+pattern_1 = SubResource("TileMapPattern_ej02t")

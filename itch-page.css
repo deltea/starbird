@@ -34,13 +34,13 @@
   font-family: pixel-font;
 }
 
-#wrapper button {
+#wrapper .button {
   border-radius: 0px;
   transition-duration: 100ms;
   font-family: pixel-font;
 }
 
-#wrapper button svg {
+#wrapper .button svg {
   margin-right: 1rem;
 }
 
@@ -49,7 +49,7 @@
   image-rendering: pixelated;
 } */
 
-#wrapper button:hover {
+#wrapper .button:hover {
   rotate: 3deg;
   scale: 1.05;
 }
@@ -60,3 +60,12 @@
   font-family: pixel-font;;
 }
 
+#wrapper .screenshot {
+  transition-duration: 100ms;
+  image-rendering: pixelated;
+}
+
+#wrapper .screenshot:hover {
+  rotate: 3deg;
+  scale: 1.05;
+}
